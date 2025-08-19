@@ -1,5 +1,8 @@
 out/
+lex.yy.c
+*.o
 .vscode
+etapa[1-9]
 
 # Prerequisites
 *.d
