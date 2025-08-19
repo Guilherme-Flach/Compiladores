@@ -41,10 +41,6 @@ TEST_F(FooTest, MethodBarDoesAbc) {
   EXPECT_EQ(0, 0);
 }
 
-// Tests that Foo does Xyz.
-TEST_F(FooTest, DoesXyz) {
-  // Exercises the Xyz feature of Foo.
-}
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
