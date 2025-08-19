@@ -1,0 +1,51 @@
+%{
+#include "tokens.h"
+%}
+%%
+"tipo"      {return TK_TIPO;}
+"var"       {return TK_VAR;}
+"senao"     {return TK_SENAO;}
+"decimal"   {return TK_DECIMAL;}
+"se"        {return TK_SE;}
+"inteiro"   {return TK_INTEIRO;}
+"retorna"   {return TK_RETORNA;}
+"enquanto"  {return TK_ENQUANTO;}
+"com"       {return TK_COM;}
+"<="        { return TK_OC_LE; }
+">="        { return TK_OC_GE; }
+"=="        { return TK_OC_EQ; }
+"!="        { return TK_OC_NE; }
+":="        { return TK_ATRIB; }
+"->"        { return TK_SETA; }
+"!"         { return (int)yytext[0]; }
+"*"         { return (int)yytext[0]; }
+"/"         { return (int)yytext[0]; }
+"%"         { return (int)yytext[0]; }
+"+"         { return (int)yytext[0]; }
+"-"         { return (int)yytext[0]; }
+"<"         { return (int)yytext[0]; }
+">"         { return (int)yytext[0]; }
+"["         { return (int)yytext[0]; }
+"]"         { return (int)yytext[0]; }
+"("         { return (int)yytext[0]; }
+")"         { return (int)yytext[0]; }
+"="         { return (int)yytext[0]; }
+","         { return (int)yytext[0]; }
+";"         { return (int)yytext[0]; }
+"&"         { return (int)yytext[0]; }
+"|"         { return (int)yytext[0]; }
+[a-z_][a-z_0-9]* { return TK_ID;}
+[0-9]*\.[0-9]+ {return TK_LI_FLOAT;}
+[0-9]+ {return TK_LI_INT;}
+"//".*   ;
+[ \t\n]+ ;
+. { return TK_ER; }
+%%
+int get_line_number (void) {
+  return yylineno;
+}
+
+int yywrap(void) {
+    return 1;
+}
+
