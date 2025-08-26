@@ -7,5 +7,6 @@
       codespell
       cppcheck
       gtest
+      flex
     ];
 }
