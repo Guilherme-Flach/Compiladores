@@ -1,0 +1,4 @@
+main -> inteiro := [
+    var y := decimal com 3.14
+    retorna y := decimal
+];
