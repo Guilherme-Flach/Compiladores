@@ -29,12 +29,8 @@ void yyerror (char const *mensagem);
 %%
 
 programa: 
-    lista_elementos_opcional ';'
-;
-
-lista_elementos_opcional:
     /*vazio*/
-    | lista_elementos
+    | lista_elementos ';'
 ;
 
 lista_elementos:
@@ -47,7 +43,7 @@ elemento:
     |definicao_funcao
 ;
 
-/*Ela possui um cabeçalho e um corpo.*/
+/*Uma funcao possui um cabeçalho e um corpo.*/
 definicao_funcao:
     cabecalho_f corpo_f
 ;
@@ -234,6 +230,9 @@ iterativa:
     TK_ENQUANTO '(' expressao ')' bloco_comandos
 ;
 
+/* Precedencia definida utilizando expressao_pX, onde X, em ordem decrescente,
+indica qual expressao sera avaliada primeiro (ex: expressao_p0 possui precedencia
+maior que expressao_p1, expressao_p1 possui precedencia maior que expressao_p0)*/
 expressao:
     expressao_p7
 ;

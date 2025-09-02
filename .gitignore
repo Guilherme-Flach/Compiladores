@@ -4,6 +4,8 @@ lex.yy.c
 .vscode
 etapa[1-9]
 test
+parser.tab.h
+parser.tab.c
 
 # Prerequisites
 *.d

@@ -15,10 +15,10 @@ lex.yy.c: scanner.l parser.tab.h
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-test: test.o	
-	g++ tests/test.o -o tests/test -lgtest -lgtest_main
+test: tests/test.o lex.yy.o parser.tab.o
+	g++ $^ -o tests/$@ -lgtest -lgtest_main
 
-test.o: 
-	g++ -c tests/test.cpp -o tests/test.o 
+tests/test.o: 
+	g++ -c tests/test.cpp -o $@
 
 

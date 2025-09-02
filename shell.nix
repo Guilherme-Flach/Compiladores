@@ -8,5 +8,6 @@
       cppcheck
       gtest
       flex
+      bison
     ];
 }
