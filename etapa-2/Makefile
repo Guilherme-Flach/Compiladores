@@ -18,7 +18,7 @@ lex.yy.c: scanner.l parser.tab.h
 test: tests/test.o lex.yy.o parser.tab.o
 	g++ $^ -o tests/$@ -lgtest -lgtest_main
 
-tests/test.o: 
+tests/test.o: tests/test.cpp
 	g++ -c tests/test.cpp -o $@
 
 
