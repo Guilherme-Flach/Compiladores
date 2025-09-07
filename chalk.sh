@@ -18,6 +18,7 @@ case $COMMAND in
   ;;
 
   export)
+  TARGZ_FILE=etapa$STAGE.tgz
   # Create workdir
   rm -r .tmp
   mkdir .tmp
@@ -28,14 +29,16 @@ case $COMMAND in
   cp $STAGE_FOLDER/parser.y .tmp
   cp $STAGE_FOLDER/scanner.l .tmp
   cd .tmp
-  tar cvzf etapa$STAGE.tgz .
+  tar cvzf $TARGZ_FILE .
+  # Copy final submission file
+  cp $TARGZ_FILE ../submissions/$TARGZ_FILE
 
   # Test if our export is OK
   rm testDir
   mkdir testDir
-  cp etapa$STAGE.tgz testDir
+  cp $TARGZ_FILE.tgz testDir
   cd testDir
-  tar -xzf etapa$STAGE.tgz
+  tar -xzf $TARGZ_FILE.tgz
   make
   ./etapa$STAGE
   ;;
