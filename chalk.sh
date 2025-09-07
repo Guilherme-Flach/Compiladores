@@ -1,8 +1,12 @@
 #!/bin/bash
 COMMAND=$1
 STAGE=$2
+OPTION=$3
 
 STAGE_FOLDER="etapa-$STAGE"
+TARGZ_FILE=etapa$STAGE.tgz
+
+
 
 case $COMMAND in 
   run)
@@ -18,7 +22,6 @@ case $COMMAND in
   ;;
 
   export)
-  TARGZ_FILE=etapa$STAGE.tgz
   # Create workdir
   rm -r .tmp
   mkdir .tmp
@@ -32,15 +35,17 @@ case $COMMAND in
   tar cvzf $TARGZ_FILE .
   # Copy final submission file
   cp $TARGZ_FILE ../submissions/$TARGZ_FILE
-
+  
   # Test if our export is OK
   rm testDir
   mkdir testDir
-  cp $TARGZ_FILE.tgz testDir
+  cp $TARGZ_FILE testDir
   cd testDir
-  tar -xzf $TARGZ_FILE.tgz
-  make
-  ./etapa$STAGE
+  tar -xzf $TARGZ_FILE
+  if [ "$OPTION" == "--run" ];  then
+    make
+    ./etapa$STAGE
+  fi
   ;;
 
   *)
