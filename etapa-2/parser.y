@@ -233,6 +233,7 @@ iterativa:
 /* Precedencia definida utilizando expressao_pX, onde X, em ordem decrescente,
 indica qual expressao sera avaliada primeiro (ex: expressao_p0 possui precedencia
 maior que expressao_p1, expressao_p1 possui precedencia maior que expressao_p0)*/
+
 expressao:
     expressao_p7
 ;
@@ -275,9 +276,9 @@ expressao_p2:
 ;
 
 expressao_p1:
-    '+' expressao_p0
-    | '-' expressao_p0
-    | '!' expressao_p0
+    '+' expressao_p1
+    | '-' expressao_p1
+    | '!' expressao_p1
     | expressao_p0
 ;
 

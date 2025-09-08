@@ -67,6 +67,20 @@ protected:
     EXPECT_EQ(parserStdErr, errorMessage);
   }
 
+  void EXPECT_REJECT(std::string input) {
+    testing::internal::CaptureStdout();
+    testing::internal::CaptureStderr();
+    int ret = SyntaxParse(input);
+    std::string parserStdOut = testing::internal::GetCapturedStdout();
+    std::string parserStdErr = testing::internal::GetCapturedStderr();
+
+    EXPECT_EQ(ret, PARSING_ERROR);
+    // StdOut should always be empty.
+    EXPECT_EQ(parserStdOut, "");
+    // StdErr should include an error message
+    EXPECT_NE(parserStdErr, "");
+  }
+
   const int PARSING_SUCCESS = 0;
   const int PARSING_ERROR = 1;
 };
@@ -94,16 +108,16 @@ TEST_F(SyntaxParserTest, RejectsVariableInitializationOnCommandList) {
 }
 
 TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
-  EXPECT_ACCEPT("var x := inteiro,"
-                "var y := decimal,"
-                "z -> inteiro := []"
+  EXPECT_ACCEPT("var x := inteiro,\n"
+                "var y := decimal,\n"
+                "z -> inteiro := []\n"
                 ";");
 }
 
 TEST_F(SyntaxParserTest, AcceptsSimpleProgram) {
-  EXPECT_ACCEPT("main -> inteiro := ["
-                "var y := decimal com 3.14"
-                "retorna y := decimal"
+  EXPECT_ACCEPT("main -> inteiro := [\n"
+                "var y := decimal com 3.14\n"
+                "retorna y := decimal\n"
                 "];");
 }
 
@@ -128,6 +142,30 @@ TEST_F(SyntaxParserTest, AcceptsComplexFunction) {
                 "  ]\n"
                 "]\n"
                 ";");
+}
+
+TEST_F(SyntaxParserTest, RejectsVariableInitializationWithCommand) {
+  EXPECT_REJECT("foo -> inteiro := [\n"
+                "var bar := decimal com (3+1)\n"
+                "];\n");
+}
+
+TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
+  const int foo = 2 - +-+-2;
+  EXPECT_ACCEPT("foo -> inteiro := [\n"
+                "var bar := decimal\n"
+                "bar := !(bar + foo)\n"
+                "bar := 1++1\n"
+                "bar := 1+-1\n"
+                "bar := 1--1\n"
+                "bar := 1*-1\n"
+                "bar := 1*+1\n"
+                "bar := 1/+1\n"
+                "bar := 1/+1\n"
+                "bar := 1/+1\n"
+                "bar := 1+-+-1\n"
+                "bar := !!1\n"
+                "];\n");
 }
 
 int main(int argc, char **argv) {
