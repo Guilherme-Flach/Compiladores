@@ -29,7 +29,7 @@ void yyerror (char const *mensagem);
 %%
 
 programa: 
-    /*vazio*/
+    %empty
     | lista_elementos ';'
 ;
 
@@ -60,8 +60,13 @@ presente, consiste no token opcional TK_COM se-
 guido de uma lista, separada por vírgula, de parâmetros.*/
 
 lista_opcional_param:
-    /*vazio*/
-    |TK_COM lista_param
+    %empty
+    | tk_com_opcional lista_param
+;
+
+tk_com_opcional:
+    %empty
+    | TK_COM
 ;
 
 lista_param:
@@ -124,7 +129,7 @@ bloco_comandos:
 ;
 
 sequencia_bloco_comando_opcional:
-    /*vazio*/
+    %empty
     |sequencia_comandos
 ;
 
@@ -150,7 +155,7 @@ comando_declaracao_variavel:
 ;
 
 inicializacao_opcional:
-    /* vazio */
+    %empty
     | TK_COM literal
 ;
 
@@ -181,7 +186,7 @@ chamada_funcao:
 ;
 
 argumento_opcional:
-    /*vazio*/
+    %empty
     |lista_argumentos
 
 lista_argumentos:
@@ -222,7 +227,7 @@ condicional:
 ;
 
 senao_opcional:
-    /* vazio */
+    %empty
     | TK_SENAO bloco_comandos
 ;
 

@@ -95,6 +95,14 @@ TEST_F(SyntaxParserTest, AcceptsEmptyFunction) {
   EXPECT_ACCEPT("foo -> inteiro := [];");
 }
 
+TEST_F(SyntaxParserTest, AcceptsFunctionWithParameters) {
+  EXPECT_ACCEPT("foo -> inteiro com bar := inteiro := [];");
+}
+
+TEST_F(SyntaxParserTest, AcceptsFunctionWithParametersAndOptionalCom) {
+  EXPECT_ACCEPT("foo -> inteiro bar := inteiro := [];");
+}
+
 TEST_F(SyntaxParserTest, RejectsFunctionWithNoArrow) {
   EXPECT_REJECT("foo inteiro := [];", 1, "TK_INTEIRO", "TK_SETA");
 }
