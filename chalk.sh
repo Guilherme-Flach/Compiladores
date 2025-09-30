@@ -6,9 +6,7 @@ OPTION=$3
 STAGE_FOLDER="etapa-$STAGE"
 TARGZ_FILE=etapa$STAGE.tgz
 
-
-
-case $COMMAND in 
+case $COMMAND in
   run)
   cd $STAGE_FOLDER
   make
@@ -19,6 +17,12 @@ case $COMMAND in
   cd $STAGE_FOLDER
   make test
   bash -c "./tests/test"
+  ;;
+
+
+  clean)
+  cd $STAGE_FOLDER
+  make clean
   ;;
 
   export)
@@ -35,7 +39,7 @@ case $COMMAND in
   tar cvzf $TARGZ_FILE .
   # Copy final submission file
   cp $TARGZ_FILE ../submissions/$TARGZ_FILE
-  
+
   # Test if our export is OK
   rm testDir
   mkdir testDir
