@@ -26,24 +26,24 @@
 ":="        { return TK_ATRIB; }
 "->"        { return TK_SETA; }
 
-/* For the characters "! * % + - < > [ ] ( ) = , ; & |", (excluding spaces) simply return their ascii value. */
+ /* For the characters "! * % + - < > [ ] ( ) = , ; & |", (excluding spaces) simply return their ascii value. */
 [\!\*/%\+\-<>\[\]\(\)=,;&\|] { return (int)yytext[0]; }
 
-/* IDs can start with any letter or _ and may contain numbers after that. */
+ /* IDs can start with any letter or _ and may contain numbers after that. */
 [a-z_][a-z_0-9]* { return TK_ID;}
 
-/* Decimals may optionally omit the number before the . */
+ /* Decimals may optionally omit the number before the . */
 [0-9]*\.[0-9]+ {return TK_LI_DECIMAL;}
 
 [0-9]+ {return TK_LI_INTEIRO;}
 
-/* Ignore comments */
+ /* Ignore comments */
 "//".*   ;
 
-/* Ignore whitespaces */
+ /* Ignore whitespaces */
 [ \t\n]+ ;
 
-/* Finally, if none of the rules apply, throw a LEX error. */
+ /* Finally, if none of the rules apply, throw a LEX error. */
 . { return TK_ER; }
 
 %%
