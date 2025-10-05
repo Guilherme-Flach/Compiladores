@@ -1,8 +1,10 @@
-/* 00342108 - Eduarda Tessari Pereira
+/* 00343210 - Eduarda Tessari Pereira
    00342108 - Guilherme Ismael Flach   */
 
 %option noyywrap
 %option yylineno
+%option nounput
+%option noinput
 
 %{
 #include "parser.tab.h"

@@ -1,5 +1,8 @@
+# 00343210 - Eduarda Tessari Pereira
+# 00342108 - Guilherme Ismael Flach
+
 CC=gcc
-CFLAGS=-I. -Wall -Werror
+CFLAGS=-I. -Wall -Werror -fsanitize=address
 DEPS=parser.tab.h parser.tab.c lex.yy.c
 OBJ=main.o lex.yy.o parser.tab.o
 

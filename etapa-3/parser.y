@@ -1,3 +1,6 @@
+/* 00343210 - Eduarda Tessari Pereira
+   00342108 - Guilherme Ismael Flach   */
+
 %{
 #include <stdio.h> // Include this for stderr
 extern int yylex(void);
