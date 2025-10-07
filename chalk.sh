@@ -3,6 +3,8 @@ COMMAND=$1
 STAGE=$2
 OPTION=$3
 
+set -e
+
 STAGE_FOLDER="etapa-$STAGE"
 TARGZ_FILE=etapa$STAGE.tgz
 

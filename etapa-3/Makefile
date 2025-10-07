@@ -2,7 +2,9 @@
 # 00342108 - Guilherme Ismael Flach
 
 CC=gcc
-CFLAGS=-I. -Wall -Werror -fsanitize=address
+CXX=g++
+CFLAGS=-fsanitize=address -I. -Wall -Werror -g
+CXXFLAGS=-fsanitize=address -I. -Wall -Werror -g -lgtest -lgtest_main
 DEPS=parser.tab.h parser.tab.c lex.yy.c
 OBJ=main.o lex.yy.o parser.tab.o
 
@@ -22,7 +24,7 @@ clean:
 	rm -f $(OBJ) $(DEPS) etapa3
 
 test: tests/test.o lex.yy.o parser.tab.o
-	g++ $^ -o tests/$@ -lgtest -lgtest_main
+	$(CXX) $^ -o tests/$@  $(CXXFLAGS)
 
 tests/test.o: tests/test.cpp
-	g++ -c tests/test.cpp -o $@
+	$(CXX) -c tests/test.cpp -o $@ $(CXXFLAGS)

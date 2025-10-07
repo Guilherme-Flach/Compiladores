@@ -9,5 +9,6 @@
       gtest
       flex
       bison
+      graphviz
     ];
 }

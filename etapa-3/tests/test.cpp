@@ -159,7 +159,6 @@ TEST_F(SyntaxParserTest, RejectsVariableInitializationWithCommand) {
 }
 
 TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
-  const int foo = 2 - +-+-2;
   EXPECT_ACCEPT("foo -> inteiro := [\n"
                 "var bar := decimal\n"
                 "bar := !(bar + foo)\n"
