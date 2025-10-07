@@ -1,4 +1,5 @@
 #include "asd.h"
+#include "string.h"
 #include <stdio.h>
 
 extern int yyparse(void);
@@ -12,6 +13,6 @@ int main(int argc, char **argv) {
 
   asd_free(arvore);
   yylex_destroy();
-  
+
   return ret;
 }

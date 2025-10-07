@@ -1,11 +1,29 @@
 /* 00343210 - Eduarda Tessari Pereira
    00342108 - Guilherme Ismael Flach   */
 
+ %code requires {
+    #include "asd.h"
+
+    typedef enum { LITERAL, IDENTIFIER } lex_value_type;
+
+    typedef struct {
+        int line_number;
+        lex_value_type token_type; 
+        char *token_value;
+    } valor_lexico;
+ }
+
+%union {
+  asd_tree_t *tree;
+  valor_lexico lex_value;
+}
+
 %{
 #include <stdio.h> // Include this for stderr
 extern int yylex(void);
 extern int yylineno; // Add this line for yylineno
 void yyerror (char const *mensagem);
+
 %}
 
 %define parse.error verbose

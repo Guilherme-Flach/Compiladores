@@ -8,6 +8,7 @@
 
 %{
 #include "parser.tab.h"
+valor_lexico make_lex_val(int line_number, lex_value_type token_type, char* token_value );
 %}
 
 %%
@@ -32,12 +33,12 @@
 [\!\*/%\+\-<>\[\]\(\)=,;&\|] { return (int)yytext[0]; }
 
  /* IDs can start with any letter or _ and may contain numbers after that. */
-[a-z_][a-z_0-9]* { return TK_ID;}
+[a-z_][a-z_0-9]* { yylval.lex_value = make_lex_val(yylineno, IDENTIFIER, yytext); return TK_ID;}
 
  /* Decimals may optionally omit the number before the . */
-[0-9]*\.[0-9]+ {return TK_LI_DECIMAL;}
+[0-9]*\.[0-9]+ {yylval.lex_value = make_lex_val(yylineno, LITERAL, yytext); return TK_LI_DECIMAL;}
 
-[0-9]+ {return TK_LI_INTEIRO;}
+[0-9]+ {yylval.lex_value = make_lex_val(yylineno, LITERAL, yytext); return TK_LI_INTEIRO;}
 
  /* Ignore comments */
 "//".*   ;
@@ -53,4 +54,13 @@
 int get_line_number (void) {
   return yylineno;
 }
+
+valor_lexico make_lex_val(int line_number, lex_value_type token_type, char* token_value ) {
+
+  valor_lexico lv = { line_number, token_type, strdup(token_value) };
+
+  return lv;
+}
+
+
 
