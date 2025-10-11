@@ -12,7 +12,7 @@ etapa3: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 parser.tab.c parser.tab.h: parser.y
-	bison -d parser.y
+	bison -d --report=all --report-file=parser.output parser.y
 
 lex.yy.c: scanner.l parser.tab.h
 	flex scanner.l

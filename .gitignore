@@ -6,6 +6,7 @@ etapa[1-9]
 test
 parser.tab.h
 parser.tab.c
+parser.output
 .tmp
 
 # Prerequisites

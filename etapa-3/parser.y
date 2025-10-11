@@ -55,8 +55,12 @@ programa:
 ;
 
 lista_elementos:
-    elemento
-    | lista_elementos ',' elemento
+    elemento lista_elementos_opcional
+;
+
+lista_elementos_opcional:
+    ',' lista_elementos
+    | %empty
 ;
 
 elemento:
@@ -91,10 +95,13 @@ tk_com_opcional:
 ;
 
 lista_param:
-    param
-    |lista_param ',' param
+    param lista_param_opcional
 ;
 
+lista_param_opcional:
+    ',' lista_param
+    |%empty
+;
 
 /*. Cada parâmetro consiste no token TK_ID
 seguido do token TK_ATRIB seguido ou do to-
@@ -104,8 +111,7 @@ param:
 ;
 
 
-/*Esta declaração é idên-
-tica ao comando simples de declaração de variável
+/*Esta declaração é idêntica ao comando simples de declaração de variável
 (veja abaixo), sendo que a única e importante dife-
 rença é que esse elemento não pode receber valo-
 res de inicialização.*/
@@ -156,10 +162,8 @@ sequencia_bloco_comando_opcional:
 
 sequencia_comandos:
     comando_simples
-    |sequencia_comandos comando_simples
-
-
-
+    | comando_simples sequencia_comandos
+;
 
 /*Declaração de Variável: Consiste no token
 TK_VAR seguido do token TK_ID, que é por sua
@@ -211,10 +215,13 @@ argumento_opcional:
     |lista_argumentos
 
 lista_argumentos:
-    expressao
-    |lista_argumentos ',' expressao
+    expressao lista_argumentos_opcional
 ;
 
+lista_argumentos_opcional:
+    ',' lista_argumentos
+    |%empty
+;
 
 /*Comando de Retorno: Trata-se do token
 TK_RETORNA seguido de uma expressão, se-
