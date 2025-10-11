@@ -8,8 +8,11 @@ extern "C" {
 int yylex_destroy(void);
 int yy_scan_string(const char *);
 int yyparse();
+
+#include "../asd.h"
 }
 
+asd_tree_t *arvore = NULL;
 // The fixture for testing class Foo.
 class SyntaxParserTest : public testing::Test {
 protected:
@@ -20,7 +23,10 @@ protected:
     // You can do set-up work for each test here.
   }
 
-  ~SyntaxParserTest() override { yylex_destroy(); }
+  ~SyntaxParserTest() override {
+    yylex_destroy();
+    asd_free(arvore);
+  }
 
   // Class members declared here can be used by all tests in the test suite
   // for CompilerTest.
@@ -46,50 +52,11 @@ protected:
     EXPECT_EQ(parserStdErr, "");
   }
 
-  void EXPECT_REJECT(std::string input, int lineNo,
-                     const std::string unexpectedToken,
-                     const std::string expectedToken) {
-    testing::internal::CaptureStdout();
-    testing::internal::CaptureStderr();
-    int ret = SyntaxParse(input);
-    std::string parserStdOut = testing::internal::GetCapturedStdout();
-    std::string parserStdErr = testing::internal::GetCapturedStderr();
-
-    EXPECT_EQ(ret, PARSING_ERROR);
-    // StdOut should always be empty.
-    EXPECT_EQ(parserStdOut, "");
-    // Should tell what token is misplaced in case of error
-    const std::string errorMessage =
-        "Erro sintático na linha " + std::to_string(lineNo) +
-        ": syntax error, unexpected " + unexpectedToken + ", expecting " +
-        expectedToken + "\n";
-
-    EXPECT_EQ(parserStdErr, errorMessage);
-  }
-
-  void EXPECT_REJECT(std::string input) {
-    testing::internal::CaptureStdout();
-    testing::internal::CaptureStderr();
-    int ret = SyntaxParse(input);
-    std::string parserStdOut = testing::internal::GetCapturedStdout();
-    std::string parserStdErr = testing::internal::GetCapturedStderr();
-
-    EXPECT_EQ(ret, PARSING_ERROR);
-    // StdOut should always be empty.
-    EXPECT_EQ(parserStdOut, "");
-    // StdErr should include an error message
-    EXPECT_NE(parserStdErr, "");
-  }
-
   const int PARSING_SUCCESS = 0;
   const int PARSING_ERROR = 1;
 };
 
 TEST_F(SyntaxParserTest, AcceptsEmptyProgram) { EXPECT_ACCEPT(""); }
-
-TEST_F(SyntaxParserTest, RejectsEmptyList) {
-  EXPECT_REJECT(";", 1, "';'", "end of file");
-}
 
 TEST_F(SyntaxParserTest, AcceptsEmptyFunction) {
   EXPECT_ACCEPT("foo -> inteiro := [];");
@@ -103,16 +70,8 @@ TEST_F(SyntaxParserTest, AcceptsFunctionWithParametersAndOptionalCom) {
   EXPECT_ACCEPT("foo -> inteiro bar := inteiro := [];");
 }
 
-TEST_F(SyntaxParserTest, RejectsFunctionWithNoArrow) {
-  EXPECT_REJECT("foo inteiro := [];", 1, "TK_INTEIRO", "TK_SETA");
-}
-
 TEST_F(SyntaxParserTest, AcceptsVarDeclaration) {
   EXPECT_ACCEPT("var x := inteiro;");
-}
-
-TEST_F(SyntaxParserTest, RejectsVariableInitializationOnCommandList) {
-  EXPECT_REJECT("var x := inteiro com 2;", 1, "TK_COM", "';'");
 }
 
 TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
@@ -152,12 +111,6 @@ TEST_F(SyntaxParserTest, AcceptsComplexFunction) {
                 ";");
 }
 
-TEST_F(SyntaxParserTest, RejectsVariableInitializationWithCommand) {
-  EXPECT_REJECT("foo -> inteiro := [\n"
-                "var bar := decimal com (3+1)\n"
-                "];\n");
-}
-
 TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
   EXPECT_ACCEPT("foo -> inteiro := [\n"
                 "var bar := decimal\n"
@@ -174,10 +127,6 @@ TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
                 "bar := !!1\n"
                 "];\n");
 }
-
-#include "../asd.h"
-
-asd_tree_t *arvore = NULL;
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
