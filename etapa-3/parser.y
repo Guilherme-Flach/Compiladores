@@ -446,6 +446,7 @@ expressao_p0:
     }
     | chamada_funcao {$$ = $1;} 
     | '(' expressao ')' {$$ = $2;} 
+;
 
 %%
 
