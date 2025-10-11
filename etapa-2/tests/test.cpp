@@ -112,7 +112,7 @@ TEST_F(SyntaxParserTest, AcceptsVarDeclaration) {
 }
 
 TEST_F(SyntaxParserTest, RejectsVariableInitializationOnCommandList) {
-  EXPECT_REJECT("var x := inteiro com 2;", 1, "TK_COM", "';' or ','");
+  EXPECT_REJECT("var x := inteiro com 2;", 1, "TK_COM", "';'");
 }
 
 TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
@@ -159,7 +159,6 @@ TEST_F(SyntaxParserTest, RejectsVariableInitializationWithCommand) {
 }
 
 TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
-  const int foo = 2 - +-+-2;
   EXPECT_ACCEPT("foo -> inteiro := [\n"
                 "var bar := decimal\n"
                 "bar := !(bar + foo)\n"
