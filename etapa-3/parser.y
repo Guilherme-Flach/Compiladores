@@ -18,12 +18,22 @@
   valor_lexico lex_value;
 }
 
+%type <tree> programa lista_elementos lista_elementos_opcional elemento definicao_funcao cabecalho_f corpo_f
+%type <tree> lista_opcional_param tk_com_opcional lista_param lista_param_opcional param declaracao_variavel tipo
+%type <tree> comando_simples bloco_comandos sequencia_bloco_comando_opcional sequencia_comandos
+%type <tree> comando_declaracao_variavel inicializacao_opcional literal comando_atribuicao chamada_funcao argumento_opcional lista_argumentos lista_argumentos_opcional
+%type <tree> comando_retorno fluxo_controle condicional senao_opcional iterativa
+%type <tree> expressao expressao_p7 expressao_p6 expressao_p5 expressao_p4 expressao_p3 expressao_p2 expressao_p1 expressao_p0
+
+%token <lex_value> TK_ID TK_LI_INTEIRO TK_LI_DECIMAL
+
 %{
-#include <stdio.h> // Include this for stderr
+#include <stdio.h> 
 extern int yylex(void);
-extern int yylineno; // Add this line for yylineno
+extern int yylineno; 
 void yyerror (char const *mensagem);
 
+extern asd_tree_t *arvore;
 %}
 
 %define parse.error verbose
@@ -42,30 +52,46 @@ void yyerror (char const *mensagem);
 %token TK_OC_GE
 %token TK_OC_EQ
 %token TK_OC_NE
-%token TK_ID
-%token TK_LI_INTEIRO
-%token TK_LI_DECIMAL
 %token TK_ER
 
 %%
 
 programa: 
-    %empty
-    | lista_elementos ';'
+    %empty {$$ = NULL;}
+    | lista_elementos ';' 
+
+    {
+        //Raiz da arvore
+        arvore = $1;
+        $$ = $1;
+    }
+
 ;
 
 lista_elementos:
     elemento lista_elementos_opcional
+    {
+    /*Listas de funções, onde cada função tem dois filhos, um que é o seu primeiro comando 
+    e outro que é a próxima função;*/
+        if ($1 != NULL){
+            // A lista de funções é ligada no nó pai da lista, não na função em si.
+            $$ = $1;
+        }
+        else{
+            // Propaga o próximo elemento caso o primeiro seja podado
+            $$ = $2;
+        }
+    }
 ;
 
 lista_elementos_opcional:
-    ',' lista_elementos
-    | %empty
+    ',' lista_elementos { $$ = $2;};
+    | %empty { $$ = NULL;}
 ;
 
 elemento:
-    declaracao_variavel
-    |definicao_funcao
+    declaracao_variavel {$$ = $1;} //podado (propaga NULL)
+    |definicao_funcao   {$$ = $1;}
 ;
 
 /*Uma funcao possui um cabeçalho e um corpo.*/
@@ -78,6 +104,10 @@ TK_DECIMAL ou do token TK_INTEIRO, seguido por uma lista opcional de parâmetros
 token TK_ATRIB. */
 cabecalho_f:
     TK_ID TK_SETA tipo lista_opcional_param TK_ATRIB
+    {
+        free($1.token_value);
+        $$ = NULL; //poda
+    }
 ;
 
 /*A lista de parâmetros, quando
@@ -85,13 +115,13 @@ presente, consiste no token opcional TK_COM se-
 guido de uma lista, separada por vírgula, de parâmetros.*/
 
 lista_opcional_param:
-    %empty
-    | tk_com_opcional lista_param
+    %empty  {$$ = NULL;}
+    | tk_com_opcional lista_param {$$ = $2;} //propaga a lista de parâmetros
 ;
 
 tk_com_opcional:
-    %empty
-    | TK_COM
+    %empty {$$ = NULL;} //poda
+    | TK_COM {$$ = NULL;} //poda
 ;
 
 lista_param:
@@ -108,6 +138,10 @@ seguido do token TK_ATRIB seguido ou do to-
 ken TK_INTEIRO ou do token TK_DECIMAL. */
 param:
     TK_ID TK_ATRIB tipo
+    {
+        free($1.token_value); //libera o ID do parâmetro
+        $$ = NULL; //poda
+    }
 ;
 
 
@@ -118,11 +152,15 @@ res de inicialização.*/
 
 declaracao_variavel:
     TK_VAR TK_ID TK_ATRIB tipo
+    {
+        free($2.token_value); //libera o ID
+        $$ = NULL; //poda
+    }
 ;
 
 tipo:
-    TK_DECIMAL
-    |TK_INTEIRO
+    TK_DECIMAL {$$ = NULL;} //poda
+    |TK_INTEIRO {$$ = NULL;}
 ;
 
 /*Os comandos simples da linguagem podem ser:
@@ -273,56 +311,141 @@ expressao:
 
 expressao_p7:
     expressao_p7 '|' expressao_p6
-    | expressao_p6
+    {
+        $$ = asd_new("|");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p6 {$$ = $1;}
 ;
 
 expressao_p6:
     expressao_p6 '&' expressao_p5
-    | expressao_p5
+    {
+        $$ = asd_new("&");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p5 {$$ = $1;}
 ;
 
 expressao_p5:
     expressao_p5 TK_OC_EQ expressao_p4
+    {
+        $$ = asd_new("==");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p5 TK_OC_NE expressao_p4
-    | expressao_p4
+    {
+        $$ = asd_new("!=");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p4 {$$ = $1;}
 ;
 
 expressao_p4:
     expressao_p4 '<' expressao_p3
+    {
+        $$ = asd_new("<");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p4 '>' expressao_p3
+    {
+        $$ = asd_new(">");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p4 TK_OC_LE expressao_p3
+    {
+        $$ = asd_new("<=");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p4 TK_OC_GE expressao_p3
-    | expressao_p3
+    {
+        $$ = asd_new(">=");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p3 {$$ = $1;}
 ;
 
 expressao_p3:
     expressao_p3 '+' expressao_p2
+    {
+        $$ = asd_new("+");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p3 '-' expressao_p2
-    | expressao_p2
+    {
+        $$ = asd_new("-");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p2  {$$ = $1;}
 ;
 
 expressao_p2:
     expressao_p2 '*' expressao_p1
+    {
+        $$ = asd_new("*");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p2 '/' expressao_p1
+    {
+        $$ = asd_new("/");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
     | expressao_p2 '%' expressao_p1
-    | expressao_p1
+    {
+        $$ = asd_new("%");
+        asd_add_child($$, $1);
+        asd_add_child($$, $3);
+    }
+    | expressao_p1  {$$ = $1;}
 ;
 
 expressao_p1:
     '+' expressao_p1
+    {
+        $$ = asd_new("+");
+        asd_add_child($$, $2);
+    }
     | '-' expressao_p1
+    {
+        $$ = asd_new("-");
+        asd_add_child($$, $2);
+    }
     | '!' expressao_p1
-    | expressao_p0
+    {
+        $$ = asd_new("!");
+        asd_add_child($$, $2);
+    }
+    | expressao_p0 {$$ = $1;}
 ;
 
 
 expressao_p0:
     TK_ID
+    { 
+        $$ = asd_new($1.token_value); 
+    }
     | TK_LI_INTEIRO
+    { 
+        $$ = asd_new($1.token_value); 
+    }
     | TK_LI_DECIMAL
-    | chamada_funcao
-    | '(' expressao ')'
-;
+    { 
+        $$ = asd_new($1.token_value); 
+    }
+    | chamada_funcao {$$ = $1;} 
+    | '(' expressao ')' {$$ = $2;} 
 
 %%
 
