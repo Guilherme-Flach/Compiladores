@@ -112,7 +112,7 @@ TEST_F(SyntaxParserTest, AcceptsVarDeclaration) {
 }
 
 TEST_F(SyntaxParserTest, RejectsVariableInitializationOnCommandList) {
-  EXPECT_REJECT("var x := inteiro com 2;", 1, "TK_COM", "';' or ','");
+  EXPECT_REJECT("var x := inteiro com 2;", 1, "TK_COM", "';'");
 }
 
 TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
@@ -174,6 +174,10 @@ TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
                 "bar := !!1\n"
                 "];\n");
 }
+
+#include "../asd.h"
+
+asd_tree_t *arvore = NULL;
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
