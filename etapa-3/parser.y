@@ -3,6 +3,8 @@
 
  %code requires {
     #include "asd.h"
+    #include <stdlib.h>
+
 
     typedef enum { LITERAL, IDENTIFIER } lex_value_type;
 
@@ -11,7 +13,16 @@
         lex_value_type token_type; 
         char *token_value;
     } valor_lexico;
+
+    void debug_node(asd_tree_t* node);
  }
+
+%code {
+    void debug_node(asd_tree_t* node) {
+        asd_print_graphviz(node);
+        exit(0);
+    }
+}
 
 %union {
   asd_tree_t *tree;
@@ -59,11 +70,11 @@ extern asd_tree_t *arvore;
 programa: 
     %empty {$$ = NULL;}
     | lista_elementos ';' 
-
     {
         //Raiz da arvore
         arvore = $1;
         $$ = $1;
+
     }
 
 ;
@@ -90,13 +101,20 @@ lista_elementos_opcional:
 ;
 
 elemento:
-    declaracao_variavel {$$ = $1;} //podado (propaga NULL)
-    |definicao_funcao   {$$ = $1;}
+    declaracao_variavel {$$ = $1;}
+    | definicao_funcao   {$$ = $1;}
 ;
 
 /*Uma funcao possui um cabeçalho e um corpo.*/
 definicao_funcao:
-    cabecalho_f corpo_f
+    cabecalho_f corpo_f 
+    {
+        /*Usa o cabeçalho da função (lexema do identificador)*/
+        $$ = $1;
+        /*Aponta para o primeiro comando.*/
+        asd_add_child($$, $2);
+        debug_node($$);
+    }
 ;
 
 /*O cabeçalho consiste no token TK_ID seguido do token TK_SETA seguido ou do token
@@ -105,8 +123,9 @@ token TK_ATRIB. */
 cabecalho_f:
     TK_ID TK_SETA tipo lista_opcional_param TK_ATRIB
     {
+        /*Para funções, deve-se utilizar seu identificador (o nome da função).*/
+        $$ = asd_new($1.token_value);
         free($1.token_value);
-        $$ = NULL; //poda
     }
 ;
 
@@ -186,21 +205,27 @@ de comandos simples. Um bloco de comandos
 e pode ser utilizado em qualquer construção que
 aceite um comando simples.*/
 corpo_f:
-    bloco_comandos
+    bloco_comandos { $$ = $1; }
 ;
 
 bloco_comandos:
-    '[' sequencia_bloco_comando_opcional ']'
+    '[' sequencia_bloco_comando_opcional ']' {$$ = $2;}
 ;
 
 sequencia_bloco_comando_opcional:
-    %empty
-    |sequencia_comandos
+    %empty {$$ = NULL;}
+    | sequencia_comandos {$$ = $1;}
 ;
 
 sequencia_comandos:
-    comando_simples
+    comando_simples {$$ = $1;}
     | comando_simples sequencia_comandos
+    {
+        $$ = $1;
+        if ($2 != NULL) {
+            asd_add_child($$, $2);
+        }
+    }
 ;
 
 /*Declaração de Variável: Consiste no token
@@ -215,16 +240,56 @@ token TK_LI_DECIMAL.*/
 
 comando_declaracao_variavel:
     TK_VAR TK_ID TK_ATRIB tipo inicializacao_opcional
+    {
+        /*Se a variável nao tiver incialização ($inicializacao_opcional == NULL),
+         não deve aparecer na AST. */
+        if ($5 == NULL) {
+            $$ = NULL;
+            free($2.token_value);
+
+        } else {
+            /*"Rouba" o nodo do lexema TK_COM e coloca o identificador do filho nele. */
+            $$ = $5;
+
+            /* Cria um nodo novo com a label do lexema de TK_ID.
+             Esse passo poderia ser feito em uma produção do tipo 
+             ```c
+             identificador: 
+                TK_ID { $$ = asd_new($1.token_value); free($1.token_value);}
+             ```
+            Mas achamos que assim fica um pouco mais semântico.*/
+            asd_tree_t* id_node = asd_new($2.token_value);
+            asd_add_child($$, id_node);
+            free($2.token_value);
+            
+        }
+    }
 ;
 
+
 inicializacao_opcional:
-    %empty
+    %empty { $$ = NULL; }
     | TK_COM literal
+    {
+        /*Declaração de variável com incialização, o nome deve ser o lexema do token TK_COM.*/
+        $$ = asd_new("com");
+        asd_add_child($$, $2);
+    }
 ;
 
 literal:
-    TK_LI_INTEIRO
-    | TK_LI_DECIMAL
+    TK_LI_INTEIRO 
+    {
+        /*Literais utilizam o próprio lexema.*/
+        $$ = asd_new($1.token_value);
+        free($1.token_value); 
+    }
+    | TK_LI_DECIMAL 
+    { 
+        /*Literais utilizam o próprio lexema.*/
+        $$ = asd_new($1.token_value);
+        free($1.token_value); 
+    }
 ;
 
 
@@ -267,7 +332,12 @@ guido do token TK_ATRIB e terminado ou pelo
 token TK_DECIMAL ou pelo token TK_INTEIRO.*/
 
 comando_retorno:
-    TK_RETORNA expressao TK_ATRIB tipo
+    TK_RETORNA expressao TK_ATRIB tipo 
+    {
+        /*O comando return tem um filho, que é uma expressão.*/
+        $$ = asd_new("retorna");
+        asd_add_child($$, $2);
+    }
 ;
 
 /*Comandos de Controle de Fluxo: A lingua-
@@ -306,7 +376,7 @@ indica qual expressao sera avaliada primeiro (ex: expressao_p0 possui precedenci
 maior que expressao_p1, expressao_p1 possui precedencia maior que expressao_p0)*/
 
 expressao:
-    expressao_p7
+    expressao_p7 {$$ = $1;}
 ;
 
 expressao_p7:
@@ -435,14 +505,18 @@ expressao_p0:
     TK_ID
     { 
         $$ = asd_new($1.token_value); 
+        free($1.token_value);
+
     }
     | TK_LI_INTEIRO
     { 
         $$ = asd_new($1.token_value); 
+        free($1.token_value);
     }
     | TK_LI_DECIMAL
     { 
         $$ = asd_new($1.token_value); 
+        free($1.token_value);
     }
     | chamada_funcao {$$ = $1;} 
     | '(' expressao ')' {$$ = $2;} 
