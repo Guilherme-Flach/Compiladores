@@ -85,6 +85,12 @@ lista_elementos:
     /*Listas de funções, onde cada função tem dois filhos, um que é o seu primeiro comando 
     e outro que é a próxima função;*/
         if ($1 != NULL){
+            
+            //Se o elemento é uma função válida (não podada)
+            if ($2 != NULL) {
+                 //Adiciona a próxima função como filho da função atual
+                asd_add_child($1, $2);
+            }
             // A lista de funções é ligada no nó pai da lista, não na função em si.
             $$ = $1;
         }
@@ -111,9 +117,14 @@ definicao_funcao:
     {
         /*Usa o cabeçalho da função (lexema do identificador)*/
         $$ = $1;
-        /*Aponta para o primeiro comando.*/
-        asd_add_child($$, $2);
-        debug_node($$);
+
+        /*pode estar NULL se corpo_f for vazio*/
+        if ($2 != NULL){
+            
+            /*Aponta para o primeiro comando.*/
+            asd_add_child($$, $2);    
+        }
+        //debug_node($$);
     }
 ;
 
@@ -148,8 +159,8 @@ lista_param:
 ;
 
 lista_param_opcional:
-    ',' lista_param
-    |%empty
+    ',' lista_param {$$ = $2;}
+    |%empty {$$ = NULL;}
 ;
 
 /*. Cada parâmetro consiste no token TK_ID
@@ -158,8 +169,8 @@ ken TK_INTEIRO ou do token TK_DECIMAL. */
 param:
     TK_ID TK_ATRIB tipo
     {
-        free($1.token_value); //libera o ID do parâmetro
         $$ = NULL; //poda
+        free($1.token_value); //libera o ID do parâmetro
     }
 ;
 
@@ -221,9 +232,14 @@ sequencia_comandos:
     comando_simples {$$ = $1;}
     | comando_simples sequencia_comandos
     {
-        $$ = $1;
-        if ($2 != NULL) {
-            asd_add_child($$, $2);
+        if ($1 == NULL){
+            $$ = $2;  //se o primeiro comando foi podado
+        } 
+        else{
+            $$ = $1;
+            if ($2 != NULL){ 
+                asd_add_child($$, $2);
+            }
         }
     }
 ;
@@ -300,6 +316,21 @@ são.*/
 
 comando_atribuicao:
     TK_ID TK_ATRIB expressao
+    {
+        /*O comando de atribuição deve ter pelo menos dois filhos, um que é o iden-
+        tificador e outro que é o valor da expressão.*/
+
+        //Nó pai com o lexema do operador de atribuição
+        $$ = asd_new(":=");
+
+        //Cria o nó para o ID e o anexa ao nó pai
+        asd_tree_t* id_node = asd_new($1.token_value);
+        asd_add_child($$, id_node);
+        free($1.token_value); //libera a string do ID
+
+        //Anexa o nó da expressao ao nó pai
+        asd_add_child($$, $3);
+    }
 ;
 
 /*Chamada de Função: Uma chamada de função
@@ -311,19 +342,43 @@ existir sem argumentos.*/
 
 chamada_funcao:
     TK_ID '('argumento_opcional')'
+    {
+        /*O comando chamada de função tem pelo menos um filho, que 
+        é a primeira expressão na lista de seus argumentos.*/
+
+        //Cria rótulo da funcao
+        char label_buffer[128];
+        snprintf(label_buffer, sizeof(label_buffer), "call %s", $1.token_value);
+
+        $$ = asd_new(label_buffer); //Cria o nó pai
+        
+        if ($3 != NULL) {
+            asd_add_child($$, $3); //Anexa a raiz da lista de argumentos (se não for vazia)
+        }
+        
+        free($1.token_value); //Libera a string do ID 
+
+    }
 ;
 
 argumento_opcional:
-    %empty
+    %empty {$$ = NULL;}
     |lista_argumentos
 
 lista_argumentos:
     expressao lista_argumentos_opcional
+    {
+        // $1 é o argumento atual, $2 é o próximo argumento (se não for vazio)
+        if ($2 != NULL) {
+            asd_add_child($1, $2); //Liga o argumento atual ao próximo argumento
+        }
+        $$ = $1; //Propaga a raiz da lista (o primeiro argumento)
+    }
 ;
 
 lista_argumentos_opcional:
-    ',' lista_argumentos
-    |%empty
+    ',' lista_argumentos {$$ = $2;} //propaga a lista seguinte 
+    |%empty {$$ = NULL;}
 ;
 
 /*Comando de Retorno: Trata-se do token
@@ -360,15 +415,40 @@ fluxo_controle:
 
 condicional:
     TK_SE '(' expressao ')' bloco_comandos senao_opcional
+    {
+        /*O comando if com else opcional deve ter pelo menos três filhos, 
+        um para a expressão, outro para o primeiro comando quando verdade, 
+        e o último – opcional – para o segundocomando quando falso.*/
+        
+        $$ = asd_new("se");
+        asd_add_child($$, $3); //Primeiro filho: condição (expressao)
+        asd_add_child($$, $5); //Segundo filho: bloco true (bloco_comandos)
+        
+        if ($6 != NULL) {
+            asd_add_child($$, $6); //Terceiro filho (opcional): bloco else (senao_opcional) 
+        }
+    }
 ;
 
 senao_opcional:
-    %empty
+    %empty {$$ = NULL;}
     | TK_SENAO bloco_comandos
+    {
+        //O nó "senao" é o bloco de comandos ($2)
+        $$ = $2; 
+    }
 ;
 
 iterativa:
     TK_ENQUANTO '(' expressao ')' bloco_comandos
+    {
+        /*O comando while deve ter pelo menos dois filhos, um para expressão e outro
+        para o primeiro comando do laço.*/
+
+        $$ = asd_new("enquanto");
+        asd_add_child($$, $3); //Primeiro filho: condicao (expressao)
+        asd_add_child($$, $5); //Segundo filho: bloco_comandos
+    }
 ;
 
 /* Precedencia definida utilizando expressao_pX, onde X, em ordem decrescente,
