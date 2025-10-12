@@ -1,3 +1,5 @@
+test_input.txt
+test_output.txt
 out/
 lex.yy.c
 *.o

@@ -10,5 +10,6 @@
       flex
       bison
       graphviz
+      xdot
     ];
 }

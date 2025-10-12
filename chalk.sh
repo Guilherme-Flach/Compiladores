@@ -21,6 +21,14 @@ case $COMMAND in
   bash -c "./tests/test"
   ;;
 
+  visualize)
+  cd $STAGE_FOLDER
+  make
+  rm -f ../test_output.txt
+  ./etapa$STAGE < ../test_input.txt > ../test_output.txt 
+  xdot ../test_output.txt
+  ;;
+
 
   clean)
   cd $STAGE_FOLDER
@@ -58,7 +66,8 @@ case $COMMAND in
   echo "Unkown command `$COMMAND`! Available commands are
   run stageNumber
   test stageNumber
-  export stageNumber"
+  export stageNumber
+  visualize stageNumber"
   exit 1
   ;;
 esac
