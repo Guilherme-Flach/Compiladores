@@ -84,7 +84,6 @@ TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
 TEST_F(SyntaxParserTest, AcceptsSimpleProgram) {
   // main->inteiro := [ var y := decimal com 3.14 retorna y := decimal ];
 
-  // TODO: Memory leak aqui
   EXPECT_ACCEPT("main -> inteiro := [\n"
                 "var y := decimal com 3.14\n"
                 "retorna y := decimal\n"
@@ -92,7 +91,6 @@ TEST_F(SyntaxParserTest, AcceptsSimpleProgram) {
 }
 
 TEST_F(SyntaxParserTest, AcceptsComplexFunction) {
-  // TODO: Memory leak aqui
   EXPECT_ACCEPT("foo -> decimal com\n"
                 "  bar := decimal,\n"
                 "  baz := inteiro,\n"
