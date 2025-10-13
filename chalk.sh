@@ -37,7 +37,7 @@ case $COMMAND in
 
   export)
   # Create workdir
-  rm -r .tmp
+  rm -rf .tmp
   mkdir .tmp
 
   # Export relevant files
@@ -45,17 +45,21 @@ case $COMMAND in
   cp $STAGE_FOLDER/main.c .tmp
   cp $STAGE_FOLDER/parser.y .tmp
   cp $STAGE_FOLDER/scanner.l .tmp
+  cp $STAGE_FOLDER/asd.c .tmp
+  cp $STAGE_FOLDER/asd.h .tmp
+  
   cd .tmp
-  tar cvzf $TARGZ_FILE .
+  touch $TARGZ_FILE
+  tar cvzf $TARGZ_FILE --exclude=$TARGZ_FILE . 
   # Copy final submission file
   cp $TARGZ_FILE ../submissions/$TARGZ_FILE
 
   # Test if our export is OK
-  rm testDir
+  rm -rf testDir
   mkdir testDir
   cp $TARGZ_FILE testDir
   cd testDir
-  tar -xzf $TARGZ_FILE
+  tar -xzf $TARGZ_FILE 
   if [ "$OPTION" == "--run" ];  then
     make
     ./etapa$STAGE
