@@ -5,12 +5,20 @@
     #include "asd.h"
     #include <stdlib.h>
 
+    #define ERR_UNDECLARED 10 //2.2
+    #define ERR_DECLARED 11 //2.2
+    #define ERR_VARIABLE 20 //2.3
+    #define ERR_FUNCTION 21 //2.3
+    #define ERR_WRONG_TYPE 30 //2.4
+    #define ERR_MISSING_ARGS 40 //2.5
+    #define ERR_EXCESS_ARGS 41 //2.5
+    #define ERR_WRONG_TYPE_ARGS 42 //2.5
 
     typedef enum { LITERAL, IDENTIFIER } lex_value_type;
 
     typedef struct {
         int line_number;
-        lex_value_type token_type; 
+        lex_value_type token_type;
         char *token_value;
     } valor_lexico;
 
@@ -39,9 +47,9 @@
 %token <lex_value> TK_ID TK_LI_INTEIRO TK_LI_DECIMAL
 
 %{
-#include <stdio.h> 
+#include <stdio.h>
 extern int yylex(void);
-extern int yylineno; 
+extern int yylineno;
 void yyerror (char const *mensagem);
 
 extern asd_tree_t *arvore;
@@ -67,9 +75,9 @@ extern asd_tree_t *arvore;
 
 %%
 
-programa: 
+programa:
     %empty {$$ = NULL;}
-    | lista_elementos ';' 
+    | lista_elementos ';'
     {
         //Raiz da arvore
         arvore = $1;
@@ -82,10 +90,10 @@ programa:
 lista_elementos:
     elemento lista_elementos_opcional
     {
-    /*Listas de funções, onde cada função tem dois filhos, um que é o seu primeiro comando 
+    /*Listas de funções, onde cada função tem dois filhos, um que é o seu primeiro comando
     e outro que é a próxima função;*/
         if ($1 != NULL){
-            
+
             //Se o elemento é uma função válida (não podada)
             if ($2 != NULL) {
                  //Adiciona a próxima função como filho da função atual
@@ -113,16 +121,16 @@ elemento:
 
 /*Uma funcao possui um cabeçalho e um corpo.*/
 definicao_funcao:
-    cabecalho_f corpo_f 
+    cabecalho_f corpo_f
     {
         /*Usa o cabeçalho da função (lexema do identificador)*/
         $$ = $1;
 
         /*pode estar NULL se corpo_f for vazio*/
         if ($2 != NULL){
-            
+
             /*Aponta para o primeiro comando.*/
-            asd_add_child($$, $2);    
+            asd_add_child($$, $2);
         }
         //debug_node($$);
     }
@@ -234,10 +242,10 @@ sequencia_comandos:
     {
         if ($1 == NULL){
             $$ = $2;  //se o primeiro comando foi podado
-        } 
+        }
         else{
             $$ = $1;
-            if ($2 != NULL){ 
+            if ($2 != NULL){
                 asd_add_child($$, $2);
             }
         }
@@ -268,16 +276,16 @@ comando_declaracao_variavel:
             $$ = $5;
 
             /* Cria um nodo novo com a label do lexema de TK_ID.
-             Esse passo poderia ser feito em uma produção do tipo 
+             Esse passo poderia ser feito em uma produção do tipo
              ```c
-             identificador: 
+             identificador:
                 TK_ID { $$ = asd_new($1.token_value); free($1.token_value);}
              ```
             Mas achamos que assim fica um pouco mais semântico.*/
             asd_tree_t* id_node = asd_new($2.token_value);
             asd_add_child($$, id_node);
             free($2.token_value);
-            
+
         }
     }
 ;
@@ -294,17 +302,17 @@ inicializacao_opcional:
 ;
 
 literal:
-    TK_LI_INTEIRO 
+    TK_LI_INTEIRO
     {
         /*Literais utilizam o próprio lexema.*/
         $$ = asd_new($1.token_value);
-        free($1.token_value); 
+        free($1.token_value);
     }
-    | TK_LI_DECIMAL 
-    { 
+    | TK_LI_DECIMAL
+    {
         /*Literais utilizam o próprio lexema.*/
         $$ = asd_new($1.token_value);
-        free($1.token_value); 
+        free($1.token_value);
     }
 ;
 
@@ -343,7 +351,7 @@ existir sem argumentos.*/
 chamada_funcao:
     TK_ID '('argumento_opcional')'
     {
-        /*O comando chamada de função tem pelo menos um filho, que 
+        /*O comando chamada de função tem pelo menos um filho, que
         é a primeira expressão na lista de seus argumentos.*/
 
         //Cria rótulo da funcao
@@ -351,12 +359,12 @@ chamada_funcao:
         snprintf(label_buffer, sizeof(label_buffer), "call %s", $1.token_value);
 
         $$ = asd_new(label_buffer); //Cria o nó pai
-        
+
         if ($3 != NULL) {
             asd_add_child($$, $3); //Anexa a raiz da lista de argumentos (se não for vazia)
         }
-        
-        free($1.token_value); //Libera a string do ID 
+
+        free($1.token_value); //Libera a string do ID
 
     }
 ;
@@ -377,7 +385,7 @@ lista_argumentos:
 ;
 
 lista_argumentos_opcional:
-    ',' lista_argumentos {$$ = $2;} //propaga a lista seguinte 
+    ',' lista_argumentos {$$ = $2;} //propaga a lista seguinte
     |%empty {$$ = NULL;}
 ;
 
@@ -387,7 +395,7 @@ guido do token TK_ATRIB e terminado ou pelo
 token TK_DECIMAL ou pelo token TK_INTEIRO.*/
 
 comando_retorno:
-    TK_RETORNA expressao TK_ATRIB tipo 
+    TK_RETORNA expressao TK_ATRIB tipo
     {
         /*O comando return tem um filho, que é uma expressão.*/
         $$ = asd_new("retorna");
@@ -416,16 +424,16 @@ fluxo_controle:
 condicional:
     TK_SE '(' expressao ')' bloco_comandos senao_opcional
     {
-        /*O comando if com else opcional deve ter pelo menos três filhos, 
-        um para a expressão, outro para o primeiro comando quando verdade, 
+        /*O comando if com else opcional deve ter pelo menos três filhos,
+        um para a expressão, outro para o primeiro comando quando verdade,
         e o último – opcional – para o segundocomando quando falso.*/
-        
+
         $$ = asd_new("se");
         asd_add_child($$, $3); //Primeiro filho: condição (expressao)
         asd_add_child($$, $5); //Segundo filho: bloco true (bloco_comandos)
-        
+
         if ($6 != NULL) {
-            asd_add_child($$, $6); //Terceiro filho (opcional): bloco else (senao_opcional) 
+            asd_add_child($$, $6); //Terceiro filho (opcional): bloco else (senao_opcional)
         }
     }
 ;
@@ -435,7 +443,7 @@ senao_opcional:
     | TK_SENAO bloco_comandos
     {
         //O nó "senao" é o bloco de comandos ($2)
-        $$ = $2; 
+        $$ = $2;
     }
 ;
 
@@ -583,23 +591,23 @@ expressao_p1:
 
 expressao_p0:
     TK_ID
-    { 
-        $$ = asd_new($1.token_value); 
+    {
+        $$ = asd_new($1.token_value);
         free($1.token_value);
 
     }
     | TK_LI_INTEIRO
-    { 
-        $$ = asd_new($1.token_value); 
+    {
+        $$ = asd_new($1.token_value);
         free($1.token_value);
     }
     | TK_LI_DECIMAL
-    { 
-        $$ = asd_new($1.token_value); 
+    {
+        $$ = asd_new($1.token_value);
         free($1.token_value);
     }
-    | chamada_funcao {$$ = $1;} 
-    | '(' expressao ')' {$$ = $2;} 
+    | chamada_funcao {$$ = $1;}
+    | '(' expressao ')' {$$ = $2;}
 ;
 
 %%
