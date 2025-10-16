@@ -10,6 +10,20 @@ asd_tree_t *asd_new(const char *label)
   if (ret != NULL){
     ret->label = strdup(label);
     ret->number_of_children = 0;
+    ret->type = NEVER;
+    ret->children = NULL;
+  }
+  return ret;
+}
+
+asd_tree_t *asd_new_with_type(const char *label, asd_node_t node_type)
+{
+  asd_tree_t *ret = NULL;
+  ret = calloc(1, sizeof(asd_tree_t));
+  if (ret != NULL){
+    ret->label = strdup(label);
+    ret->number_of_children = 0;
+    ret->type = node_type;
     ret->children = NULL;
   }
   return ret;

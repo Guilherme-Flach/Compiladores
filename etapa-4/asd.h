@@ -4,8 +4,7 @@
 typedef enum asd_node {
   INT,
   FLOAT,
-  BOOL,
-  VOID,
+  NEVER,
 } asd_node_t;
 
 typedef struct asd_tree {
@@ -15,10 +14,13 @@ typedef struct asd_tree {
   struct asd_tree **children;
 } asd_tree_t;
 
+
+asd_tree_t *asd_new(const char *label);
+
 /*
  * Função asd_new, cria um nó sem filhos com o label informado.
  */
-asd_tree_t *asd_new(const char *label);
+asd_tree_t *asd_new_with_type(const char *label, asd_node_t node_type);
 
 /*
  * Função asd_tree, libera recursivamente o nó e seus filhos.
