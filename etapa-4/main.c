@@ -1,8 +1,11 @@
 #include "asd.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 extern int yyparse(void);
 extern int yylex_destroy(void);
 asd_tree_t *arvore = NULL;
+
 int main(int argc, char **argv) {
   int ret = yyparse();
   asd_print_graphviz(arvore);
