@@ -16,25 +16,25 @@ void destroy_argument(argument *arg) {
 
 argument_list_t *make_argument_list_node(argument *arg) {
   argument_list_t *list = malloc(sizeof(argument_list_t));
-  list->current = arg;
-  list->next = NULL;
+  list->arg = arg;
+  list->next_arg = NULL;
 
   return list;
 }
 
 void destroy_argument_list(argument_list_t *list) {
   if (list != NULL) {
-    destroy_argument_list(list->next);
-    destroy_argument(list->current);
+    destroy_argument_list(list->next_arg);
+    destroy_argument(list->arg);
     free(list);
   }
 }
 
-symbol_table_t *make_symbol_table_node(symbol_table_entry *symbol) {
+symbol_table_t *make_symbol_table_node() {
   symbol_table_t *table = malloc(sizeof(symbol_table_t));
 
-  table->current = symbol;
-  table->next = NULL;
+  table->symbol = NULL;
+  table->next_symbol = NULL;
 
   return table;
 }
@@ -58,7 +58,7 @@ void append_argument_to_symbol(symbol_table_entry *symbol, argument *arg) {
   // Find list end
   while (cur != NULL) {
     prev = cur;
-    cur = cur->next;
+    cur = cur->next_arg;
   }
 
   argument_list_t *new_node = make_argument_list_node(arg);
@@ -67,51 +67,42 @@ void append_argument_to_symbol(symbol_table_entry *symbol, argument *arg) {
   if (prev == NULL) {
     symbol->arguments = new_node;
   } else {
-    prev->next = new_node;
+    prev->next_arg = new_node;
   }
 }
 
 void destroy_symbol_table_entry(symbol_table_entry *symbol) {
-  destroy_argument_list(symbol->arguments);
-  free(symbol->value);
-  free(symbol);
+  if (symbol != NULL) {
+    destroy_argument_list(symbol->arguments);
+    free(symbol->value);
+    free(symbol);
+  }
 }
 
-symbol_table_t *append_symbol_to_table(symbol_table_t *table,
-                                       symbol_table_entry *symbol) {
-  symbol_table_t *cur = table;
-  symbol_table_t *prev = NULL;
+void append_symbol_to_table(symbol_table_t *table, symbol_table_entry *symbol) {
+  symbol_table_t *end = table;
 
-  // Search for end of table
-  while (cur != NULL) {
-    prev = cur;
-    cur = cur->next;
+  // Search for end of table (empty space)
+  while (end->next_symbol != NULL) {
+    end = end->next_symbol;
   }
 
-  symbol_table_t *new_node = make_symbol_table_node(symbol);
-
-  // Check for first insertion
-  if (prev == NULL) {
-    table = new_node;
-  } else {
-    prev->next = new_node;
-  }
-
-  return table;
+  end->symbol = symbol;
+  end->next_symbol = make_symbol_table_node();
 }
 
 void destroy_symbol_table(symbol_table_t *table) {
   if (table != NULL) {
-    destroy_symbol_table(table->next);
-    destroy_symbol_table_entry(table->current);
+    destroy_symbol_table(table->next_symbol);
+    destroy_symbol_table_entry(table->symbol);
     free(table);
   }
 }
 
 stack_node_t *push_symbol_table(stack_node_t *stack, symbol_table_t *table) {
   stack_node_t *new_node = malloc(sizeof(stack_node_t));
-  new_node->below = stack;
-  new_node->current = table;
+  new_node->table_below = stack;
+  new_node->table_contents = table;
 
   return new_node;
 }
@@ -123,11 +114,11 @@ stack_node_t *pop_symbol_table(stack_node_t *stack) {
     exit(1);
   }
 
-  symbol_table_t *cur = stack->current;
+  symbol_table_t *cur = stack->table_contents;
   destroy_symbol_table(cur);
 
   // Relocate stack
-  stack_node_t *new_stack = stack->below;
+  stack_node_t *new_stack = stack->table_below;
 
   // Free top node
   free(stack);
@@ -139,16 +130,16 @@ symbol_table_entry *find_symbol(char *value, stack_node_t *stack) {
   // Go up the stack until we reach the top
   while (stack != NULL) {
     // Look into the table
-    symbol_table_t *table_node = stack->current;
-    while (table_node != NULL) {
-      symbol_table_entry *symbol = table_node->current;
+    symbol_table_t *table_node = stack->table_contents;
+    while (table_node->symbol != NULL) {
+      symbol_table_entry *symbol = table_node->symbol;
       if (strcmp(symbol->value, value) == 0) {
         return symbol;
       }
 
-      table_node = table_node->next;
+      table_node = table_node->next_symbol;
     }
-    stack = stack->below;
+    stack = stack->table_below;
   }
 
   return NULL;

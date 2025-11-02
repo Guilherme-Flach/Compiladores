@@ -14,8 +14,8 @@ typedef struct {
 } argument;
 
 typedef struct argument_list {
-  struct argument_list *next;
-  argument *current;
+  struct argument_list *next_arg;
+  argument *arg;
 } argument_list_t;
 
 typedef struct {
@@ -26,13 +26,13 @@ typedef struct {
 } symbol_table_entry;
 
 typedef struct symbol_table {
-  struct symbol_table *next;
-  symbol_table_entry *current;
+  struct symbol_table *next_symbol;
+  symbol_table_entry *symbol;
 } symbol_table_t;
 
 typedef struct stack_node {
-  struct stack_node *below;
-  symbol_table_t *current;
+  struct stack_node *table_below;
+  symbol_table_t *table_contents;
 } stack_node_t;
 
 argument *make_argument(char *name, SYMBOL_TYPE type);
@@ -47,10 +47,9 @@ symbol_table_entry *make_symbol_table_entry(SYMBOL_NATURE nature,
 
 void destroy_symbol_table_entry(symbol_table_entry *symbol);
 
-symbol_table_t *make_symbol_table_node(symbol_table_entry *symbol);
+symbol_table_t *make_symbol_table_node();
 
-symbol_table_t *append_symbol_to_table(symbol_table_t *table,
-                                       symbol_table_entry *symbol);
+void append_symbol_to_table(symbol_table_t *table, symbol_table_entry *symbol);
 void destroy_symbol_table(symbol_table_t *table);
 
 stack_node_t *push_symbol_table(stack_node_t *stack, symbol_table_t *table);
