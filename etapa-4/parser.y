@@ -5,6 +5,7 @@
     #include "asd.h"
     #include <stdlib.h>
     #include <string.h>
+    #include "stack_functions.h"
 
     #define ERR_UNDECLARED 10 //2.2
     #define ERR_DECLARED 11 //2.2
@@ -26,54 +27,6 @@
 
     void debug_node(asd_tree_t* node);
 
-    // ETAPA 4:
-    typedef enum { S_LITERAL, S_IDENTIFIER, S_FUNCTION } SYMBOL_NATURE;
-    typedef enum { S_INTEGER, S_FLOAT } SYMBOL_TYPE;
-
-    typedef struct {
-        char *name;
-        SYMBOL_TYPE type;
-    } argument;
-
-    typedef struct argument_list {
-        struct argument_list *next;
-        argument *current;
-    } argument_list_t;
-
-    typedef struct {
-        SYMBOL_NATURE nature;
-        SYMBOL_TYPE type;
-        argument_list_t *arguments;
-        char *value;
-    } symbol_table_entry;
-
-    typedef struct symbol_table {
-        struct symbol_table *next;
-        symbol_table_entry *current;
-    } symbol_table_t;
-
-    typedef struct stack_node {
-        struct stack_node *below;
-        symbol_table_t *current;
-    } stack_node_t;
-
-    argument *make_argument(char *name, SYMBOL_TYPE type);
-    void destroy_argument(argument *arg);
-
-    void append_argument_to_symbol(symbol_table_entry *symbol, argument *arg);
-    argument_list_t *make_argument_list_node(argument *arg);
-    void destroy_argument_list(argument_list_t *list);
-
-    symbol_table_entry *make_symbol_table_entry(SYMBOL_NATURE nature,
-                                                SYMBOL_TYPE type, char *value);
-
-    symbol_table_t *make_symbol_table_node(symbol_table_entry *symbol);
-
-    void append_symbol_to_table(symbol_table_t *table, symbol_table_entry *symbol);
-    void destroy_symbol_table(symbol_table_t *table);
-
-    void push_symbol_table(stack_node_t *stack, symbol_table_t *table);
-    void pop_symbol_table(stack_node_t *stack)
  }
 
 %code {
@@ -81,136 +34,6 @@
     void debug_node(asd_tree_t* node) {
         asd_print_graphviz(node);
         exit(0);
-    }
-
-    // ETAPA 4:
-    argument *make_argument(char *name, SYMBOL_TYPE type) {
-        argument *arg = malloc(sizeof(argument));
-
-        arg->name = name;
-        arg->type = type;
-        return arg;
-    }
-
-    void destroy_argument(argument *arg) {
-        free(arg->name);
-        free(arg);
-    }
-
-    argument_list_t *make_argument_list_node(argument *arg) {
-        argument_list_t *list = malloc(sizeof(argument_list_t));
-        list->current = arg;
-        list->next = NULL;
-
-        return list;
-    }
-
-    void destroy_argument_list(argument_list_t *list) {
-        while (list != NULL) {
-            free(list->next);
-        }
-
-        destroy_argument(list->current);
-        free(list);
-    }
-
-    symbol_table_t *make_symbol_table_node(symbol_table_entry *symbol) {
-        symbol_table_t *table = malloc(sizeof(symbol_table_t));
-
-        table->current = symbol;
-        table->next = NULL;
-
-        return table;
-    }
-
-    symbol_table_entry *make_symbol_table_entry(SYMBOL_NATURE nature,
-                                                SYMBOL_TYPE type, char *value) {
-        symbol_table_entry *symbol = malloc(sizeof(symbol_table_entry));
-
-        symbol->nature = nature;
-        symbol->type = type;
-        symbol->value = strdup(value);
-        symbol->arguments = NULL;
-
-        return symbol;
-    }
-
-    void append_argument_to_symbol(symbol_table_entry *symbol, argument *arg) {
-        argument_list_t *cur = symbol->arguments;
-        argument_list_t *prev = NULL;
-
-        // Find list end
-        while (cur != NULL) {
-            cur = cur->next;
-        }
-
-        argument_list_t *new_node = make_argument_list_node(arg);
-
-        // Check for first insertion;
-        if (prev == NULL) {
-            symbol->arguments = new_node;
-        } else {
-            prev->next = new_node;
-        }
-        }
-
-        void destroy_symbole_table_entry(symbol_table_entry *symbol) {
-        destroy_argument_list(symbol->arguments);
-        free(symbol->value);
-        free(symbol);
-    }
-
-    void append_symbol_to_table(symbol_table_t *table, symbol_table_entry *symbol) {
-        symbol_table_t *cur = table;
-        symbol_table_t *prev = NULL;
-
-        // Search for end of table
-        while (cur != NULL) {
-            prev = cur;
-            cur = cur->next;
-        }
-
-        symbol_table_t *new_node = make_symbol_table_node(symbol);
-
-        // Check for first insertion
-        if (prev == NULL) {
-            table = new_node;
-        } else {
-            prev->next = new_node;
-        }
-    }
-
-    void destroy_symbol_table(symbol_table_t *table) {
-        while (table != NULL) {
-            destroy_symbol_table(table->next);
-        }
-        free(table->current);
-        free(table);
-    }
-
-    void push_symbol_table(stack_node_t *stack, symbol_table_t *table) {
-        stack_node_t *new_node = malloc(sizeof(stack_node_t));
-        new_node->below = stack;
-        new_node->current = table;
-
-        stack = new_node;
-        }
-
-    void pop_symbol_table(stack_node_t *stack) {
-        // check if stack is empty
-        if (stack == NULL) {
-            printf("Tried to pop empty stack!\n");
-            exit(1);
-        }
-
-        symbol_table_t *cur = stack->current;
-        destroy_symbol_table(cur);
-
-        // Relocate stack
-        stack = stack->below;
-
-        // Free top node
-        free(stack);
     }
 }
 

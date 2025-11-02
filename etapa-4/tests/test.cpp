@@ -1,6 +1,7 @@
 // #include "../src/main.c"
 
 #include "gtest/gtest.h"
+#include <cstddef>
 #include <gtest/gtest.h>
 #include <string>
 
@@ -10,6 +11,7 @@ int yy_scan_string(const char *);
 int yyparse();
 
 #include "../asd.h"
+#include "../stack_functions.h"
 }
 
 asd_tree_t *arvore = NULL;
@@ -55,6 +57,8 @@ protected:
   const int PARSING_SUCCESS = 0;
   const int PARSING_ERROR = 1;
 };
+
+class SemanticToolsTest : public testing::Test {};
 
 TEST_F(SyntaxParserTest, AcceptsEmptyProgram) { EXPECT_ACCEPT(""); }
 
@@ -114,7 +118,6 @@ TEST_F(SyntaxParserTest, AcceptsComplexFunction) {
 }
 
 TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
-  // TODO: Memory leak aqui
   EXPECT_ACCEPT("foo -> inteiro := [\n"
                 "var bar := decimal\n"
                 "bar := !(bar + foo)\n"
@@ -129,6 +132,57 @@ TEST_F(SyntaxParserTest, AcceptsComplexExpression) {
                 "bar := 1+-+-1\n"
                 "bar := !!1\n"
                 "];\n");
+}
+
+TEST_F(SemanticToolsTest, PushPopWorks) {
+  stack_node_t *stack = NULL;
+  symbol_table_entry *s1 = make_symbol_table_entry(
+      SYMBOL_NATURE::S_LITERAL, SYMBOL_TYPE::S_FLOAT, (char *)"foo");
+  argument *s1_a1 = make_argument((char *)"fred", SYMBOL_TYPE::S_INTEGER);
+  append_argument_to_symbol(s1, s1_a1);
+  symbol_table_t *table = NULL;
+  table = append_symbol_to_table(table, s1);
+  stack = push_symbol_table(stack, table);
+
+  symbol_table_entry *s1_pointer = stack->current->current;
+
+  // Check insertion of symbol
+  EXPECT_EQ(SYMBOL_NATURE::S_LITERAL, s1_pointer->nature);
+  EXPECT_EQ(SYMBOL_TYPE::S_FLOAT, s1_pointer->type);
+  EXPECT_STREQ("foo", s1_pointer->value);
+
+  // Check insertion of symbol arguments
+  EXPECT_STREQ("fred", s1_pointer->arguments->current->name);
+  EXPECT_EQ(SYMBOL_TYPE::S_INTEGER, s1_pointer->arguments->current->type);
+
+  stack = pop_symbol_table(stack);
+  EXPECT_EQ(nullptr, stack);
+}
+
+TEST_F(SemanticToolsTest, FindSymbolWorks) {
+  stack_node_t *stack = NULL;
+  symbol_table_entry *s1 = make_symbol_table_entry(
+      SYMBOL_NATURE::S_LITERAL, SYMBOL_TYPE::S_FLOAT, (char *)"foo");
+  argument *s1_a1 = make_argument((char *)"fred", SYMBOL_TYPE::S_INTEGER);
+  append_argument_to_symbol(s1, s1_a1);
+  symbol_table_t *table = NULL;
+  table = append_symbol_to_table(table, s1);
+  stack = push_symbol_table(stack, table);
+
+  symbol_table_entry *s1_pointer = find_symbol((char *)"foo", stack);
+  EXPECT_NE(nullptr, s1_pointer);
+
+  // Check fetching of symbol
+  EXPECT_EQ(SYMBOL_NATURE::S_LITERAL, s1_pointer->nature);
+  EXPECT_EQ(SYMBOL_TYPE::S_FLOAT, s1_pointer->type);
+  EXPECT_STREQ("foo", s1_pointer->value);
+
+  // Check fetching of symbol arguments
+  EXPECT_STREQ("fred", s1_pointer->arguments->current->name);
+  EXPECT_EQ(SYMBOL_TYPE::S_INTEGER, s1_pointer->arguments->current->type);
+
+  stack = pop_symbol_table(stack);
+  EXPECT_EQ(nullptr, stack);
 }
 
 int main(int argc, char **argv) {
