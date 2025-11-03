@@ -275,9 +275,6 @@ bloco_comandos:
         //Anotacao de tipo
         if ($3 != NULL) {
              $$->type = $3->type;
-        } else {
-             //Se o bloco for vazio, definimos um tipo base para compatibilidade (n sei se ta certo)
-             $$->type = S_INTEGER; 
         }
         stack = pop_symbol_table(stack);
     }
@@ -562,10 +559,24 @@ condicional:
         }
         
         //Verificacao de blocos (compatibilidade entre bloco_comandos ($5) e senao_opcional ($6))
+
+        SYMBOL_TYPE if_type, else_type;
+
+        if ($5 != NULL) {
+            if_type = $5->type;
+        } else {
+            if_type = S_INTEGER;
+        }
+
+        if ($6 != NULL) {
+            else_type = $6->type;
+        } else {
+            else_type = S_INTEGER;
+        }
         
         //Se o bloco else existir, os tipos dos blocos devem ser compatíveis.
         if ($6 != NULL) {
-            if ($5->type != $6->type) {
+            if (if_type != else_type) {
                 fprintf(stderr, "Erro semântico: tipos dos blocos 'if' e 'else' incompatíveis na linha %d.\n", yylineno);
                 exit(ERR_WRONG_TYPE); 
             }
@@ -579,8 +590,13 @@ condicional:
 
         $$->type = $3->type;
 
-        asd_add_child($$, $3); //Primeiro filho: condição (expressao)
-        asd_add_child($$, $5); //Segundo filho: bloco true (bloco_comandos)
+        
+        asd_add_child($$, $3); //Primeiro filho: condicao (expressao)
+
+        if ($5 != NULL) {
+            asd_add_child($$, $5); //Segundo filho: bloco true (bloco_comandos)
+        }
+        
         if ($6 != NULL) {
             asd_add_child($$, $6); //Terceiro filho (opcional): bloco else (senao_opcional)
         }
@@ -612,8 +628,13 @@ iterativa:
 
         $$->type = $3->type;
 
+
         asd_add_child($$, $3); //Primeiro filho: condicao (expressao)
-        asd_add_child($$, $5); //Segundo filho: bloco_comandos
+
+
+        if ($5 != NULL) {
+            asd_add_child($$, $5); //Segundo filho: bloco_comandos   
+        }
     }
 ;
 

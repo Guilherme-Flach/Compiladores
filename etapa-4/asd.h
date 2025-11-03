@@ -1,26 +1,21 @@
 #ifndef _ASD_H_
 #define _ASD_H_
 
-typedef enum asd_node {
-  INT,
-  FLOAT,
-  NEVER,
-} asd_node_t;
+#include "stack_functions.h"
 
 typedef struct asd_tree {
   char *label;
   int number_of_children;
-  asd_node_t type;
+  SYMBOL_TYPE type;
   struct asd_tree **children;
 } asd_tree_t;
-
-
-asd_tree_t *asd_new(const char *label);
 
 /*
  * Função asd_new, cria um nó sem filhos com o label informado.
  */
-asd_tree_t *asd_new_with_type(const char *label, asd_node_t node_type);
+asd_tree_t *asd_new(const char *label);
+
+asd_tree_t *asd_new_with_type(const char *label, SYMBOL_TYPE node_type);
 
 /*
  * Função asd_tree, libera recursivamente o nó e seus filhos.

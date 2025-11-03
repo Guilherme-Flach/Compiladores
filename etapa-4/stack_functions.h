@@ -6,7 +6,7 @@
 #include <string.h>
 
 typedef enum { S_LITERAL, S_IDENTIFIER, S_FUNCTION } SYMBOL_NATURE;
-typedef enum { S_INTEGER, S_FLOAT } SYMBOL_TYPE;
+typedef enum { S_INTEGER, S_FLOAT, S_NEVER } SYMBOL_TYPE;
 
 typedef struct {
   char *name;
