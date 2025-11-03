@@ -6,7 +6,7 @@ CXX=g++
 CFLAGS=-fsanitize=address -I. -Wall -Werror -g
 CXXFLAGS=-fsanitize=address -I. -Wall -Werror -g -lgtest -lgtest_main
 DEPS=parser.tab.h parser.tab.c lex.yy.c 
-OBJ=main.o lex.yy.o parser.tab.o asd.o stack_functions.o
+OBJ=main.o lex.yy.o parser.tab.o asd.o stack_functions.o semantic_checks.o
 
 etapa4: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
@@ -21,9 +21,9 @@ lex.yy.c: scanner.l parser.tab.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	rm -f $(OBJ) $(DEPS) etapa3
+	rm -f $(OBJ) $(DEPS) etapa4
 
-test: tests/test.o lex.yy.o parser.tab.o asd.o stack_functions.o
+test: tests/test.o lex.yy.o parser.tab.o asd.o stack_functions.o semantic_checks.o
 	$(CXX) $^ -o tests/$@  $(CXXFLAGS)
 
 tests/test.o: tests/test.cpp
