@@ -47,6 +47,11 @@ case $COMMAND in
   cp $STAGE_FOLDER/scanner.l .tmp
   cp $STAGE_FOLDER/asd.c .tmp
   cp $STAGE_FOLDER/asd.h .tmp
+  cp $STAGE_FOLDER/semantic_checks.c .tmp
+  cp $STAGE_FOLDER/semantic_checks.h .tmp
+  cp $STAGE_FOLDER/stack_functions.c .tmp
+  cp $STAGE_FOLDER/stack_functions.h .tmp
+  cp $STAGE_FOLDER/errors.h .tmp
   
   cd .tmp
   touch $TARGZ_FILE
