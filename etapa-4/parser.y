@@ -78,18 +78,20 @@ extern stack_node_t *stack;
 programa:
     %empty 
     { 
-        stack = push_symbol_table(stack, make_symbol_table_node()); 
         $$ = NULL;
-        stack = pop_symbol_table(stack); 
     }
-    | lista_elementos ';'
-    {
-        stack = push_symbol_table(stack, make_symbol_table_node()); 
-        
-        arvore = $1;
-        $$ = $1;
+    | inicializa_programa lista_elementos ';'
+    {   
+        arvore = $2;
+        $$ = $2;
+        stack = pop_symbol_table(stack);
+    }
+;
 
-        stack = pop_symbol_table(stack); 
+inicializa_programa:
+    %empty
+    {
+        stack = push_symbol_table(NULL, make_symbol_table_node());
     }
 ;
 
@@ -107,10 +109,15 @@ lista_elementos:
             }
             // A lista de funções é ligada no nó pai da lista, não na função em si.
             $$ = $1;
+            $$->type = $1->type;
         }
         else{
             // Propaga o próximo elemento caso o primeiro seja podado
             $$ = $2;
+            if($2 != NULL)
+            {
+                $$->type = $2->type; 
+            }
         }
     }
 ;
@@ -125,10 +132,10 @@ elemento:
     | definicao_funcao   {$$ = $1;}
 ;
 
+
 /*Uma funcao possui um cabeçalho e um corpo.*/
 definicao_funcao:
-    { stack = push_symbol_table(stack, make_symbol_table_node()); }
-    cabecalho_f corpo_f
+    abre_escopo_funcao cabecalho_f corpo_f
     {
         /*Usa o cabeçalho da função (lexema do identificador)*/
         $$ = $2;
@@ -144,6 +151,11 @@ definicao_funcao:
         stack = pop_symbol_table(stack);
     }
 ;
+
+abre_escopo_funcao:
+    %empty { stack = push_symbol_table(stack, make_symbol_table_node()); }
+;
+
 
 /*O cabeçalho consiste no token TK_ID seguido do token TK_SETA seguido ou do token
 TK_DECIMAL ou do token TK_INTEIRO, seguido por uma lista opcional de parâmetros seguido do
@@ -168,6 +180,7 @@ cabecalho_f:
         
         /*Para funções, deve-se utilizar seu identificador (o nome da função).*/
         $$ = asd_new($1.token_value);
+        $$->type = $3;  
         free($1.token_value);
     }
 ;
@@ -265,18 +278,20 @@ corpo_f:
     bloco_comandos { $$ = $1; }
 ;
 
-bloco_comandos:
-    '[' 
-    { stack = push_symbol_table(stack, make_symbol_table_node()); }
-    sequencia_bloco_comando_opcional ']' 
-    {
-        $$ = $3;
+abre_bloco:
+    '[' { stack = push_symbol_table(stack, make_symbol_table_node()); }
+;
 
-        //Anotacao de tipo
-        if ($3 != NULL) {
-             $$->type = $3->type;
-        }
-        stack = pop_symbol_table(stack);
+fecha_bloco:
+    ']' { stack = pop_symbol_table(stack); }
+;
+
+bloco_comandos:
+    abre_bloco sequencia_bloco_comando_opcional fecha_bloco
+    {
+        $$ = $2;
+        if ($2 != NULL)
+            $$->type = $2->type;
     }
 ;
 
@@ -350,6 +365,16 @@ comando_declaracao_variavel:
             /*"Rouba" o nodo do lexema TK_COM e coloca o identificador do filho nele. */
             $$ = $5;
 
+            // Verificação de compatibilidade de tipos
+            if (!tipo_compativel($5->type,$4)) {
+                fprintf(stderr, 
+                    "Erro semântico: tipo da inicialização incompatível com a declaração de '%s' na linha %d.\n", 
+                    $2.token_value, $2.line_number);
+                exit(ERR_WRONG_TYPE);
+            }
+
+            $$->type = $4; 
+
             /* Cria um nodo novo com a label do lexema de TK_ID.
              Esse passo poderia ser feito em uma produção do tipo
              ```c
@@ -373,6 +398,7 @@ inicializacao_opcional:
         /*Declaração de variável com incialização, o nome deve ser o lexema do token TK_COM.*/
         $$ = asd_new("com");
         asd_add_child($$, $2);
+        $$->type = $2->type;
     }
 ;
 
@@ -381,12 +407,14 @@ literal:
     {
         /*Literais utilizam o próprio lexema.*/
         $$ = asd_new($1.token_value);
+        $$->type = S_INTEGER; 
         free($1.token_value);
     }
     | TK_LI_DECIMAL
     {
         /*Literais utilizam o próprio lexema.*/
         $$ = asd_new($1.token_value);
+        $$->type = S_FLOAT; 
         free($1.token_value);
     }
 ;
@@ -479,6 +507,7 @@ chamada_funcao:
         snprintf(label_buffer, sizeof(label_buffer), "call %s", $1.token_value);
 
         $$ = asd_new(label_buffer); //Cria o nó pai
+        $$->type = entry->type; 
 
         if ($3 != NULL) {
             asd_add_child($$, $3); //Anexa a raiz da lista de argumentos (se não for vazia)
@@ -501,6 +530,7 @@ lista_argumentos:
             asd_add_child($1, $2); //Liga o argumento atual ao próximo argumento
         }
         $$ = $1; //Propaga a raiz da lista (o primeiro argumento)
+        $$->type = $1->type;
     }
 ;
 
@@ -740,6 +770,12 @@ expressao_p4:
     | expressao_p4 TK_OC_LE expressao_p3
     {
         $$ = asd_new("<=");
+        //Verificacao de tipo
+        SYMBOL_TYPE result_type = infer_type($1->type, $3->type);
+        
+        //Inferencia
+        $$->type = result_type;
+
         asd_add_child($$, $1);
         asd_add_child($$, $3);
     }
