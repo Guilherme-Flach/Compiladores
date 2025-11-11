@@ -1,0 +1,58 @@
+
+// Expected 0 - ACCEPT
+qwe25,11,Erro semântico: dupla declaração do símbolo f na linha 1. ,0
+qwe33,41,Erro semântico: argumentos em excesso na chamada de f na linha 2. ,0
+qwe04,10,Erro semântico: símbolo b não declarado na linha 3. ,0
+qwe05,10,Erro semântico: símbolo b não declarado na linha 5. ,0
+qwe06,10,Erro semântico: símbolo b não declarado na linha 6. ,0
+qwe07,10,Erro semântico: símbolo b não declarado na linha 5. ,0
+qwe08,10,Erro semântico: símbolo b não declarado na linha 4. ,0
+qwe09,10,Erro semântico: símbolo b não declarado na linha 4. ,0
+qwe30,10,Erro semântico: símbolo f não declarado na linha 3. ,0
+qwe32,10,Erro semântico: símbolo f não declarado na linha 4. ,0
+
+
+// Expected 20 - VARIABLE
+qwe34,10,Erro semântico: símbolo b não declarado na linha 4. ,20
+qwe36,10,Erro semântico: símbolo b não declarado na linha 5. ,20
+
+// Expected  21 - FUNCTION
+qwe39,10,Erro semântico: símbolo g não declarado na linha 4. ,21
+qwe40,10,Erro semântico: símbolo g não declarado na linha 5. ,21
+qwe41,10,Erro semântico: símbolo g não declarado na linha 6. ,21
+
+// Expected 40 - MISSING_ARGS
+qwe42,10,Erro semântico: símbolo h não declarado na linha 4. ,40
+qwe43,10,Erro semântico: símbolo h não declarado na linha 4. ,40
+
+// Expected 42 - WRONG TYPE ARGS
+qwe46,10,Erro semântico: símbolo h não declarado na linha 5. ,42
+qwe47,10,Erro semântico: símbolo h não declarado na linha 5. ,42
+qwe48,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe49,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe50,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe51,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe52,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe53,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe54,10,Erro semântico: símbolo h não declarado na linha 5. ,42
+qwe55,10,Erro semântico: símbolo h não declarado na linha 5. ,42
+qwe56,10,Erro semântico: símbolo h não declarado na linha 5. ,42
+qwe57,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe58,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe59,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe60,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe61,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe62,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe63,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+qwe64,10,Erro semântico: símbolo h não declarado na linha 6. ,42
+
+// Expected 30 - WRONG TYPE
+qwe69,0,digraph grafo { ,30
+qwe82,10,Erro semântico: símbolo g não declarado na linha 6. ,30
+
+// Expected 11 - DECLARED
+qwe16,0,digraph grafo { ,11
+qwe24,0,digraph grafo { ,11
+qwe27,0,digraph grafo { ,11
+qwe28,0,digraph grafo { ,11
+qwe29,0,digraph grafo { ,11

@@ -1,0 +1,83 @@
+GrupoP,qwe00,10,Erro semântico: símbolo a não declarado na linha 3. ,10,TRUE
+GrupoP,qwe01,10,Erro semântico: símbolo a não declarado na linha 3. ,10,TRUE
+GrupoP,qwe02,10,Erro semântico: símbolo a não declarado na linha 4. ,10,TRUE
+GrupoP,qwe03,10,Erro semântico: símbolo a não declarado na linha 4. ,10,TRUE
+GrupoP,qwe04,10,Erro semântico: símbolo b não declarado na linha 3. ,0,FALSE
+GrupoP,qwe05,10,Erro semântico: símbolo b não declarado na linha 5. ,0,FALSE
+GrupoP,qwe06,10,Erro semântico: símbolo b não declarado na linha 6. ,0,FALSE
+GrupoP,qwe07,10,Erro semântico: símbolo b não declarado na linha 5. ,0,FALSE
+GrupoP,qwe08,10,Erro semântico: símbolo b não declarado na linha 4. ,0,FALSE
+GrupoP,qwe09,10,Erro semântico: símbolo b não declarado na linha 4. ,0,FALSE
+GrupoP,qwe10,10,Erro semântico: símbolo b não declarado na linha 6. ,10,TRUE
+GrupoP,qwe11,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe12,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe13,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe14,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe15,10,Erro semântico: símbolo b não declarado na linha 11. ,10,TRUE
+GrupoP,qwe16,0,digraph grafo { ,11,FALSE
+GrupoP,qwe17,11,Erro semântico: dupla declaração da variável b na linha 4. ,11,TRUE
+GrupoP,qwe18,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe19,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe20,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe21,11,Erro semântico: dupla declaração da variável b na linha 5. ,11,TRUE
+GrupoP,qwe22,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe23,11,Erro semântico: dupla declaração do parâmetro a na linha 2. ,11,TRUE
+GrupoP,qwe24,0,digraph grafo { ,11,FALSE
+GrupoP,qwe25,11,Erro semântico: dupla declaração do símbolo f na linha 1. ,0,FALSE
+GrupoP,qwe26,0,digraph grafo { ,0,TRUE
+GrupoP,qwe27,0,digraph grafo { ,11,FALSE
+GrupoP,qwe28,0,digraph grafo { ,11,FALSE
+GrupoP,qwe29,0,digraph grafo { ,11,FALSE
+GrupoP,qwe30,10,Erro semântico: símbolo f não declarado na linha 3. ,0,FALSE
+GrupoP,qwe31,0,digraph grafo { ,0,TRUE
+GrupoP,qwe32,10,Erro semântico: símbolo f não declarado na linha 4. ,0,FALSE
+GrupoP,qwe33,41,Erro semântico: argumentos em excesso na chamada de f na linha 2. ,0,FALSE
+GrupoP,qwe34,10,Erro semântico: símbolo b não declarado na linha 4. ,20,FALSE
+GrupoP,qwe35,20,Erro semântico: variável b usada como função na linha 4. ,20,TRUE
+GrupoP,qwe36,10,Erro semântico: símbolo b não declarado na linha 5. ,20,FALSE
+GrupoP,qwe37,20,Erro semântico: variável b usada como função na linha 5. ,20,TRUE
+GrupoP,qwe38,21,Erro semântico: função f usada como variável para atribuição na linha 3. ,21,TRUE
+GrupoP,qwe39,10,Erro semântico: símbolo g não declarado na linha 4. ,21,FALSE
+GrupoP,qwe40,10,Erro semântico: símbolo g não declarado na linha 5. ,21,FALSE
+GrupoP,qwe41,10,Erro semântico: símbolo g não declarado na linha 6. ,21,FALSE
+GrupoP,qwe42,10,Erro semântico: símbolo h não declarado na linha 4. ,40,FALSE
+GrupoP,qwe43,10,Erro semântico: símbolo h não declarado na linha 4. ,40,FALSE
+GrupoP,qwe44,41,Erro semântico: argumentos em excesso na chamada de f na linha 4. ,41,TRUE
+GrupoP,qwe45,41,Erro semântico: argumentos em excesso na chamada de f na linha 4. ,41,TRUE
+GrupoP,qwe46,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe47,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe48,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe49,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe50,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe51,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe52,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe53,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe54,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe55,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe56,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe57,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe58,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe59,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe60,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe61,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe62,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe63,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe64,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe65,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 4. ,30,TRUE
+GrupoP,qwe66,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 4. ,30,TRUE
+GrupoP,qwe67,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 3. ,30,TRUE
+GrupoP,qwe68,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 3. ,30,TRUE
+GrupoP,qwe69,0,digraph grafo { ,30,FALSE
+GrupoP,qwe70,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 4. ,30,TRUE
+GrupoP,qwe71,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 5. ,30,TRUE
+GrupoP,qwe72,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe73,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe74,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe75,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe76,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 5. ,30,TRUE
+GrupoP,qwe77,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe78,30,Erro semântico: expressão de teste de enquanto inválida na linha 9. ,30,TRUE
+GrupoP,qwe79,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe80,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe81,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe82,10,Erro semântico: símbolo g não declarado na linha 6. ,30,FALSE

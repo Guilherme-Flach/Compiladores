@@ -1,0 +1,12 @@
+qwe25,11,Erro semântico: dupla declaração do símbolo f na linha 1. ,0
+
+qwe04,10,Erro semântico: símbolo b não declarado na linha 3. ,0
+qwe05,10,Erro semântico: símbolo b não declarado na linha 5. ,0
+qwe06,10,Erro semântico: símbolo b não declarado na linha 6. ,0
+qwe07,10,Erro semântico: símbolo b não declarado na linha 5. ,0
+qwe08,10,Erro semântico: símbolo b não declarado na linha 4. ,0
+qwe09,10,Erro semântico: símbolo b não declarado na linha 4. ,0
+qwe30,10,Erro semântico: símbolo f não declarado na linha 3. ,0
+qwe32,10,Erro semântico: símbolo f não declarado na linha 4. ,0
+
+qwe33,41,Erro semântico: argumentos em excesso na chamada de f na linha 2. ,0
