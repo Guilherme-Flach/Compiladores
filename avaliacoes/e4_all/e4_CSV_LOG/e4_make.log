@@ -1,0 +1,288 @@
+
+GrupoA
+
+/home/user/GrupoA /home/user
+gcc -g -Wall -Werror  -c  main.c -o main.o
+bison -d parser.y
+gcc -g -Wall -Werror  -c  parser.tab.c -o parser.tab.o
+flex scanner.l
+gcc -g -Wall -Werror  -c  lex.yy.c -o lex.yy.o
+gcc -g -Wall -Werror  -c  asd.c -o asd.o
+gcc -g -Wall -Werror  -c  tabela.c -o tabela.o
+gcc -g -Wall -Werror  -c  parser_helpers.c -o parser_helpers.o
+gcc -g -Wall -Werror  main.o parser.tab.o lex.yy.o asd.o tabela.o parser_helpers.o -o etapa4 
+/home/user
+
+GrupoB
+
+/home/user/GrupoB /home/user
+bison -d -t parser.y
+flex scanner.l
+gcc -c -o lex.yy.o lex.yy.c -g -I. -fsanitize=address
+gcc -c -o parser.tab.o parser.tab.c -g -I. -fsanitize=address
+gcc -c -o main.o main.c -g -I. -fsanitize=address
+gcc -c -o asd.o asd.c -g -I. -fsanitize=address
+gcc -c -o utils.o utils.c -g -I. -fsanitize=address
+gcc -o etapa4 lex.yy.o parser.tab.o main.o asd.o utils.o -fsanitize=address -lfl
+/home/user
+
+GrupoC
+
+/home/user/GrupoC /home/user
+gcc -c valor_lexico.c -o valor_lexico.o -Wall -fsanitize=address -g
+gcc -c asd.c -o asd.o -Wall -fsanitize=address -g
+gcc -c structs.c -o structs.o -Wall -fsanitize=address -g
+gcc -c contexto.c -o contexto.o -Wall -fsanitize=address -g
+gcc -c main.c -o main.o -Wall -fsanitize=address -g
+bison -d parser.y
+flex scanner.l
+gcc -c lex.yy.c -o lex.yy.o -Wall -fsanitize=address -g
+gcc -c parser.tab.c -o parser.tab.o -Wall -fsanitize=address -g
+gcc valor_lexico.o asd.o structs.o contexto.o main.o lex.yy.o parser.tab.o -o etapa4 -fsanitize=address -g
+/home/user
+
+GrupoD
+
+/home/user/GrupoD /home/user
+gcc -fsanitize=address -g -Werror -Wall -o etapa4 main.c asd.c symbol_table.c errors.c types.c parser.tab.c scanner.lex.c -lfl -lm
+/home/user
+
+GrupoE
+
+/home/user/GrupoE /home/user
+Compilando arquivo fonte: asd.c
+bison -d parser.y
+gcc                   -Wall -Werror -g -fsanitize=address  -c main.c
+gcc                   -Wall -Werror -g -fsanitize=address  -c symtab.c
+flex scanner.l
+gcc                   -g -Wno-unused-function -fsanitize=address  -c lex.yy.c
+Compilando arquivo gerado: parser.tab.c
+gcc                   -Wall -Werror -g -fsanitize=address  asd.o main.o symtab.o lex.yy.o parser.tab.o -o etapa4           
+/home/user
+
+GrupoF
+
+/home/user/GrupoF /home/user
+gcc -g -fsanitize=address -Wall -Werror -c main.c -o main.o
+gcc -g -fsanitize=address -Wall -Werror -c asd.c -o asd.o
+gcc -g -fsanitize=address -Wall -Werror -c stack.c -o stack.o
+gcc -g -fsanitize=address -Wall -Werror -c table.c -o table.o
+gcc -g -fsanitize=address -Wall -Werror -c errors.c -o errors.o
+bison -d -o parser.tab.c parser.y
+gcc -g -fsanitize=address -Wall -Werror -c parser.tab.c -o parser.tab.o
+flex -o lex.yy.c scanner.l
+gcc -g -fsanitize=address -Wall -Werror -c lex.yy.c -o lex.yy.o
+gcc -g -fsanitize=address -Wall -Werror -o etapa4 main.o asd.o stack.o table.o errors.o parser.tab.o lex.yy.o -lfl
+/home/user
+
+GrupoG
+
+/home/user/GrupoG /home/user
+gcc -Wall -g -I -Werror -fsanitize=address -c main.c
+gcc -Wall -g -I -Werror -fsanitize=address -c asd.c
+gcc -Wall -g -I -Werror -fsanitize=address -c tabela.c
+bison -d -o parser.tab.c parser.y
+gcc -Wall -g -I -Werror -fsanitize=address -c parser.tab.c
+flex -o lex.yy.c scanner.l
+gcc -Wall -g -I -Werror -fsanitize=address -c lex.yy.c
+gcc -Wall -g -I -Werror -fsanitize=address -o etapa4 main.o asd.o tabela.o parser.tab.o lex.yy.o -lfl
+/home/user
+
+GrupoH
+
+/home/user/GrupoH /home/user
+diff: extra operand './main.c'
+diff: Try 'diff --help' for more information.
+bison -d parser.y
+flex -o lex.yy.c scanner.l
+gcc -g -Werror -fsanitize=address -o etapa4 asd.c main.c symbol_table.c lex.yy.c parser.tab.c -lm
+/home/user
+
+GrupoI
+
+/home/user/GrupoI /home/user
+bison -d parser.y
+gcc -Wall -g -fsanitize=address -c main.c -o main.o
+flex scanner.l
+gcc -Wall -g -fsanitize=address -c lex.yy.c -o lex.yy.o
+lex.yy.c:1320:16: warning: 'input' defined but not used [-Wunused-function]
+ 1320 |     static int input  (void)
+      |                ^~~~~
+lex.yy.c:1273:17: warning: 'yyunput' defined but not used [-Wunused-function]
+ 1273 |     static void yyunput (int c, char * yy_bp )
+      |                 ^~~~~~~
+gcc -Wall -g -fsanitize=address -c parser.tab.c -o parser.tab.o
+gcc -Wall -g -fsanitize=address -c asd.c -o asd.o
+gcc -Wall -g -fsanitize=address -c tabela.c -o tabela.o
+gcc -Wall -g -fsanitize=address -c erros.c -o erros.o
+gcc -Wall -g -fsanitize=address -o etapa4 main.o lex.yy.o parser.tab.o asd.o tabela.o erros.o
+/home/user
+
+GrupoJ
+
+/home/user/GrupoJ /home/user
+bison -d -o parser.tab.c parser.y
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c main.c -o main.o
+flex -o scanner.yy.c scanner.l
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c scanner.yy.c -o scanner.yy.o
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c parser.tab.c -o parser.tab.o
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c asd.c -o asd.o
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c semantic.c -o semantic.o
+gcc -Wall -g -Wno-unused-function -fsanitize=address,undefined -c symbol_table.c -o symbol_table.o
+gcc main.o scanner.yy.o parser.tab.o asd.o semantic.o symbol_table.o -o etapa4 -fsanitize=address,undefined
+/home/user
+
+GrupoK
+
+/home/user/GrupoK /home/user
+diff: extra operand './asd_main.c'
+diff: Try 'diff --help' for more information.
+flex scanner.l
+bison -d --report=all parser.y
+gcc -Wall -Werror -o etapa4 main.c asd.c lex.yy.c parser.tab.c
+/home/user
+
+GrupoL
+
+/home/user/GrupoL /home/user
+bison -d -v parser.y
+flex scanner.l
+gcc *.c -Wall -Werror -g -fsanitize=address -c
+gcc *.o -Wall -Werror -g -fsanitize=address -o etapa4
+/home/user
+
+GrupoM
+
+/home/user/GrupoM /home/user
+bison -d -v parser.y --report-file=parser.output
+flex -o scanner.yy.c scanner.l
+gcc -Wall  -Werror  -ggdb -Og   -o etapa4 main.c asd.c tabela_simbolos.c semantica_utils.c parser.tab.c scanner.yy.c
+/home/user
+
+GrupoO
+
+/home/user/GrupoO /home/user
+bison -d -v parser.y
+flex scanner.l
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -o etapa4 asd.c main.c symtab.c parser.tab.c lex.yy.c -fsanitize=address
+/home/user
+
+GrupoP
+
+/home/user/GrupoP /home/user
+bison -d --report=all --report-file=parser.output parser.y
+flex scanner.l
+gcc -c -o main.o main.c -fsanitize=address -I. -Wall -Werror -g
+gcc -c -o lex.yy.o lex.yy.c -fsanitize=address -I. -Wall -Werror -g
+gcc -c -o parser.tab.o parser.tab.c -fsanitize=address -I. -Wall -Werror -g
+gcc -c -o asd.o asd.c -fsanitize=address -I. -Wall -Werror -g
+gcc -c -o stack_functions.o stack_functions.c -fsanitize=address -I. -Wall -Werror -g
+gcc -c -o semantic_checks.o semantic_checks.c -fsanitize=address -I. -Wall -Werror -g
+gcc -o etapa4 main.o lex.yy.o parser.tab.o asd.o stack_functions.o semantic_checks.o -fsanitize=address -I. -Wall -Werror -g
+/home/user
+
+GrupoQ
+
+/home/user/GrupoQ /home/user
+bison -d -v  -o parser.tab.c parser.y
+gcc -Wall -g -fsanitize=address -c main.c
+flex -o lex.yy.c scanner.l
+gcc -Wall -g -fsanitize=address -c lex.yy.c
+lex.yy.c:1318:16: warning: 'input' defined but not used [-Wunused-function]
+ 1318 |     static int input  (void)
+      |                ^~~~~
+lex.yy.c:1271:17: warning: 'yyunput' defined but not used [-Wunused-function]
+ 1271 |     static void yyunput (int c, char * yy_bp )
+      |                 ^~~~~~~
+gcc -Wall -g -fsanitize=address -c parser.tab.c
+gcc -Wall -g -fsanitize=address -c asd.c
+gcc -Wall -g -fsanitize=address -c tabela.c
+gcc -Wall -g -fsanitize=address -o etapa4 main.o lex.yy.o parser.tab.o asd.o tabela.o
+/home/user
+
+GrupoR
+
+/home/user/GrupoR /home/user
+bison -d parser.y
+gcc -Wall -Werror -fsanitize=address -c parser.tab.c -o parser.tab.o
+flex scanner.l
+gcc -Wall -Werror -fsanitize=address -c lex.yy.c -o lex.yy.o
+gcc -Wall -Werror -fsanitize=address   -c -o asd.o asd.c
+gcc -Wall -Werror -fsanitize=address   -c -o tabelaSimbolos.o tabelaSimbolos.c
+gcc -Wall -Werror -fsanitize=address   -c -o erros.o erros.c
+gcc -Wall -Werror -fsanitize=address   -c -o semantica.o semantica.c
+gcc -Wall -Werror -fsanitize=address -c main.c -o main.o
+gcc -Wall -Werror -fsanitize=address -o etapa4 parser.tab.o lex.yy.o asd.o tabelaSimbolos.o erros.o semantica.o main.o -lfl
+/home/user
+
+GrupoS
+
+/home/user/GrupoS /home/user
+bison -d -Wall -Wcounterexamples --report=all --report-file=parser.output parser.y
+gcc -Wall -Werror  -c main.c
+gcc -Wall -Werror  -c parser.tab.c
+flex scanner.l
+gcc -Wall -Werror  -c lex.yy.c
+gcc -Wall -Werror  -c asd.c
+gcc -Wall -Werror  -c symbol.c
+gcc -Wall -Werror  -c symbolnode.c
+gcc -Wall -Werror  -c scope.c
+gcc -Wall -Werror  -c scopenode.c
+gcc -Wall -Werror  -c scopestackhandler.c
+gcc -Wall -Werror  -c semantics.c
+gcc -Wall -Werror  -c utils.c
+gcc -Wall -Werror  -o etapa4 main.o parser.tab.o lex.yy.o asd.o symbol.o symbolnode.o scope.o scopenode.o scopestackhandler.o semantics.o utils.o
+/home/user
+
+GrupoT
+
+/home/user/GrupoT /home/user
+'../errors.h' -> './errors.h'
+bison -d parser.y
+parser.y: warning: 2 shift/reduce conflicts [-Wconflicts-sr]
+parser.y: note: rerun with option '-Wcounterexamples' to generate conflict counterexamples
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -c -o main.o main.c
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -c -o asd.o asd.c
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -c -o tabela.o tabela.c
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -c -o parser.tab.o parser.tab.c
+flex  scanner.l
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -c -o lex.yy.o lex.yy.c
+gcc -Wall -g -Wno-unused-function -Wno-unused-variable -fsanitize=address -o etapa4 main.o asd.o tabela.o parser.tab.o lex.yy.o
+/home/user
+
+GrupoV
+
+/home/user/GrupoV /home/user
+bison -d -o parser.c parser.y --report-file=parser.output --header=parser.tab.h
+flex -o scanner.c scanner.l
+gcc -Wall -g -fsanitize=address -I. -o etapa4 parser.c scanner.c main.c asd.c scope.c -lfl
+/home/user
+
+GrupoW
+
+/home/user/GrupoW /home/user
+bison -d -o parser.tab.c parser.y
+gcc -Wall -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer -c parser.tab.c
+flex -o scanner.lex.c scanner.l
+gcc -Wall -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer -c scanner.lex.c
+gcc -Wall -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer -c asd.c
+gcc -Wall -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer -c main.c
+gcc -Wall -Wextra -O0 -g -fsanitize=address -fno-omit-frame-pointer parser.tab.o scanner.lex.o asd.o main.o -o etapa4 -fsanitize=address
+/home/user
+
+GrupoZ
+
+/home/user/GrupoZ /home/user
+bison -d -v -o parser/parser.tab.c parser/parser.y
+flex -o parser/lex.yy.c scanner.l
+gcc -Wall -g -fsanitize=address -Iparser -Iasd -Iscope -c main.c
+gcc -Wall -g -fsanitize=address -Iparser -Iasd -Iscope -c asd/asd.c
+gcc -Wall -g -fsanitize=address -Iparser -Iasd -Iscope -c scope/scope.c
+gcc -Wall -g -fsanitize=address -Iparser -Iasd -Iscope -o etapa4 parser/parser.tab.c parser/lex.yy.c main.o asd.o scope.o
+parser/lex.yy.c:1323:16: warning: 'input' defined but not used [-Wunused-function]
+ 1323 |     static int input  (void)
+      |                ^~~~~
+parser/lex.yy.c:1276:17: warning: 'yyunput' defined but not used [-Wunused-function]
+ 1276 |     static void yyunput (int c, char * yy_bp )
+      |                 ^~~~~~~
+/home/user

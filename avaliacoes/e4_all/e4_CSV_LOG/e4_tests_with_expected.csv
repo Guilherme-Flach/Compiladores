@@ -1,0 +1,1827 @@
+Grupo,Test,Res,Output,Code,TEST.WORKED
+GrupoA,qwe00,10,Erro semantico (Linha 3): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe01,10,Erro semantico (Linha 3): Funcao nao declarada. ,10,TRUE
+GrupoA,qwe02,10,Erro semantico (Linha 4): Funcao nao declarada. ,10,TRUE
+GrupoA,qwe03,10,Erro semantico (Linha 4): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe04,0,digraph grafo { ,0,TRUE
+GrupoA,qwe05,0,digraph grafo { ,0,TRUE
+GrupoA,qwe06,0,digraph grafo { ,0,TRUE
+GrupoA,qwe07,0,digraph grafo { ,0,TRUE
+GrupoA,qwe08,0,digraph grafo { ,0,TRUE
+GrupoA,qwe09,0,digraph grafo { ,0,TRUE
+GrupoA,qwe10,10,Erro semantico (Linha 6): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe11,10,Erro semantico (Linha 7): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe12,10,Erro semantico (Linha 7): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe13,10,Erro semantico (Linha 7): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe14,10,Erro semantico (Linha 7): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe15,10,Erro semantico (Linha 11): Identificador nao declarado. ,10,TRUE
+GrupoA,qwe16,11,Erro semantico (Linha 4): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe17,11,Erro semantico (Linha 4): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe18,11,Erro semantico (Linha 6): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe19,11,Erro semantico (Linha 6): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe20,11,Erro semantico (Linha 6): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe21,11,Erro semantico (Linha 5): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe22,11,Erro semantico (Linha 6): Identificador ja declarado. ,11,TRUE
+GrupoA,qwe23,11,Erro semantico (Linha 0): Uso duplicado. Parametro com nome duplicado. ,11,TRUE
+GrupoA,qwe24,0,digraph grafo { ,11,FALSE
+GrupoA,qwe25,0,digraph grafo { ,0,TRUE
+GrupoA,qwe26,0,digraph grafo { ,0,TRUE
+GrupoA,qwe27,11,Erro semantico (Linha 3): Funcao ja declarada. ,11,TRUE
+GrupoA,qwe28,11,Erro semantico (Linha 3): Funcao ja declarada. ,11,TRUE
+GrupoA,qwe29,11,Erro semantico (Linha 3): Funcao ja declarada. ,11,TRUE
+GrupoA,qwe30,0,digraph grafo { ,0,TRUE
+GrupoA,qwe31,0,digraph grafo { ,0,TRUE
+GrupoA,qwe32,0,digraph grafo { ,0,TRUE
+GrupoA,qwe33,0,digraph grafo { ,0,TRUE
+GrupoA,qwe34,20,Erro semantico (Linha 4): Variavel usada como funcao. ,20,TRUE
+GrupoA,qwe35,20,Erro semantico (Linha 4): Variavel usada como funcao. ,20,TRUE
+GrupoA,qwe36,20,Erro semantico (Linha 5): Variavel usada como funcao. ,20,TRUE
+GrupoA,qwe37,20,Erro semantico (Linha 5): Variavel usada como funcao. ,20,TRUE
+GrupoA,qwe38,21,Erro semantico (Linha 3): Funcao usada como variavel em atribuicao. ,21,TRUE
+GrupoA,qwe39,21,Erro semantico (Linha 4): Funcao usada como variavel em atribuicao. ,21,TRUE
+GrupoA,qwe40,21,Erro semantico (Linha 5): Funcao usada como variavel. ,21,TRUE
+GrupoA,qwe41,21,Erro semantico (Linha 6): Funcao usada como variavel. ,21,TRUE
+GrupoA,qwe42,40,Erro semantico (Linha 4): Faltam argumentos na chamada da funcao. ,40,TRUE
+GrupoA,qwe43,40,Erro semantico (Linha 4): Faltam argumentos na chamada da funcao. ,40,TRUE
+GrupoA,qwe44,41,Erro semantico (Linha 4): Argumentos em excesso na chamada da funcao. ,41,TRUE
+GrupoA,qwe45,41,Erro semantico (Linha 4): Argumentos em excesso na chamada da funcao. ,41,TRUE
+GrupoA,qwe46,42,Erro semantico (Linha 5): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe47,42,Erro semantico (Linha 5): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe48,0,digraph grafo { ,42,FALSE
+GrupoA,qwe49,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe50,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe51,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe52,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe53,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe54,41,Erro semantico (Linha 5): Argumentos em excesso na chamada da funcao. ,42,FALSE
+GrupoA,qwe55,41,Erro semantico (Linha 5): Argumentos em excesso na chamada da funcao. ,42,FALSE
+GrupoA,qwe56,41,Erro semantico (Linha 5): Argumentos em excesso na chamada da funcao. ,42,FALSE
+GrupoA,qwe57,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe58,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe59,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe60,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe61,41,Erro semantico (Linha 6): Argumentos em excesso na chamada da funcao. ,42,FALSE
+GrupoA,qwe62,41,Erro semantico (Linha 6): Argumentos em excesso na chamada da funcao. ,42,FALSE
+GrupoA,qwe63,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe64,42,Erro semantico (Linha 6): Tipo incorreto. Argumento de tipo incompativel. ,42,TRUE
+GrupoA,qwe65,30,Erro semantico (Linha 4): Tipo de retorno incompativel com a declaracao da funcao. ,30,TRUE
+GrupoA,qwe66,30,Erro semantico (Linha 4): Tipo de retorno incompativel com a declaracao da funcao. ,30,TRUE
+GrupoA,qwe67,30,Erro semantico (Linha 3): Tipo de retorno incompativel com a declaracao da funcao. ,30,TRUE
+GrupoA,qwe68,30,Erro semantico (Linha 3): Tipo de retorno incompativel com a declaracao da funcao. ,30,TRUE
+GrupoA,qwe69,0,digraph grafo { ,30,FALSE
+GrupoA,qwe70,30,Erro semantico (Linha 4): Atribuicao de tipo incompativel. ,30,TRUE
+GrupoA,qwe71,30,Erro semantico (Linha 5): Atribuicao de tipo incompativel. ,30,TRUE
+GrupoA,qwe72,30,Erro semantico (Linha 5): Tipos incompativeis em operacao aritmetica. ,30,TRUE
+GrupoA,qwe73,30,Erro semantico (Linha 5): Tipos incompativeis em operacao aritmetica. ,30,TRUE
+GrupoA,qwe74,30,Erro semantico (Linha 5): Tipos incompativeis em operacao relacional/logica. ,30,TRUE
+GrupoA,qwe75,30,Erro semantico (Linha 5): Tipos incompativeis em operacao relacional/logica. ,30,TRUE
+GrupoA,qwe76,30,Erro semantico (Linha 5): Atribuicao de tipo incompativel. ,30,TRUE
+GrupoA,qwe77,30,Erro semantico (Linha 5): Tipos incompativeis em operacao aritmetica. ,30,TRUE
+GrupoA,qwe78,30,Erro semantico (Linha 4): Tipos incompatíveis entre os blocos if e else. ,30,TRUE
+GrupoA,qwe79,30,Erro semantico (Linha 4): Tipos incompatíveis entre os blocos if e else. ,30,TRUE
+GrupoA,qwe80,30,Erro semantico (Linha 4): Tipos incompatíveis entre os blocos if e else. ,30,TRUE
+GrupoA,qwe81,30,Erro semantico (Linha 4): Tipos incompatíveis entre os blocos if e else. ,30,TRUE
+GrupoA,qwe82,30,Erro semantico (Linha 5): Tipos incompatíveis entre os blocos if e else. ,30,TRUE
+GrupoB,qwe00,10,ERRO linha 4! Identificador a não declarado ,10,TRUE
+GrupoB,qwe01,10,ERRO linha 3! Identificador a não declarado ,10,TRUE
+GrupoB,qwe02,10,ERRO linha 4! Identificador a não declarado ,10,TRUE
+GrupoB,qwe03,10,ERRO linha 4! Variável a não declarada ,10,TRUE
+GrupoB,qwe04,0,digraph grafo { ,0,TRUE
+GrupoB,qwe05,0,digraph grafo { ,0,TRUE
+GrupoB,qwe06,0,digraph grafo { ,0,TRUE
+GrupoB,qwe07,0,digraph grafo { ,0,TRUE
+GrupoB,qwe08,0,digraph grafo { ,0,TRUE
+GrupoB,qwe09,0,digraph grafo { ,0,TRUE
+GrupoB,qwe10,10,ERRO linha 7! Identificador b não declarado ,10,TRUE
+GrupoB,qwe11,10,ERRO linha 8! Identificador b não declarado ,10,TRUE
+GrupoB,qwe12,10,ERRO linha 8! Identificador b não declarado ,10,TRUE
+GrupoB,qwe13,10,ERRO linha 8! Identificador b não declarado ,10,TRUE
+GrupoB,qwe14,10,ERRO linha 8! Identificador b não declarado ,10,TRUE
+GrupoB,qwe15,10,ERRO linha 12! Identificador b não declarado ,10,TRUE
+GrupoB,qwe16,11,ERRO Linha 4! b já foi declarada ,11,TRUE
+GrupoB,qwe17,11,ERRO Linha 4! b já foi declarada ,11,TRUE
+GrupoB,qwe18,11,ERRO Linha 6! b já foi declarada ,11,TRUE
+GrupoB,qwe19,11,ERRO Linha 6! b já foi declarada ,11,TRUE
+GrupoB,qwe20,11,ERRO Linha 6! b já foi declarada ,11,TRUE
+GrupoB,qwe21,11,ERRO Linha 5! b já foi declarada ,11,TRUE
+GrupoB,qwe22,11,ERRO Linha 6! b já foi declarada ,11,TRUE
+GrupoB,qwe23,11,ERRO Linha 2! a já foi declarada ,11,TRUE
+GrupoB,qwe24,11,ERRO Linha 3! b já foi declarada ,11,TRUE
+GrupoB,qwe25,11,ERRO Linha 1! f já foi declarada ,0,FALSE
+GrupoB,qwe26,11,ERRO Linha 2! f já foi declarada ,0,FALSE
+GrupoB,qwe27,11,ERRO Linha 3! f já foi declarada ,11,TRUE
+GrupoB,qwe28,11,ERRO Linha 3! f já foi declarada ,11,TRUE
+GrupoB,qwe29,11,ERRO Linha 3! f já foi declarada ,11,TRUE
+GrupoB,qwe30,0,digraph grafo { ,0,TRUE
+GrupoB,qwe31,0,digraph grafo { ,0,TRUE
+GrupoB,qwe32,0,digraph grafo { ,0,TRUE
+GrupoB,qwe33,0,digraph grafo { ,0,TRUE
+GrupoB,qwe34,20,ERRO linha 4! Variável b chamada como função. ,20,TRUE
+GrupoB,qwe35,20,ERRO linha 4! Variável b chamada como função. ,20,TRUE
+GrupoB,qwe36,20,ERRO linha 5! Variável b chamada como função. ,20,TRUE
+GrupoB,qwe37,20,ERRO linha 5! Variável b chamada como função. ,20,TRUE
+GrupoB,qwe38,0,digraph grafo { ,21,FALSE
+GrupoB,qwe39,0,digraph grafo { ,21,FALSE
+GrupoB,qwe40,21,ERRO linha 5! Função g chamada como variável. ,21,TRUE
+GrupoB,qwe41,21,ERRO linha 6! Função g chamada como variável. ,21,TRUE
+GrupoB,qwe42,41,ERRO linha 4! A função h  recebeu MAIS argumentos do que na definição (1 argumentos). ,40,FALSE
+GrupoB,qwe43,41,ERRO linha 4! A função h  recebeu MAIS argumentos do que na definição (2 argumentos). ,40,FALSE
+GrupoB,qwe44,41,ERRO linha 4! A função f  recebeu MAIS argumentos do que na definição (Esperava 0 argumentos). ,41,TRUE
+GrupoB,qwe45,41,ERRO linha 4! A função f  recebeu MAIS argumentos do que na definição (Esperava 0 argumentos). ,41,TRUE
+GrupoB,qwe46,42,ERRO linha 5! A função h  recebeu argumento b do tipo decimal quando esperava inteiro. ,42,TRUE
+GrupoB,qwe47,42,ERRO linha 5! A função h  recebeu argumento b do tipo inteiro quando esperava decimal. ,42,TRUE
+GrupoB,qwe48,42,ERRO linha 6! A função h  recebeu argumento x do tipo decimal quando esperava inteiro. ,42,TRUE
+GrupoB,qwe49,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe50,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe51,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe52,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe53,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe54,41,ERRO linha 5! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe55,41,ERRO linha 5! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe56,41,ERRO linha 5! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe57,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe58,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe59,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe60,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe61,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe62,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe63,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe64,41,ERRO linha 6! A função h  recebeu MAIS argumentos do que na definição (Esperava 1 argumentos). ,42,FALSE
+GrupoB,qwe65,0,digraph grafo { ,30,FALSE
+GrupoB,qwe66,0,digraph grafo { ,30,FALSE
+GrupoB,qwe67,0,digraph grafo { ,30,FALSE
+GrupoB,qwe68,0,digraph grafo { ,30,FALSE
+GrupoB,qwe69,0,digraph grafo { ,30,FALSE
+GrupoB,qwe70,30,ERRO linha 5! Atribuição de variável a com tipos incompatíveis. ,30,TRUE
+GrupoB,qwe71,30,ERRO linha 6! Atribuição de variável a com tipos incompatíveis. ,30,TRUE
+GrupoB,qwe72,30,ERRO linha 6! Operação + entre decimal e inteiro ,30,TRUE
+GrupoB,qwe73,30,ERRO linha 6! Operação * entre decimal e inteiro ,30,TRUE
+GrupoB,qwe74,30,ERRO linha 6! Operação < entre decimal e inteiro ,30,TRUE
+GrupoB,qwe75,30,ERRO linha 6! Operação == entre decimal e inteiro ,30,TRUE
+GrupoB,qwe76,30,ERRO linha 6! Atribuição de variável a com tipos incompatíveis. ,30,TRUE
+GrupoB,qwe77,30,ERRO linha 6! Operação + entre decimal e inteiro ,30,TRUE
+GrupoB,qwe78,30,ERRO linha 10! ENTÃO com 1o comando incompatível com o tipo da expressão do SE. ,30,TRUE
+GrupoB,qwe79,30,ERRO linha 10! ENTÃO com 1o comando incompatível com o tipo da expressão do SE. ,30,TRUE
+GrupoB,qwe80,30,ERRO linha 10! ENTÃO com 1o comando incompatível com o tipo da expressão do SE. ,30,TRUE
+GrupoB,qwe81,30,ERRO linha 10! ENTÃO com 1o comando incompatível com o tipo da expressão do SE. ,30,TRUE
+GrupoB,qwe82,30,ERRO linha 9! SE com 1o comando incompatível com o tipo da expressão. ,30,TRUE
+GrupoC,qwe00,10,error on line 4: semantic error: variable a is not declared. ,10,TRUE
+GrupoC,qwe01,10,error on line 3: semantic error: function a is not declared. ,10,TRUE
+GrupoC,qwe02,10,error on line 4: semantic error: function a is not declared. ,10,TRUE
+GrupoC,qwe03,10,error on line 5: semantic error: variable a is not declared. ,10,TRUE
+GrupoC,qwe04,0,digraph grafo { ,0,TRUE
+GrupoC,qwe05,0,digraph grafo { ,0,TRUE
+GrupoC,qwe06,1,================================================================= ,0,FALSE
+GrupoC,qwe07,0,digraph grafo { ,0,TRUE
+GrupoC,qwe08,0,digraph grafo { ,0,TRUE
+GrupoC,qwe09,0,digraph grafo { ,0,TRUE
+GrupoC,qwe10,10,error on line 7: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe11,10,error on line 8: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe12,10,error on line 8: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe13,10,error on line 8: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe14,10,error on line 8: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe15,10,error on line 12: semantic error: variable b is not declared. ,10,TRUE
+GrupoC,qwe16,11,error on line 4: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe17,11,error on line 5: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe18,11,error on line 7: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe19,11,error on line 7: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe20,11,error on line 7: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe21,11,error on line 6: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe22,11,error on line 7: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe23,0,digraph grafo { ,11,FALSE
+GrupoC,qwe24,11,error on line 4: semantic error: variable b already declared as variable. ,11,TRUE
+GrupoC,qwe25,0,digraph grafo { ,0,TRUE
+GrupoC,qwe26,11,error on line 3: semantic error: variable f already declared as function. ,0,FALSE
+GrupoC,qwe27,11,error on line 3: semantic error:function f already declared as function. ,11,TRUE
+GrupoC,qwe28,11,error on line 3: semantic error: function f already declared as function. ,11,TRUE
+GrupoC,qwe29,11,error on line 3: semantic error:function f already declared as function. ,11,TRUE
+GrupoC,qwe30,0,digraph grafo { ,0,TRUE
+GrupoC,qwe31,0,digraph grafo { ,0,TRUE
+GrupoC,qwe32,0,digraph grafo { ,0,TRUE
+GrupoC,qwe33,0,digraph grafo { ,0,TRUE
+GrupoC,qwe34,20,"error on line 4: semantic error: b is not a function, expected function. ",20,TRUE
+GrupoC,qwe35,20,"error on line 4: semantic error: b is not a function, expected function. ",20,TRUE
+GrupoC,qwe36,20,"error on line 5: semantic error: b is not a function, expected function. ",20,TRUE
+GrupoC,qwe37,20,"error on line 5: semantic error: b is not a function, expected function. ",20,TRUE
+GrupoC,qwe38,21,"error on line 4: semantic error: f is a function, expected variable. ",21,TRUE
+GrupoC,qwe39,21,"error on line 5: semantic error: g is a function, expected variable. ",21,TRUE
+GrupoC,qwe40,21,"error on line 6: semantic error: g is a function, expected variable. ",21,TRUE
+GrupoC,qwe41,21,"error on line 6: semantic error: g is a function, expected variable. ",21,TRUE
+GrupoC,qwe42,40,error on line 4: semantic error: function h call is missing arguments. ,40,TRUE
+GrupoC,qwe43,40,error on line 4: semantic error: function h call is missing arguments. ,40,TRUE
+GrupoC,qwe44,41,error on line 4: semantic error: function f call has extra arguments. ,41,TRUE
+GrupoC,qwe45,41,error on line 4: semantic error: function f call has extra arguments. ,41,TRUE
+GrupoC,qwe46,42,error on line 5: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe47,42,error on line 5: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe48,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe49,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe50,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe51,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe52,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe53,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe54,42,error on line 5: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe55,42,error on line 5: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe56,42,error on line 5: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe57,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe58,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe59,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe60,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe61,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe62,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe63,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe64,42,error on line 6: semantic error: function h call has argument type mismatch. ,42,TRUE
+GrupoC,qwe65,30,error on line 4: type mismatch on return statement. ,30,TRUE
+GrupoC,qwe66,30,error on line 4: type mismatch on return statement. ,30,TRUE
+GrupoC,qwe67,30,error on line 3: type mismatch on return statement. ,30,TRUE
+GrupoC,qwe68,30,error on line 3: type mismatch on return statement. ,30,TRUE
+GrupoC,qwe69,30,error on line 3: semantic error: return type decimal does not match functions declared return type inteiro. ,30,TRUE
+GrupoC,qwe70,30,error on line 5: type mismatch on assignment to variable a. ,30,TRUE
+GrupoC,qwe71,30,error on line 6: type mismatch on assignment to variable a. ,30,TRUE
+GrupoC,qwe72,30,tipos diferentes ,30,TRUE
+GrupoC,qwe73,30,tipos diferentes ,30,TRUE
+GrupoC,qwe74,30,tipos diferentes ,30,TRUE
+GrupoC,qwe75,30,tipos diferentes ,30,TRUE
+GrupoC,qwe76,30,error on line 6: type mismatch on assignment to variable a. ,30,TRUE
+GrupoC,qwe77,30,tipos diferentes ,30,TRUE
+GrupoC,qwe78,30,error on line 10: type mismatch on else block. ,30,TRUE
+GrupoC,qwe79,30,error on line 10: type mismatch on else block. ,30,TRUE
+GrupoC,qwe80,30,error on line 10: type mismatch on else block. ,30,TRUE
+GrupoC,qwe81,30,error on line 10: type mismatch on else block. ,30,TRUE
+GrupoC,qwe82,30,error on line 9: type mismatch on else block. ,30,TRUE
+GrupoD,qwe00,10,[ERR_UNDECLARED] na linha 3. ,10,TRUE
+GrupoD,qwe01,10,[ERR_UNDECLARED] na linha 3. ,10,TRUE
+GrupoD,qwe02,10,[ERR_UNDECLARED] na linha 4. ,10,TRUE
+GrupoD,qwe03,10,[ERR_UNDECLARED] na linha 4. ,10,TRUE
+GrupoD,qwe04,0,digraph grafo { ,0,TRUE
+GrupoD,qwe05,0,digraph grafo { ,0,TRUE
+GrupoD,qwe06,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000110 / (nil). ,0,TRUE
+GrupoD,qwe07,0,digraph grafo { ,0,TRUE
+GrupoD,qwe08,0,digraph grafo { ,0,TRUE
+GrupoD,qwe09,0,digraph grafo { ,0,TRUE
+GrupoD,qwe10,10,[ERR_UNDECLARED] na linha 6. ,10,TRUE
+GrupoD,qwe11,10,Erro: asd_add_child recebeu parâmetro tree = 0x504000000050 / (nil). ,10,TRUE
+GrupoD,qwe12,10,Erro: asd_add_child recebeu parâmetro tree = 0x504000000050 / (nil). ,10,TRUE
+GrupoD,qwe13,10,Erro: asd_add_child recebeu parâmetro tree = 0x504000000050 / (nil). ,10,TRUE
+GrupoD,qwe14,10,[ERR_UNDECLARED] na linha 7. ,10,TRUE
+GrupoD,qwe15,10,[ERR_UNDECLARED] na linha 11. ,10,TRUE
+GrupoD,qwe16,11,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,11,TRUE
+GrupoD,qwe17,11,[ERR_DECLARED] Na linha 4. ,11,TRUE
+GrupoD,qwe18,11,[ERR_DECLARED] Na linha 6. ,11,TRUE
+GrupoD,qwe19,11,[ERR_DECLARED] Na linha 6. ,11,TRUE
+GrupoD,qwe20,11,[ERR_DECLARED] Na linha 6. ,11,TRUE
+GrupoD,qwe21,11,[ERR_DECLARED] Na linha 5. ,11,TRUE
+GrupoD,qwe22,11,[ERR_DECLARED] Na linha 6. ,11,TRUE
+GrupoD,qwe23,11,[ERR_DECLARED] Na linha 2. ,11,TRUE
+GrupoD,qwe24,11,[ERR_DECLARED] Na linha 3. ,11,TRUE
+GrupoD,qwe25,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,0,TRUE
+GrupoD,qwe26,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,0,TRUE
+GrupoD,qwe27,11,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,11,TRUE
+GrupoD,qwe28,11,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,11,TRUE
+GrupoD,qwe29,11,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,11,TRUE
+GrupoD,qwe30,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,0,TRUE
+GrupoD,qwe31,10,[ERR_UNDECLARED] na linha 2. ,0,FALSE
+GrupoD,qwe32,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,0,TRUE
+GrupoD,qwe33,10,[ERR_UNDECLARED] na linha 2. ,0,FALSE
+GrupoD,qwe34,20,[ERR_VARIABLE] Na linha 4. ,20,TRUE
+GrupoD,qwe35,20,[ERR_VARIABLE] Na linha 4. ,20,TRUE
+GrupoD,qwe36,20,[ERR_VARIABLE] Na linha 5. ,20,TRUE
+GrupoD,qwe37,20,[ERR_VARIABLE] Na linha 5. ,20,TRUE
+GrupoD,qwe38,10,[ERR_UNDECLARED] na linha 3. ,21,FALSE
+GrupoD,qwe39,21,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,21,TRUE
+GrupoD,qwe40,21,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,21,TRUE
+GrupoD,qwe41,21,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,21,TRUE
+GrupoD,qwe42,40,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,40,TRUE
+GrupoD,qwe43,40,Erro: asd_add_child recebeu parâmetro tree = 0x504000000050 / (nil). ,40,TRUE
+GrupoD,qwe44,10,[ERR_UNDECLARED] na linha 4. ,41,FALSE
+GrupoD,qwe45,10,[ERR_UNDECLARED] na linha 4. ,41,FALSE
+GrupoD,qwe46,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe47,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe48,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000050 / (nil). ,42,TRUE
+GrupoD,qwe49,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe50,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe51,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe52,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe53,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe54,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe55,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe56,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe57,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe58,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe59,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe60,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe61,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe62,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe63,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe64,42,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,42,TRUE
+GrupoD,qwe65,30,[ERR_WRONG_TYPE] Na linha 4. ,30,TRUE
+GrupoD,qwe66,30,[ERR_WRONG_TYPE] Na linha 4. ,30,TRUE
+GrupoD,qwe67,30,[ERR_WRONG_TYPE] Na linha 3. ,30,TRUE
+GrupoD,qwe68,0,digraph grafo { ,30,FALSE
+GrupoD,qwe69,30,[ERR_WRONG_TYPE] Na linha 3. ,30,TRUE
+GrupoD,qwe70,30,[ERR_WRONG_TYPE] Na linha 4. ,30,TRUE
+GrupoD,qwe71,30,[ERR_WRONG_TYPE] Na linha 5. ,30,TRUE
+GrupoD,qwe72,30,[ERR_WRONG_TYPE] Na linha 6. ,30,TRUE
+GrupoD,qwe73,30,[ERR_WRONG_TYPE] Na linha 6. ,30,TRUE
+GrupoD,qwe74,30,[ERR_WRONG_TYPE] Na linha 6. ,30,TRUE
+GrupoD,qwe75,30,[ERR_WRONG_TYPE] Na linha 6. ,30,TRUE
+GrupoD,qwe76,30,[ERR_WRONG_TYPE] Na linha 5. ,30,TRUE
+GrupoD,qwe77,30,[ERR_WRONG_TYPE] Na linha 6. ,30,TRUE
+GrupoD,qwe78,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,30,FALSE
+GrupoD,qwe79,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,30,FALSE
+GrupoD,qwe80,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,30,FALSE
+GrupoD,qwe81,0,digraph grafo { ,30,FALSE
+GrupoD,qwe82,10,Erro: asd_add_child recebeu parâmetro tree = 0x504000000010 / (nil). ,30,FALSE
+GrupoE,qwe00,10,Bah tchê! Na linha 4 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe01,10,Bah tchê! Na linha 3 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe02,10,Bah tchê! Na linha 4 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe03,10,Bah tchê! Na linha 5 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe04,0,digraph grafo { ,0,TRUE
+GrupoE,qwe05,0,digraph grafo { ,0,TRUE
+GrupoE,qwe06,0,digraph grafo { ,0,TRUE
+GrupoE,qwe07,0,digraph grafo { ,0,TRUE
+GrupoE,qwe08,0,digraph grafo { ,0,TRUE
+GrupoE,qwe09,0,digraph grafo { ,0,TRUE
+GrupoE,qwe10,10,Bah tchê! Na linha 7 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe11,10,Bah tchê! Na linha 8 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe12,10,Bah tchê! Na linha 8 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe13,10,Bah tchê! Na linha 8 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe14,10,Bah tchê! Na linha 8 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe15,10,Bah tchê! Na linha 12 esse identificador aí não foi declarado ,10,TRUE
+GrupoE,qwe16,11,Mas guri! Na linha 4 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe17,11,Mas guri! Na linha 5 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe18,11,Mas guri! Na linha 7 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe19,11,Mas guri! Na linha 7 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe20,11,Mas guri! Na linha 7 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe21,11,Mas guri! Na linha 6 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe22,11,Mas guri! Na linha 7 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe23,11,Mas guri! Na linha 2 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe24,0,digraph grafo { ,11,FALSE
+GrupoE,qwe25,0,digraph grafo { ,0,TRUE
+GrupoE,qwe26,0,digraph grafo { ,0,TRUE
+GrupoE,qwe27,11,Mas guri! Na linha 3 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe28,11,Mas guri! Na linha 3 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe29,11,Mas guri! Na linha 3 tu já declarou esse identificador antes! ,11,TRUE
+GrupoE,qwe30,0,digraph grafo { ,0,TRUE
+GrupoE,qwe31,0,digraph grafo { ,0,TRUE
+GrupoE,qwe32,0,digraph grafo { ,0,TRUE
+GrupoE,qwe33,0,digraph grafo { ,0,TRUE
+GrupoE,qwe34,20,"Mas que barbaridade! Na linha 4 isso é uma variável, não é função tchê! ",20,TRUE
+GrupoE,qwe35,20,"Mas que barbaridade! Na linha 4 isso é uma variável, não é função tchê! ",20,TRUE
+GrupoE,qwe36,20,"Mas que barbaridade! Na linha 5 isso é uma variável, não é função tchê! ",20,TRUE
+GrupoE,qwe37,20,"Mas que barbaridade! Na linha 5 isso é uma variável, não é função tchê! ",20,TRUE
+GrupoE,qwe38,21,"Bah, mas ta tri errado! Na linha 4 isso é uma função, não pode usar como variável! ",21,TRUE
+GrupoE,qwe39,21,"Bah, mas ta tri errado! Na linha 5 isso é uma função, não pode usar como variável! ",21,TRUE
+GrupoE,qwe40,21,"Bah, mas ta tri errado! Na linha 6 isso é uma função, não pode usar como variável! ",21,TRUE
+GrupoE,qwe41,21,"Bah, mas ta tri errado! Na linha 6 isso é uma função, não pode usar como variável! ",21,TRUE
+GrupoE,qwe42,40,Faltou coisa! Na linha 4 tá faltando argumentos nessa chamada aí guri! ,40,TRUE
+GrupoE,qwe43,40,Faltou coisa! Na linha 4 tá faltando argumentos nessa chamada aí guri! ,40,TRUE
+GrupoE,qwe44,41,Ô chinelão! Na linha 4 tem argumento demais nessa chamada tchê! ,41,TRUE
+GrupoE,qwe45,41,Ô chinelão! Na linha 4 tem argumento demais nessa chamada tchê! ,41,TRUE
+GrupoE,qwe46,42,Ó o tipo aí meu guri! Na linha 5 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe47,42,Ó o tipo aí meu guri! Na linha 5 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe48,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe49,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe50,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe51,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe52,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe53,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe54,42,Ó o tipo aí meu guri! Na linha 5 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe55,42,Ó o tipo aí meu guri! Na linha 5 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe56,42,Ó o tipo aí meu guri! Na linha 5 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe57,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe58,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe59,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe60,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe61,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe62,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe63,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe64,42,Ó o tipo aí meu guri! Na linha 6 o tipo do argumento tá errado ,42,TRUE
+GrupoE,qwe65,0,digraph grafo { ,30,FALSE
+GrupoE,qwe66,0,digraph grafo { ,30,FALSE
+GrupoE,qwe67,0,digraph grafo { ,30,FALSE
+GrupoE,qwe68,30,Aí não guri! Na linha 3 os tipos não batem! ,30,TRUE
+GrupoE,qwe69,30,Aí não guri! Na linha 3 os tipos não batem! ,30,TRUE
+GrupoE,qwe70,30,Aí não guri! Na linha 5 os tipos não batem! ,30,TRUE
+GrupoE,qwe71,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe72,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe73,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe74,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe75,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe76,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe77,30,Aí não guri! Na linha 6 os tipos não batem! ,30,TRUE
+GrupoE,qwe78,30,Aí não guri! Na linha 10 os tipos não batem! ,30,TRUE
+GrupoE,qwe79,30,Aí não guri! Na linha 10 os tipos não batem! ,30,TRUE
+GrupoE,qwe80,30,Aí não guri! Na linha 10 os tipos não batem! ,30,TRUE
+GrupoE,qwe81,30,Aí não guri! Na linha 10 os tipos não batem! ,30,TRUE
+GrupoE,qwe82,30,Aí não guri! Na linha 9 os tipos não batem! ,30,TRUE
+GrupoF,qwe00,10,[ERRO] Linha: 3 | Erro: ERR_UNDECLARED | Mensagem: Identificador a não foi declarado. ,10,TRUE
+GrupoF,qwe01,10,[ERRO] Linha: 3 | Erro: ERR_UNDECLARED | Mensagem: Identificador a não foi declarado. ,10,TRUE
+GrupoF,qwe02,10,[ERRO] Linha: 4 | Erro: ERR_UNDECLARED | Mensagem: Identificador a não foi declarado. ,10,TRUE
+GrupoF,qwe03,10,[ERRO] Linha: 4 | Erro: ERR_UNDECLARED | Mensagem: Identificador a não foi declarado. ,10,TRUE
+GrupoF,qwe04,0,digraph grafo { ,0,TRUE
+GrupoF,qwe05,0,digraph grafo { ,0,TRUE
+GrupoF,qwe06,0,digraph grafo { ,0,TRUE
+GrupoF,qwe07,0,digraph grafo { ,0,TRUE
+GrupoF,qwe08,0,digraph grafo { ,0,TRUE
+GrupoF,qwe09,0,digraph grafo { ,0,TRUE
+GrupoF,qwe10,10,[ERRO] Linha: 6 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe11,10,[ERRO] Linha: 7 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe12,10,[ERRO] Linha: 7 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe13,10,[ERRO] Linha: 7 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe14,10,[ERRO] Linha: 7 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe15,10,[ERRO] Linha: 11 | Erro: ERR_UNDECLARED | Mensagem: Identificador b não foi declarado. ,10,TRUE
+GrupoF,qwe16,11,[ERRO] Linha: 4 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe17,11,[ERRO] Linha: 4 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe18,11,[ERRO] Linha: 6 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe19,11,[ERRO] Linha: 6 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe20,11,[ERRO] Linha: 6 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe21,11,[ERRO] Linha: 5 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe22,11,[ERRO] Linha: 6 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe23,11,[ERRO] Linha: 2 | Erro: ERR_DECLARED | Mensagem: Identificador a já foi declarado. ,11,TRUE
+GrupoF,qwe24,11,[ERRO] Linha: 3 | Erro: ERR_DECLARED | Mensagem: Identificador b já foi declarado. ,11,TRUE
+GrupoF,qwe25,0,digraph grafo { ,0,TRUE
+GrupoF,qwe26,0,digraph grafo { ,0,TRUE
+GrupoF,qwe27,11,[ERRO] Linha: 3 | Erro: ERR_DECLARED | Mensagem: Identificador f já foi declarado. ,11,TRUE
+GrupoF,qwe28,11,[ERRO] Linha: 3 | Erro: ERR_DECLARED | Mensagem: Identificador f já foi declarado. ,11,TRUE
+GrupoF,qwe29,11,[ERRO] Linha: 3 | Erro: ERR_DECLARED | Mensagem: Identificador f já foi declarado. ,11,TRUE
+GrupoF,qwe30,0,digraph grafo { ,0,TRUE
+GrupoF,qwe31,0,digraph grafo { ,0,TRUE
+GrupoF,qwe32,0,digraph grafo { ,0,TRUE
+GrupoF,qwe33,0,digraph grafo { ,0,TRUE
+GrupoF,qwe34,20,[ERRO] Linha: 4 | Erro: ERR_VARIABLE | Mensagem: Identificador b está sendo usado como função mas é uma variável. ,20,TRUE
+GrupoF,qwe35,20,[ERRO] Linha: 4 | Erro: ERR_VARIABLE | Mensagem: Identificador b está sendo usado como função mas é uma variável. ,20,TRUE
+GrupoF,qwe36,20,[ERRO] Linha: 5 | Erro: ERR_VARIABLE | Mensagem: Identificador b está sendo usado como função mas é uma variável. ,20,TRUE
+GrupoF,qwe37,20,[ERRO] Linha: 5 | Erro: ERR_VARIABLE | Mensagem: Identificador b está sendo usado como função mas é uma variável. ,20,TRUE
+GrupoF,qwe38,21,"[ERRO] Linha: 3 | Erro: ERR_FUNCTION | Mensagem: Identificador f está sendo usado como variável, mas foi declarado como função na linha 2. ",21,TRUE
+GrupoF,qwe39,21,"[ERRO] Linha: 4 | Erro: ERR_FUNCTION | Mensagem: Identificador g está sendo usado como variável, mas foi declarado como função na linha 2. ",21,TRUE
+GrupoF,qwe40,21,"[ERRO] Linha: 5 | Erro: ERR_FUNCTION | Mensagem: Identificador g está sendo usado como variável, mas foi declarado como função na linha 2. ",21,TRUE
+GrupoF,qwe41,21,"[ERRO] Linha: 6 | Erro: ERR_FUNCTION | Mensagem: Identificador g está sendo usado como variável, mas foi declarado como função na linha 3. ",21,TRUE
+GrupoF,qwe42,40,"[ERRO] Linha: 4 | Erro: ERR_MISSING_ARGS | Mensagem: A função h declarada na linha 4 espera 1 argumentos, mas obteve apenas 0 argumentos. ",40,TRUE
+GrupoF,qwe43,40,"[ERRO] Linha: 4 | Erro: ERR_MISSING_ARGS | Mensagem: A função h declarada na linha 4 espera 2 argumentos, mas obteve apenas 0 argumentos. ",40,TRUE
+GrupoF,qwe44,41,"[ERRO] Linha: 4 | Erro: ERR_EXCESS_ARGS | Mensagem: A função f declarada na linha 4 espera 0 argumentos, mas obteve 1 argumentos. ",41,TRUE
+GrupoF,qwe45,41,"[ERRO] Linha: 4 | Erro: ERR_EXCESS_ARGS | Mensagem: A função f declarada na linha 4 espera 0 argumentos, mas obteve 2 argumentos. ",41,TRUE
+GrupoF,qwe46,42,"[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era inteiro, mas foi obtido decimal para o argumento 1 (b) da função h. ",42,TRUE
+GrupoF,qwe47,42,"[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (b) da função h. ",42,TRUE
+GrupoF,qwe48,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era inteiro, mas foi obtido decimal para o argumento 2 (y) da função h. ",42,TRUE
+GrupoF,qwe49,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (+) da função h. ",42,TRUE
+GrupoF,qwe50,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (*) da função h. ",42,TRUE
+GrupoF,qwe51,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (-) da função h. ",42,TRUE
+GrupoF,qwe52,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (/) da função h. ",42,TRUE
+GrupoF,qwe53,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (%) da função h. ",42,TRUE
+GrupoF,qwe54,42,"[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (-) da função h. ",42,TRUE
+GrupoF,qwe55,42,"[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (+) da função h. ",42,TRUE
+GrupoF,qwe56,42,"[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (!) da função h. ",42,TRUE
+GrupoF,qwe57,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (<) da função h. ",42,TRUE
+GrupoF,qwe58,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (>) da função h. ",42,TRUE
+GrupoF,qwe59,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (<=) da função h. ",42,TRUE
+GrupoF,qwe60,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (>=) da função h. ",42,TRUE
+GrupoF,qwe61,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (&) da função h. ",42,TRUE
+GrupoF,qwe62,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (|) da função h. ",42,TRUE
+GrupoF,qwe63,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (==) da função h. ",42,TRUE
+GrupoF,qwe64,42,"[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE_ARGS | Mensagem: O tipo esperado era decimal, mas foi obtido inteiro para o argumento 1 (!=) da função h. ",42,TRUE
+GrupoF,qwe65,30,[ERRO] Linha: 4 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em a. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe66,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoF,qwe67,30,[ERRO] Linha: 3 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em 2. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe68,30,[ERRO] Linha: 3 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em 2.0. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe69,30,[ERRO] Linha: 2 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em f. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe70,30,[ERRO] Linha: 4 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em a. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe71,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em a. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe72,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em +. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe73,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em *. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe74,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em <. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe75,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em ==. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe76,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em a. O tipos inteiro e decimal são diferentes. ,30,TRUE
+GrupoF,qwe77,30,[ERRO] Linha: 5 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em +. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoF,qwe78,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoF,qwe79,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoF,qwe80,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoF,qwe81,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoF,qwe82,30,[ERRO] Linha: 6 | Erro: ERR_WRONG_TYPE | Mensagem: Incompatibilidade de tipo em comando se - senão. O tipos decimal e inteiro são diferentes. ,30,TRUE
+GrupoG,qwe00,0, ,10,FALSE
+GrupoG,qwe01,0, ,10,FALSE
+GrupoG,qwe02,0, ,10,FALSE
+GrupoG,qwe03,0, ,10,FALSE
+GrupoG,qwe04,0, ,0,TRUE
+GrupoG,qwe05,0, ,0,TRUE
+GrupoG,qwe06,0, ,0,TRUE
+GrupoG,qwe07,0, ,0,TRUE
+GrupoG,qwe08,0, ,0,TRUE
+GrupoG,qwe09,0, ,0,TRUE
+GrupoG,qwe10,0, ,10,FALSE
+GrupoG,qwe11,0, ,10,FALSE
+GrupoG,qwe12,0, ,10,FALSE
+GrupoG,qwe13,0, ,10,FALSE
+GrupoG,qwe14,0, ,10,FALSE
+GrupoG,qwe15,0, ,10,FALSE
+GrupoG,qwe16,0, ,11,FALSE
+GrupoG,qwe17,0, ,11,FALSE
+GrupoG,qwe18,0, ,11,FALSE
+GrupoG,qwe19,0, ,11,FALSE
+GrupoG,qwe20,0, ,11,FALSE
+GrupoG,qwe21,0, ,11,FALSE
+GrupoG,qwe22,0, ,11,FALSE
+GrupoG,qwe23,0, ,11,FALSE
+GrupoG,qwe24,0, ,11,FALSE
+GrupoG,qwe25,0, ,0,TRUE
+GrupoG,qwe26,0, ,0,TRUE
+GrupoG,qwe27,0, ,11,FALSE
+GrupoG,qwe28,0, ,11,FALSE
+GrupoG,qwe29,0, ,11,FALSE
+GrupoG,qwe30,0, ,0,TRUE
+GrupoG,qwe31,0, ,0,TRUE
+GrupoG,qwe32,0, ,0,TRUE
+GrupoG,qwe33,0, ,0,TRUE
+GrupoG,qwe34,0, ,20,FALSE
+GrupoG,qwe35,0, ,20,FALSE
+GrupoG,qwe36,0, ,20,FALSE
+GrupoG,qwe37,0, ,20,FALSE
+GrupoG,qwe38,0, ,21,FALSE
+GrupoG,qwe39,0, ,21,FALSE
+GrupoG,qwe40,0, ,21,FALSE
+GrupoG,qwe41,0, ,21,FALSE
+GrupoG,qwe42,0, ,40,FALSE
+GrupoG,qwe43,0, ,40,FALSE
+GrupoG,qwe44,0, ,41,FALSE
+GrupoG,qwe45,0, ,41,FALSE
+GrupoG,qwe46,0, ,42,FALSE
+GrupoG,qwe47,0, ,42,FALSE
+GrupoG,qwe48,0, ,42,FALSE
+GrupoG,qwe49,0, ,42,FALSE
+GrupoG,qwe50,0, ,42,FALSE
+GrupoG,qwe51,0, ,42,FALSE
+GrupoG,qwe52,0, ,42,FALSE
+GrupoG,qwe53,0, ,42,FALSE
+GrupoG,qwe54,0, ,42,FALSE
+GrupoG,qwe55,0, ,42,FALSE
+GrupoG,qwe56,0, ,42,FALSE
+GrupoG,qwe57,0, ,42,FALSE
+GrupoG,qwe58,0, ,42,FALSE
+GrupoG,qwe59,0, ,42,FALSE
+GrupoG,qwe60,0, ,42,FALSE
+GrupoG,qwe61,0, ,42,FALSE
+GrupoG,qwe62,0, ,42,FALSE
+GrupoG,qwe63,0, ,42,FALSE
+GrupoG,qwe64,0, ,42,FALSE
+GrupoG,qwe65,0, ,30,FALSE
+GrupoG,qwe66,0, ,30,FALSE
+GrupoG,qwe67,0, ,30,FALSE
+GrupoG,qwe68,0, ,30,FALSE
+GrupoG,qwe69,0, ,30,FALSE
+GrupoG,qwe70,0, ,30,FALSE
+GrupoG,qwe71,0, ,30,FALSE
+GrupoG,qwe72,0, ,30,FALSE
+GrupoG,qwe73,0, ,30,FALSE
+GrupoG,qwe74,0, ,30,FALSE
+GrupoG,qwe75,0, ,30,FALSE
+GrupoG,qwe76,0, ,30,FALSE
+GrupoG,qwe77,0, ,30,FALSE
+GrupoG,qwe78,0, ,30,FALSE
+GrupoG,qwe79,0, ,30,FALSE
+GrupoG,qwe80,0, ,30,FALSE
+GrupoG,qwe81,0, ,30,FALSE
+GrupoG,qwe82,0, ,30,FALSE
+GrupoH,qwe00,10,Erro semântico na linha 3: identificador a não foi declarado ,10,TRUE
+GrupoH,qwe01,10,Erro semântico na linha 3: identificador a não foi declarado ,10,TRUE
+GrupoH,qwe02,10,Erro semântico na linha 4: identificador a não foi declarado ,10,TRUE
+GrupoH,qwe03,10,Erro semântico na linha 4: identificador a não foi declarado ,10,TRUE
+GrupoH,qwe04,1, ,0,FALSE
+GrupoH,qwe05,1, ,0,FALSE
+GrupoH,qwe06,1, ,0,FALSE
+GrupoH,qwe07,1, ,0,FALSE
+GrupoH,qwe08,1, ,0,FALSE
+GrupoH,qwe09,1, ,0,FALSE
+GrupoH,qwe10,10,Erro semântico na linha 6: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe11,10,Erro semântico na linha 7: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe12,10,Erro semântico na linha 7: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe13,10,Erro semântico na linha 7: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe14,10,Erro semântico na linha 7: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe15,10,Erro semântico na linha 11: identificador b não foi declarado ,10,TRUE
+GrupoH,qwe16,11,Erro semântico na linha 4: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe17,11,Erro semântico na linha 4: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe18,11,Erro semântico na linha 6: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe19,11,Erro semântico na linha 6: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe20,11,Erro semântico na linha 6: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe21,11,Erro semântico na linha 5: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe22,11,Erro semântico na linha 6: identificador b já foi declarado ,11,TRUE
+GrupoH,qwe23,1, ,11,FALSE
+GrupoH,qwe24,1, ,11,FALSE
+GrupoH,qwe25,1, ,0,FALSE
+GrupoH,qwe26,0,digraph grafo { ,0,TRUE
+GrupoH,qwe27,11,Erro semântico na linha 3: identificador f já foi declarado ,11,TRUE
+GrupoH,qwe28,11,Erro semântico na linha 3: identificador f já foi declarado ,11,TRUE
+GrupoH,qwe29,1, ,11,FALSE
+GrupoH,qwe30,1, ,0,FALSE
+GrupoH,qwe31,1, ,0,FALSE
+GrupoH,qwe32,1, ,0,FALSE
+GrupoH,qwe33,1, ,0,FALSE
+GrupoH,qwe34,20,"Erro semântico na linha 4: identificador b é uma variável, não pode ser usado como função ",20,TRUE
+GrupoH,qwe35,20,"Erro semântico na linha 4: identificador b é uma variável, não pode ser usado como função ",20,TRUE
+GrupoH,qwe36,20,"Erro semântico na linha 5: identificador b é uma variável, não pode ser usado como função ",20,TRUE
+GrupoH,qwe37,20,"Erro semântico na linha 5: identificador b é uma variável, não pode ser usado como função ",20,TRUE
+GrupoH,qwe38,21,"Erro semântico na linha 3: identificador f é uma função, não pode ser usado como variável ",21,TRUE
+GrupoH,qwe39,21,"Erro semântico na linha 4: identificador g é uma função, não pode ser usado como variável ",21,TRUE
+GrupoH,qwe40,21,"Erro semântico na linha 5: identificador g é uma função, não pode ser usado como variável ",21,TRUE
+GrupoH,qwe41,1, ,21,FALSE
+GrupoH,qwe42,1, ,40,FALSE
+GrupoH,qwe43,1, ,40,FALSE
+GrupoH,qwe44,41,Erro semântico na linha 4: número excessivo de argumentos para função f ,41,TRUE
+GrupoH,qwe45,41,Erro semântico na linha 4: número excessivo de argumentos para função f ,41,TRUE
+GrupoH,qwe46,1, ,42,FALSE
+GrupoH,qwe47,1, ,42,FALSE
+GrupoH,qwe48,1, ,42,FALSE
+GrupoH,qwe49,1, ,42,FALSE
+GrupoH,qwe50,1, ,42,FALSE
+GrupoH,qwe51,1, ,42,FALSE
+GrupoH,qwe52,1, ,42,FALSE
+GrupoH,qwe53,1, ,42,FALSE
+GrupoH,qwe54,1, ,42,FALSE
+GrupoH,qwe55,1, ,42,FALSE
+GrupoH,qwe56,1, ,42,FALSE
+GrupoH,qwe57,1, ,42,FALSE
+GrupoH,qwe58,1, ,42,FALSE
+GrupoH,qwe59,1, ,42,FALSE
+GrupoH,qwe60,1, ,42,FALSE
+GrupoH,qwe61,1, ,42,FALSE
+GrupoH,qwe62,1, ,42,FALSE
+GrupoH,qwe63,1, ,42,FALSE
+GrupoH,qwe64,1, ,42,FALSE
+GrupoH,qwe65,30,Erro semântico na linha 4: tipos incompatíveis em operação com retorno ,30,TRUE
+GrupoH,qwe66,30,Erro semântico na linha 4: tipos incompatíveis em operação com retorno ,30,TRUE
+GrupoH,qwe67,30,Erro semântico na linha 3: tipos incompatíveis em operação com retorno ,30,TRUE
+GrupoH,qwe68,30,Erro semântico na linha 3: tipos incompatíveis em operação com retorno ,30,TRUE
+GrupoH,qwe69,1, ,30,FALSE
+GrupoH,qwe70,30,Erro semântico na linha 4: tipos incompatíveis em operação com atribuição ,30,TRUE
+GrupoH,qwe71,30,Erro semântico na linha 5: tipos incompatíveis em operação com atribuição ,30,TRUE
+GrupoH,qwe72,30,Erro semântico na linha 6: tipos incompatíveis em operação com b ,30,TRUE
+GrupoH,qwe73,30,Erro semântico na linha 6: tipos incompatíveis em operação com b ,30,TRUE
+GrupoH,qwe74,30,Erro semântico na linha 6: tipos incompatíveis em operação com b ,30,TRUE
+GrupoH,qwe75,30,Erro semântico na linha 6: tipos incompatíveis em operação com b ,30,TRUE
+GrupoH,qwe76,30,Erro semântico na linha 5: tipos incompatíveis em operação com atribuição ,30,TRUE
+GrupoH,qwe77,30,Erro semântico na linha 6: tipos incompatíveis em operação com b ,30,TRUE
+GrupoH,qwe78,1, ,30,FALSE
+GrupoH,qwe79,1, ,30,FALSE
+GrupoH,qwe80,1, ,30,FALSE
+GrupoH,qwe81,1, ,30,FALSE
+GrupoH,qwe82,1, ,30,FALSE
+GrupoI,qwe00,10,Erro semântico na linha 3: identificador a não declarado. ,10,TRUE
+GrupoI,qwe01,10,Erro semântico na linha 3: identificador a não declarado. ,10,TRUE
+GrupoI,qwe02,10,Erro semântico na linha 4: identificador a não declarado. ,10,TRUE
+GrupoI,qwe03,10,Erro semântico na linha 4: identificador a não declarado. ,10,TRUE
+GrupoI,qwe04,0,digraph grafo { ,0,TRUE
+GrupoI,qwe05,0,digraph grafo { ,0,TRUE
+GrupoI,qwe06,0,Erro: asd_add_child recebeu parâmetro tree = 0x5040000003d0 / (nil). ,0,TRUE
+GrupoI,qwe07,0,digraph grafo { ,0,TRUE
+GrupoI,qwe08,0,digraph grafo { ,0,TRUE
+GrupoI,qwe09,0,digraph grafo { ,0,TRUE
+GrupoI,qwe10,10,Erro semântico na linha 6: identificador b não declarado. ,10,TRUE
+GrupoI,qwe11,10,Erro semântico na linha 7: identificador b não declarado. ,10,TRUE
+GrupoI,qwe12,10,Erro semântico na linha 7: identificador b não declarado. ,10,TRUE
+GrupoI,qwe13,10,Erro semântico na linha 7: identificador b não declarado. ,10,TRUE
+GrupoI,qwe14,10,Erro semântico na linha 7: identificador b não declarado. ,10,TRUE
+GrupoI,qwe15,10,Erro semântico na linha 11: identificador b não declarado. ,10,TRUE
+GrupoI,qwe16,11,Erro semântico na linha 4: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe17,11,Erro semântico na linha 4: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe18,11,Erro semântico na linha 6: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe19,11,Erro semântico na linha 6: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe20,11,Erro semântico na linha 6: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe21,11,Erro semântico na linha 5: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe22,11,Erro semântico na linha 6: identificador b já declarado neste escopo. ,11,TRUE
+GrupoI,qwe23,11,Erro semântico na linha 2: identificador a já declarado neste escopo. ,11,TRUE
+GrupoI,qwe24,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,11,FALSE
+GrupoI,qwe25,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,0,TRUE
+GrupoI,qwe26,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,0,TRUE
+GrupoI,qwe27,11,Erro semântico na linha 3: identificador f já declarado neste escopo. ,11,TRUE
+GrupoI,qwe28,11,Erro semântico na linha 3: identificador f já declarado neste escopo. ,11,TRUE
+GrupoI,qwe29,11,Erro semântico na linha 3: identificador f já declarado neste escopo. ,11,TRUE
+GrupoI,qwe30,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,0,TRUE
+GrupoI,qwe31,0,digraph grafo { ,0,TRUE
+GrupoI,qwe32,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,0,TRUE
+GrupoI,qwe33,41,Erro semântico na linha 2: argumentos em excesso para a chamada da função f. ,0,FALSE
+GrupoI,qwe34,20,"Erro semântico na linha 4: identificador b é uma variável, mas foi usado como função. ",20,TRUE
+GrupoI,qwe35,20,"Erro semântico na linha 4: identificador b é uma variável, mas foi usado como função. ",20,TRUE
+GrupoI,qwe36,20,"Erro semântico na linha 5: identificador b é uma variável, mas foi usado como função. ",20,TRUE
+GrupoI,qwe37,20,"Erro semântico na linha 5: identificador b é uma variável, mas foi usado como função. ",20,TRUE
+GrupoI,qwe38,21,"Erro semântico na linha 3: identificador f é uma função, mas foi usado como variável. ",21,TRUE
+GrupoI,qwe39,21,"Erro semântico na linha 4: identificador g é uma função, mas foi usado como variável. ",21,TRUE
+GrupoI,qwe40,21,"Erro semântico na linha 5: identificador g é uma função, mas foi usado como variável. ",21,TRUE
+GrupoI,qwe41,21,"Erro semântico na linha 6: identificador g é uma função, mas foi usado como variável. ",21,TRUE
+GrupoI,qwe42,40,Erro semântico na linha 4: faltam argumentos para a chamada da função h. ,40,TRUE
+GrupoI,qwe43,40,Erro semântico na linha 4: faltam argumentos para a chamada da função h. ,40,TRUE
+GrupoI,qwe44,41,Erro semântico na linha 4: argumentos em excesso para a chamada da função f. ,41,TRUE
+GrupoI,qwe45,41,Erro semântico na linha 4: argumentos em excesso para a chamada da função f. ,41,TRUE
+GrupoI,qwe46,42,Erro semântico na linha 5: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe47,42,Erro semântico na linha 5: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe48,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe49,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe50,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe51,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe52,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe53,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe54,42,Erro semântico na linha 5: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe55,42,Erro semântico na linha 5: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe56,42,Erro semântico na linha 5: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe57,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe58,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe59,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe60,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe61,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe62,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe63,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe64,42,Erro semântico na linha 6: tipos de argumentos incompatíveis na chamada da função h. ,42,TRUE
+GrupoI,qwe65,30,Erro semântico na linha 4: tipos incompatíveis. Operação com tipo declarado no retorno diverge da expressão falhou. ,30,TRUE
+GrupoI,qwe66,30,Erro semântico na linha 4: tipos incompatíveis. Operação com tipo declarado no retorno diverge da expressão falhou. ,30,TRUE
+GrupoI,qwe67,30,Erro semântico na linha 3: tipos incompatíveis. Operação com tipo declarado no retorno diverge da expressão falhou. ,30,TRUE
+GrupoI,qwe68,30,Erro semântico na linha 3: tipos incompatíveis. Operação com tipo de retorno incompatível com a função falhou. ,30,TRUE
+GrupoI,qwe69,30,Erro semântico na linha 3: tipos incompatíveis. Operação com tipo de retorno incompatível com a função falhou. ,30,TRUE
+GrupoI,qwe70,30,Erro semântico na linha 4: tipos incompatíveis. Operação com atribuição com tipos incompatíveis falhou. ,30,TRUE
+GrupoI,qwe71,30,Erro semântico na linha 5: tipos incompatíveis. Operação com atribuição com tipos incompatíveis falhou. ,30,TRUE
+GrupoI,qwe72,30,Erro semântico na linha 6: tipos incompatíveis. Operação com operação com tipos mistos (int/float) falhou. ,30,TRUE
+GrupoI,qwe73,30,Erro semântico na linha 6: tipos incompatíveis. Operação com operação com tipos mistos (int/float) falhou. ,30,TRUE
+GrupoI,qwe74,30,Erro semântico na linha 6: tipos incompatíveis. Operação com operação com tipos mistos (int/float) falhou. ,30,TRUE
+GrupoI,qwe75,30,Erro semântico na linha 6: tipos incompatíveis. Operação com operação com tipos mistos (int/float) falhou. ,30,TRUE
+GrupoI,qwe76,30,Erro semântico na linha 5: tipos incompatíveis. Operação com atribuição com tipos incompatíveis falhou. ,30,TRUE
+GrupoI,qwe77,30,Erro semântico na linha 6: tipos incompatíveis. Operação com operação com tipos mistos (int/float) falhou. ,30,TRUE
+GrupoI,qwe78,30,Erro semântico na linha 9: tipos incompatíveis. Operação com condição do enquanto deve ser int falhou. ,30,TRUE
+GrupoI,qwe79,30,Erro semântico na linha 10: tipos incompatíveis. Operação com condição do se deve ser int falhou. ,30,TRUE
+GrupoI,qwe80,30,Erro semântico na linha 9: tipos incompatíveis. Operação com condição do se deve ser int falhou. ,30,TRUE
+GrupoI,qwe81,0,digraph grafo { ,30,FALSE
+GrupoI,qwe82,0,Erro: asd_add_child recebeu parâmetro tree = 0x504000000090 / (nil). ,30,FALSE
+GrupoJ,qwe00,10,Erro semântico na linha 3: identificador a não foi declarado ,10,TRUE
+GrupoJ,qwe01,10,Erro semântico na linha 3: identificador a não foi declarado ,10,TRUE
+GrupoJ,qwe02,10,Erro semântico na linha 4: identificador a não foi declarado ,10,TRUE
+GrupoJ,qwe03,1,parser.y:487:169: runtime error: member access within null pointer of type struct symbol_entry_t ,10,FALSE
+GrupoJ,qwe04,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe05,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe06,1,AddressSanitizer:DEADLYSIGNAL ,0,FALSE
+GrupoJ,qwe07,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe08,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe09,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe10,0,digraph grafo { ,10,FALSE
+GrupoJ,qwe11,1,AddressSanitizer:DEADLYSIGNAL ,10,FALSE
+GrupoJ,qwe12,1,AddressSanitizer:DEADLYSIGNAL ,10,FALSE
+GrupoJ,qwe13,1,AddressSanitizer:DEADLYSIGNAL ,10,FALSE
+GrupoJ,qwe14,0,digraph grafo { ,10,FALSE
+GrupoJ,qwe15,0,digraph grafo { ,10,FALSE
+GrupoJ,qwe16,11,Erro semântico na linha 4: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe17,11,Erro semântico na linha 4: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe18,11,Erro semântico na linha 6: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe19,11,Erro semântico na linha 6: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe20,11,Erro semântico na linha 6: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe21,11,Erro semântico na linha 5: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe22,11,Erro semântico na linha 6: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe23,11,Erro semântico na linha 2: variável a já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe24,11,Erro semântico na linha 3: variável b já foi declarada neste escopo ,11,TRUE
+GrupoJ,qwe25,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe26,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe27,11,Erro semântico na linha 3: função f já foi declarada ,11,TRUE
+GrupoJ,qwe28,11,Erro semântico na linha 3: função f já foi declarada ,11,TRUE
+GrupoJ,qwe29,11,Erro semântico na linha 3: função f já foi declarada ,11,TRUE
+GrupoJ,qwe30,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe31,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe32,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe33,0,digraph grafo { ,0,TRUE
+GrupoJ,qwe34,20,Erro semântico na linha 4: b é uma variável e não pode ser usado como função ,20,TRUE
+GrupoJ,qwe35,20,Erro semântico na linha 4: b é uma variável e não pode ser usado como função ,20,TRUE
+GrupoJ,qwe36,20,Erro semântico na linha 5: b é uma variável e não pode ser usado como função ,20,TRUE
+GrupoJ,qwe37,20,Erro semântico na linha 5: b é uma variável e não pode ser usado como função ,20,TRUE
+GrupoJ,qwe38,21,Erro semântico na linha 3: f é uma função e não pode ser usado como variável ,21,TRUE
+GrupoJ,qwe39,21,Erro semântico na linha 4: g é uma função e não pode ser usado como variável ,21,TRUE
+GrupoJ,qwe40,0,digraph grafo { ,21,FALSE
+GrupoJ,qwe41,0,digraph grafo { ,21,FALSE
+GrupoJ,qwe42,40,Erro semântico na linha 4: função h espera 1 argumentos mas recebeu 0 ,40,TRUE
+GrupoJ,qwe43,40,Erro semântico na linha 4: função h espera 2 argumentos mas recebeu 0 ,40,TRUE
+GrupoJ,qwe44,41,Erro semântico na linha 4: função f espera 0 argumentos mas recebeu 1 ,41,TRUE
+GrupoJ,qwe45,41,Erro semântico na linha 4: função f espera 0 argumentos mas recebeu 2 ,41,TRUE
+GrupoJ,qwe46,42,"Erro semântico na linha 5: argumento 1 de h tem tipo incorreto (esperado inteiro, recebido decimal) ",42,TRUE
+GrupoJ,qwe47,42,"Erro semântico na linha 5: argumento 1 de h tem tipo incorreto (esperado decimal, recebido inteiro) ",42,TRUE
+GrupoJ,qwe48,42,"Erro semântico na linha 6: argumento 2 de h tem tipo incorreto (esperado inteiro, recebido decimal) ",42,TRUE
+GrupoJ,qwe49,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe50,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe51,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe52,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe53,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe54,41,Erro semântico na linha 5: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe55,41,Erro semântico na linha 5: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe56,41,Erro semântico na linha 5: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe57,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe58,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe59,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe60,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe61,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe62,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe63,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe64,41,Erro semântico na linha 6: função h espera 1 argumentos mas recebeu 2 ,42,FALSE
+GrupoJ,qwe65,30,Erro semântico na linha 4: atribuição com tipos incompatíveis (inteiro := decimal) ,30,TRUE
+GrupoJ,qwe66,30,Erro semântico na linha 4: atribuição com tipos incompatíveis (inteiro := decimal) ,30,TRUE
+GrupoJ,qwe67,30,Erro semântico na linha 3: atribuição com tipos incompatíveis (inteiro := decimal) ,30,TRUE
+GrupoJ,qwe68,30,"Erro semântico na linha 3: tipo de retorno incompatível (esperado inteiro, recebido decimal) ",30,TRUE
+GrupoJ,qwe69,30,"Erro semântico na linha 3: tipo de retorno incompatível (esperado inteiro, recebido decimal) ",30,TRUE
+GrupoJ,qwe70,30,Erro semântico na linha 4: atribuição com tipos incompatíveis (inteiro := decimal) ,30,TRUE
+GrupoJ,qwe71,30,Erro semântico na linha 5: atribuição com tipos incompatíveis (inteiro := decimal) ,30,TRUE
+GrupoJ,qwe72,30,Erro semântico na linha 5: tipos incompatíveis (inteiro e decimal) ,30,TRUE
+GrupoJ,qwe73,30,Erro semântico na linha 5: tipos incompatíveis (inteiro e decimal) ,30,TRUE
+GrupoJ,qwe74,30,Erro semântico na linha 5: tipos incompatíveis (inteiro e decimal) ,30,TRUE
+GrupoJ,qwe75,30,Erro semântico na linha 5: tipos incompatíveis (inteiro e decimal) ,30,TRUE
+GrupoJ,qwe76,30,Erro semântico na linha 5: atribuição com tipos incompatíveis (inteiro := indefinido) ,30,TRUE
+GrupoJ,qwe77,30,Erro semântico na linha 5: tipos incompatíveis (inteiro e decimal) ,30,TRUE
+GrupoJ,qwe78,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoJ,qwe79,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoJ,qwe80,1,AddressSanitizer:DEADLYSIGNAL ,30,FALSE
+GrupoJ,qwe81,0,digraph grafo { ,30,FALSE
+GrupoJ,qwe82,30,Erro semântico na linha 5: tipos incompatíveis (decimal e inteiro) ,30,TRUE
+GrupoK,qwe00,10,Erro linha 4: identificador a não declarado ,10,TRUE
+GrupoK,qwe01,10,Erro linha 3: função a não declarada ,10,TRUE
+GrupoK,qwe02,10,Erro linha 4: função a não declarada ,10,TRUE
+GrupoK,qwe03,10,Erro linha 5: identificador a não declarado ,10,TRUE
+GrupoK,qwe04,0,digraph grafo { ,0,TRUE
+GrupoK,qwe05,0,digraph grafo { ,0,TRUE
+GrupoK,qwe06,139,Segmentation fault,0,FALSE
+GrupoK,qwe07,0,digraph grafo { ,0,TRUE
+GrupoK,qwe08,0,digraph grafo { ,0,TRUE
+GrupoK,qwe09,0,digraph grafo { ,0,TRUE
+GrupoK,qwe10,10,Erro linha 7: identificador b não declarado ,10,TRUE
+GrupoK,qwe11,10,Erro linha 8: identificador b não declarado ,10,TRUE
+GrupoK,qwe12,139,Segmentation fault,10,FALSE
+GrupoK,qwe13,10,Erro linha 8: identificador b não declarado ,10,TRUE
+GrupoK,qwe14,10,Erro linha 8: identificador b não declarado ,10,TRUE
+GrupoK,qwe15,10,Erro linha 12: identificador b não declarado ,10,TRUE
+GrupoK,qwe16,11,Erro linha 4: variável b já declarada ,11,TRUE
+GrupoK,qwe17,11,Erro linha 5: variável b já declarada ,11,TRUE
+GrupoK,qwe18,11,Erro linha 7: variável b já declarada ,11,TRUE
+GrupoK,qwe19,11,Erro linha 7: variável b já declarada ,11,TRUE
+GrupoK,qwe20,11,Erro linha 7: variável b já declarada ,11,TRUE
+GrupoK,qwe21,11,Erro linha 6: variável b já declarada ,11,TRUE
+GrupoK,qwe22,11,Erro linha 7: variável b já declarada ,11,TRUE
+GrupoK,qwe23,0,digraph grafo { ,11,FALSE
+GrupoK,qwe24,0,digraph grafo { ,11,FALSE
+GrupoK,qwe25,0,digraph grafo { ,0,TRUE
+GrupoK,qwe26,0,digraph grafo { ,0,TRUE
+GrupoK,qwe27,11,Erro linha 3: função f já declarada ,11,TRUE
+GrupoK,qwe28,11,Erro linha 3: função f já declarada ,11,TRUE
+GrupoK,qwe29,11,Erro linha 3: função f já declarada ,11,TRUE
+GrupoK,qwe30,0,digraph grafo { ,0,TRUE
+GrupoK,qwe31,10,Erro linha 2: função f não declarada ,0,FALSE
+GrupoK,qwe32,0,digraph grafo { ,0,TRUE
+GrupoK,qwe33,10,Erro linha 2: identificador a não declarado ,0,FALSE
+GrupoK,qwe34,20,Erro linha 4: b não é uma função ,20,TRUE
+GrupoK,qwe35,20,Erro linha 4: b não é uma função ,20,TRUE
+GrupoK,qwe36,20,Erro linha 5: b não é uma função ,20,TRUE
+GrupoK,qwe37,20,Erro linha 5: b não é uma função ,20,TRUE
+GrupoK,qwe38,10,Erro linha 4: identificador f não declarado ,21,FALSE
+GrupoK,qwe39,20,Erro linha 5: g não é uma variável ,21,FALSE
+GrupoK,qwe40,21,"Erro linha 6: g é uma função, mas foi usada como variável ",21,TRUE
+GrupoK,qwe41,21,"Erro linha 6: g é uma função, mas foi usada como variável ",21,TRUE
+GrupoK,qwe42,40,Erro linha 4: Faltam argumentos para a chamada de h. ,40,TRUE
+GrupoK,qwe43,40,Erro linha 4: Faltam argumentos para a chamada de h. ,40,TRUE
+GrupoK,qwe44,10,Erro linha 4: função f não declarada ,41,FALSE
+GrupoK,qwe45,10,Erro linha 4: função f não declarada ,41,FALSE
+GrupoK,qwe46,42,"Erro linha 5: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=1), recebido (is_int=0). ",42,TRUE
+GrupoK,qwe47,42,"Erro linha 5: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe48,42,"Erro linha 6: Tipo incorreto para argumento 2 na chamada de h. Esperado (is_int=1), recebido (is_int=0). ",42,TRUE
+GrupoK,qwe49,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe50,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe51,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe52,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe53,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe54,42,"Erro linha 5: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe55,42,"Erro linha 5: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe56,42,"Erro linha 5: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe57,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe58,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe59,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe60,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe61,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe62,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe63,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe64,42,"Erro linha 6: Tipo incorreto para argumento 1 na chamada de h. Esperado (is_int=0), recebido (is_int=1). ",42,TRUE
+GrupoK,qwe65,30,Erro linha 4: Tipo da expressão (is_int=1) incompatível com o tipo de retorno declarado (is_int=0). ,30,TRUE
+GrupoK,qwe66,30,Erro linha 4: Tipo da expressão (is_int=1) incompatível com o tipo de retorno declarado (is_int=0). ,30,TRUE
+GrupoK,qwe67,30,Erro linha 3: Tipo da expressão (is_int=1) incompatível com o tipo de retorno declarado (is_int=0). ,30,TRUE
+GrupoK,qwe68,30,Erro linha 3: Tipo da expressão (is_int=0) incompatível com o tipo de retorno declarado (is_int=1). ,30,TRUE
+GrupoK,qwe69,0,digraph grafo { ,30,FALSE
+GrupoK,qwe70,30,"Erro linha 5: Tipos incompatíveis na atribuição para a. Esperado (is_int=1), recebido (is_int=0). ",30,TRUE
+GrupoK,qwe71,30,"Erro linha 6: Tipos incompatíveis na atribuição para a. Esperado (is_int=1), recebido (is_int=0). ",30,TRUE
+GrupoK,qwe72,30,Erro linha 6: Tipos incompatíveis para operador +. (is_int=1 e is_int=0) ,30,TRUE
+GrupoK,qwe73,30,Erro linha 6: Tipos incompatíveis para operador *. (is_int=1 e is_int=0) ,30,TRUE
+GrupoK,qwe74,30,Erro linha 6: Tipos incompatíveis para operador <. ,30,TRUE
+GrupoK,qwe75,30,Erro linha 6: Tipos incompatíveis para operador ==. ,30,TRUE
+GrupoK,qwe76,30,"Erro linha 6: Tipos incompatíveis na atribuição para a. Esperado (is_int=1), recebido (is_int=0). ",30,TRUE
+GrupoK,qwe77,30,Erro linha 6: Tipos incompatíveis para operador +. (is_int=1 e is_int=0) ,30,TRUE
+GrupoK,qwe78,30,"Erro linha 10: Expressão de teste do se deve ser do tipo int (is_int=1), mas é (is_int=1). ",30,TRUE
+GrupoK,qwe79,30,"Erro linha 10: Expressão de teste do se deve ser do tipo int (is_int=1), mas é (is_int=1). ",30,TRUE
+GrupoK,qwe80,30,"Erro linha 10: Expressão de teste do se deve ser do tipo int (is_int=1), mas é (is_int=1). ",30,TRUE
+GrupoK,qwe81,30,"Erro linha 10: Expressão de teste do se deve ser do tipo int (is_int=1), mas é (is_int=1). ",30,TRUE
+GrupoK,qwe82,10,Erro linha 8: função f não declarada ,30,FALSE
+GrupoL,qwe00,10,ERRO 10: Using undeclared variable at line 4 ,10,TRUE
+GrupoL,qwe01,10,ERRO 10: Using undeclared variable at line 3 ,10,TRUE
+GrupoL,qwe02,10,ERRO 10: Using undeclared variable at line 4 ,10,TRUE
+GrupoL,qwe03,10,ERRO 10: Using undeclared variable at line 5 ,10,TRUE
+GrupoL,qwe04,0,digraph grafo { ,0,TRUE
+GrupoL,qwe05,0,digraph grafo { ,0,TRUE
+GrupoL,qwe06,1,AddressSanitizer:DEADLYSIGNAL ,0,FALSE
+GrupoL,qwe07,0,digraph grafo { ,0,TRUE
+GrupoL,qwe08,0,digraph grafo { ,0,TRUE
+GrupoL,qwe09,0,digraph grafo { ,0,TRUE
+GrupoL,qwe10,10,ERRO 10: Using undeclared variable at line 7 ,10,TRUE
+GrupoL,qwe11,10,ERRO 10: Using undeclared variable at line 8 ,10,TRUE
+GrupoL,qwe12,1,AddressSanitizer:DEADLYSIGNAL ,10,FALSE
+GrupoL,qwe13,10,ERRO 10: Using undeclared variable at line 8 ,10,TRUE
+GrupoL,qwe14,10,ERRO 10: Using undeclared variable at line 8 ,10,TRUE
+GrupoL,qwe15,10,ERRO 10: Using undeclared variable at line 12 ,10,TRUE
+GrupoL,qwe16,11,ERRO 11: Variable already declared at line 4 ,11,TRUE
+GrupoL,qwe17,11,ERRO 11: Variable already declared at line 5 ,11,TRUE
+GrupoL,qwe18,11,ERRO 11: Variable already declared at line 7 ,11,TRUE
+GrupoL,qwe19,11,ERRO 11: Variable already declared at line 7 ,11,TRUE
+GrupoL,qwe20,11,ERRO 11: Variable already declared at line 7 ,11,TRUE
+GrupoL,qwe21,11,ERRO 11: Variable already declared at line 6 ,11,TRUE
+GrupoL,qwe22,11,ERRO 11: Variable already declared at line 7 ,11,TRUE
+GrupoL,qwe23,11,ERRO 11: Variable already declared at line 2 ,11,TRUE
+GrupoL,qwe24,11,ERRO 11: Variable already declared at line 4 ,11,TRUE
+GrupoL,qwe25,11,ERRO 11: Variable already declared at line 1 ,0,FALSE
+GrupoL,qwe26,11,ERRO 11: Variable already declared at line 3 ,0,FALSE
+GrupoL,qwe27,11,ERRO 11: Variable already declared at line 3 ,11,TRUE
+GrupoL,qwe28,11,ERRO 11: Variable already declared at line 3 ,11,TRUE
+GrupoL,qwe29,11,ERRO 11: Variable already declared at line 3 ,11,TRUE
+GrupoL,qwe30,0,digraph grafo { ,0,TRUE
+GrupoL,qwe31,0,digraph grafo { ,0,TRUE
+GrupoL,qwe32,0,digraph grafo { ,0,TRUE
+GrupoL,qwe33,0,digraph grafo { ,0,TRUE
+GrupoL,qwe34,20,ERRO 20: Using variable as function at line 4 ,20,TRUE
+GrupoL,qwe35,20,ERRO 20: Using variable as function at line 4 ,20,TRUE
+GrupoL,qwe36,20,ERRO 20: Using variable as function at line 5 ,20,TRUE
+GrupoL,qwe37,20,ERRO 20: Using variable as function at line 5 ,20,TRUE
+GrupoL,qwe38,21,ERRO 21: Using function as variable at line 4 ,21,TRUE
+GrupoL,qwe39,21,ERRO 21: Using function as variable at line 5 ,21,TRUE
+GrupoL,qwe40,21,ERRO 21: Using function as variable at line 6 ,21,TRUE
+GrupoL,qwe41,11,ERRO 11: Variable already declared at line 6 ,21,FALSE
+GrupoL,qwe42,40,ERRO 40: Missing function arguments at line 4 ,40,TRUE
+GrupoL,qwe43,40,ERRO 40: Missing function arguments at line 4 ,40,TRUE
+GrupoL,qwe44,41,ERRO 41: Too many arguments at line 4 ,41,TRUE
+GrupoL,qwe45,41,ERRO 41: Too many arguments at line 4 ,41,TRUE
+GrupoL,qwe46,42,ERRO 42: Wrong type arguments at line 5 ,42,TRUE
+GrupoL,qwe47,42,ERRO 42: Wrong type arguments at line 5 ,42,TRUE
+GrupoL,qwe48,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe49,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe50,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe51,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe52,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe53,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe54,42,ERRO 42: Wrong type arguments at line 5 ,42,TRUE
+GrupoL,qwe55,42,ERRO 42: Wrong type arguments at line 5 ,42,TRUE
+GrupoL,qwe56,42,ERRO 42: Wrong type arguments at line 5 ,42,TRUE
+GrupoL,qwe57,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe58,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe59,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe60,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe61,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe62,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe63,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe64,42,ERRO 42: Wrong type arguments at line 6 ,42,TRUE
+GrupoL,qwe65,0,digraph grafo { ,30,FALSE
+GrupoL,qwe66,0,digraph grafo { ,30,FALSE
+GrupoL,qwe67,0,digraph grafo { ,30,FALSE
+GrupoL,qwe68,0,digraph grafo { ,30,FALSE
+GrupoL,qwe69,0,digraph grafo { ,30,FALSE
+GrupoL,qwe70,30,ERRO 30: Wrong type used at line 5 ,30,TRUE
+GrupoL,qwe71,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe72,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe73,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe74,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe75,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe76,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe77,30,ERRO 30: Wrong type used at line 6 ,30,TRUE
+GrupoL,qwe78,30,ERRO 30: Wrong type used at line 10 ,30,TRUE
+GrupoL,qwe79,30,ERRO 30: Wrong type used at line 10 ,30,TRUE
+GrupoL,qwe80,30,ERRO 30: Wrong type used at line 10 ,30,TRUE
+GrupoL,qwe81,30,ERRO 30: Wrong type used at line 10 ,30,TRUE
+GrupoL,qwe82,30,ERRO 30: Wrong type used at line 9 ,30,TRUE
+GrupoM,qwe00,10,Erro semântico (linha 3): identificador a não declarado. ,10,TRUE
+GrupoM,qwe01,10,Erro semântico (linha 3): identificador a não declarado. ,10,TRUE
+GrupoM,qwe02,10,Erro semântico (linha 4): identificador a não declarado. ,10,TRUE
+GrupoM,qwe03,10,Erro semântico (linha 4): identificador a não declarado. ,10,TRUE
+GrupoM,qwe04,0,digraph grafo { ,0,TRUE
+GrupoM,qwe05,0,digraph grafo { ,0,TRUE
+GrupoM,qwe06,0,digraph grafo { ,0,TRUE
+GrupoM,qwe07,0,digraph grafo { ,0,TRUE
+GrupoM,qwe08,0,digraph grafo { ,0,TRUE
+GrupoM,qwe09,0,digraph grafo { ,0,TRUE
+GrupoM,qwe10,10,Erro semântico (linha 6): identificador b não declarado. ,10,TRUE
+GrupoM,qwe11,10,Erro semântico (linha 7): identificador b não declarado. ,10,TRUE
+GrupoM,qwe12,10,Erro semântico (linha 7): identificador b não declarado. ,10,TRUE
+GrupoM,qwe13,10,Erro semântico (linha 7): identificador b não declarado. ,10,TRUE
+GrupoM,qwe14,10,Erro semântico (linha 7): identificador b não declarado. ,10,TRUE
+GrupoM,qwe15,10,Erro semântico (linha 11): identificador b não declarado. ,10,TRUE
+GrupoM,qwe16,11,Erro semântico (linha 4): identificador b já declarado. ,11,TRUE
+GrupoM,qwe17,11,Erro semântico (linha 4): identificador b já declarado. ,11,TRUE
+GrupoM,qwe18,11,Erro semântico (linha 6): identificador b já declarado. ,11,TRUE
+GrupoM,qwe19,11,Erro semântico (linha 6): identificador b já declarado. ,11,TRUE
+GrupoM,qwe20,11,Erro semântico (linha 6): identificador b já declarado. ,11,TRUE
+GrupoM,qwe21,11,Erro semântico (linha 5): identificador b já declarado. ,11,TRUE
+GrupoM,qwe22,11,Erro semântico (linha 6): identificador b já declarado. ,11,TRUE
+GrupoM,qwe23,11,Erro semântico (linha 2): identificador a já declarado. ,11,TRUE
+GrupoM,qwe24,11,Erro semântico (linha 3): identificador b já declarado. ,11,TRUE
+GrupoM,qwe25,0,digraph grafo { ,0,TRUE
+GrupoM,qwe26,11,Erro semântico (linha 2): identificador f já declarado. ,0,FALSE
+GrupoM,qwe27,11,Erro semântico  (linha 3): identificador f já declarado. ,11,TRUE
+GrupoM,qwe28,11,Erro semântico  (linha 3): identificador f já declarado. ,11,TRUE
+GrupoM,qwe29,11,Erro semântico  (linha 3): identificador f já declarado. ,11,TRUE
+GrupoM,qwe30,0,digraph grafo { ,0,TRUE
+GrupoM,qwe31,0,digraph grafo { ,0,TRUE
+GrupoM,qwe32,0,digraph grafo { ,0,TRUE
+GrupoM,qwe33,0,digraph grafo { ,0,TRUE
+GrupoM,qwe34,21,Erro semântico (linha 4): b não é uma função. ,20,FALSE
+GrupoM,qwe35,21,Erro semântico (linha 4): b não é uma função. ,20,FALSE
+GrupoM,qwe36,21,Erro semântico (linha 5): b não é uma função. ,20,FALSE
+GrupoM,qwe37,21,Erro semântico (linha 5): b não é uma função. ,20,FALSE
+GrupoM,qwe38,20,Erro semântico (linha 3): f não é uma variável. ,21,FALSE
+GrupoM,qwe39,20,Erro semântico (linha 4): g não é uma variável. ,21,FALSE
+GrupoM,qwe40,20,Erro semântico (linha 5): g não é uma variável. ,21,FALSE
+GrupoM,qwe41,20,Erro semântico (linha 6): g não é uma variável. ,21,FALSE
+GrupoM,qwe42,40,Erro semântico (linha 4): Argumentos faltantes na chamada da função ,40,TRUE
+GrupoM,qwe43,40,Erro semântico (linha 4): Argumentos faltantes na chamada da função ,40,TRUE
+GrupoM,qwe44,41,Erro semântico (linha 4): Argumentos em excesso na chamada da função ,41,TRUE
+GrupoM,qwe45,41,Erro semântico (linha 4): Argumentos em excesso na chamada da função ,41,TRUE
+GrupoM,qwe46,42,Erro semântico (linha 5): tipo incorreto do argumento 1 na chamada de função h. ,42,TRUE
+GrupoM,qwe47,42,Erro semântico (linha 5): tipo incorreto do argumento 1 na chamada de função h. ,42,TRUE
+GrupoM,qwe48,42,Erro semântico (linha 6): tipo incorreto do argumento 2 na chamada de função h. ,42,TRUE
+GrupoM,qwe49,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe50,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe51,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe52,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe53,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe54,41,Erro semântico (linha 5): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe55,41,Erro semântico (linha 5): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe56,41,Erro semântico (linha 5): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe57,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe58,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe59,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe60,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe61,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe62,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe63,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe64,41,Erro semântico (linha 6): Argumentos em excesso na chamada da função ,42,FALSE
+GrupoM,qwe65,30,Erro Semântico (linha 4): tentando atribuir label tipo decimal em função do tipo inteiro ,30,TRUE
+GrupoM,qwe66,30,Erro Semântico (linha 4): tentando atribuir label tipo decimal em função do tipo inteiro ,30,TRUE
+GrupoM,qwe67,30,Erro Semântico (linha 3): tentando atribuir label tipo decimal em função do tipo inteiro ,30,TRUE
+GrupoM,qwe68,30,Erro Semântico (linha 3): tentando retornar token do tipo decimal em função do tipo inteiro ,30,TRUE
+GrupoM,qwe69,30,Erro Semântico (linha 3): tentando retornar token do tipo decimal em função do tipo inteiro ,30,TRUE
+GrupoM,qwe70,30,Erro semântico (linha 4): tipos incompatíveis. ,30,TRUE
+GrupoM,qwe71,30,Erro semântico (linha 5): tipos incompatíveis. ,30,TRUE
+GrupoM,qwe72,30,Erro semântico (linha 6): tipos incompatíveis na expressão. ,30,TRUE
+GrupoM,qwe73,30,Erro semântico (linha 6): tipos incompatíveis na expressão. ,30,TRUE
+GrupoM,qwe74,30,Erro semântico (linha 6): tipos incompatíveis na expressão. ,30,TRUE
+GrupoM,qwe75,30,Erro semântico (linha 6): tipos incompatíveis na expressão. ,30,TRUE
+GrupoM,qwe76,30,Erro semântico (linha 5): tipos incompatíveis. ,30,TRUE
+GrupoM,qwe77,30,Erro semântico (linha 6): tipos incompatíveis na expressão. ,30,TRUE
+GrupoM,qwe78,30,Erro semântico (linha 4): tipos incompatíveis entre blocos if e else. ,30,TRUE
+GrupoM,qwe79,30,Erro semântico (linha 4): tipos incompatíveis entre blocos if e else. ,30,TRUE
+GrupoM,qwe80,30,Erro semântico (linha 4): tipos incompatíveis entre blocos if e else. ,30,TRUE
+GrupoM,qwe81,30,Erro semântico (linha 4): tipos incompatíveis entre blocos if e else. ,30,TRUE
+GrupoM,qwe82,30,Erro semântico (linha 5): tipos incompatíveis entre blocos if e else. ,30,TRUE
+GrupoO,qwe00,10,Erro: identificador a não declarado (linha 3). ,10,TRUE
+GrupoO,qwe01,10,Erro: função a não declarada (linha 3). ,10,TRUE
+GrupoO,qwe02,10,Erro: função a não declarada (linha 4). ,10,TRUE
+GrupoO,qwe03,10,Erro: identificador a não declarado (linha 4). ,10,TRUE
+GrupoO,qwe04,0,digraph grafo { ,0,TRUE
+GrupoO,qwe05,0,digraph grafo { ,0,TRUE
+GrupoO,qwe06,0,digraph grafo { ,0,TRUE
+GrupoO,qwe07,0,digraph grafo { ,0,TRUE
+GrupoO,qwe08,0,digraph grafo { ,0,TRUE
+GrupoO,qwe09,0,digraph grafo { ,0,TRUE
+GrupoO,qwe10,10,Erro: identificador b não declarado (linha 6). ,10,TRUE
+GrupoO,qwe11,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoO,qwe12,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoO,qwe13,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoO,qwe14,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoO,qwe15,10,Erro: identificador b não declarado (linha 11). ,10,TRUE
+GrupoO,qwe16,11,Erro: variável b redeclarada na linha 4. ,11,TRUE
+GrupoO,qwe17,11,Erro: variável b redeclarada na linha 4. ,11,TRUE
+GrupoO,qwe18,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoO,qwe19,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoO,qwe20,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoO,qwe21,11,Erro: variável b redeclarada na linha 5. ,11,TRUE
+GrupoO,qwe22,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoO,qwe23,0,digraph grafo { ,11,FALSE
+GrupoO,qwe24,0,digraph grafo { ,11,FALSE
+GrupoO,qwe25,0,digraph grafo { ,0,TRUE
+GrupoO,qwe26,0,digraph grafo { ,0,TRUE
+GrupoO,qwe27,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoO,qwe28,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoO,qwe29,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoO,qwe30,0,digraph grafo { ,0,TRUE
+GrupoO,qwe31,0,digraph grafo { ,0,TRUE
+GrupoO,qwe32,0,digraph grafo { ,0,TRUE
+GrupoO,qwe33,10,Erro: identificador a não declarado (linha 2). ,0,FALSE
+GrupoO,qwe34,20,Erro: identificador b não é função (linha 4). ,20,TRUE
+GrupoO,qwe35,20,Erro: identificador b não é função (linha 4). ,20,TRUE
+GrupoO,qwe36,20,Erro: identificador b não é função (linha 5). ,20,TRUE
+GrupoO,qwe37,20,Erro: identificador b não é função (linha 5). ,20,TRUE
+GrupoO,qwe38,21,Erro: f é uma função e não pode receber atribuição (linha 3). ,21,TRUE
+GrupoO,qwe39,21,Erro: g é uma função e não pode receber atribuição (linha 4). ,21,TRUE
+GrupoO,qwe40,21,Erro: função g usada como variável (linha 5). ,21,TRUE
+GrupoO,qwe41,21,Erro: função g usada como variável (linha 6). ,21,TRUE
+GrupoO,qwe42,40,"Erro: faltam argumentos na chamada de h (linha 4). Esperado 1, encontrado 0. ",40,TRUE
+GrupoO,qwe43,40,"Erro: faltam argumentos na chamada de h (linha 4). Esperado 2, encontrado 0. ",40,TRUE
+GrupoO,qwe44,41,"Erro: argumentos em excesso na chamada de f (linha 4). Esperado 0, encontrado 1. ",41,TRUE
+GrupoO,qwe45,41,"Erro: argumentos em excesso na chamada de f (linha 4). Esperado 0, encontrado 2. ",41,TRUE
+GrupoO,qwe46,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado inteiro, encontrado decimal. ",42,TRUE
+GrupoO,qwe47,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe48,42,"Erro: tipo incorreto no argumento 2 da chamada de h (linha 6): esperado inteiro, encontrado decimal. ",42,TRUE
+GrupoO,qwe49,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe50,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe51,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe52,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe53,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe54,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe55,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe56,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe57,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe58,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe59,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe60,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe61,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe62,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe63,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe64,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoO,qwe65,30,"Erro de tipo declarado no retorno (linha 4): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoO,qwe66,30,"Erro de tipo declarado no retorno (linha 4): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoO,qwe67,30,"Erro de tipo declarado no retorno (linha 3): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoO,qwe68,30,"Erro de tipo no retorno (linha 3): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoO,qwe69,30,"Erro de tipo no retorno (linha 3): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoO,qwe70,30,"Erro de tipo em atribuição para a (linha 4): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoO,qwe71,30,"Erro de tipo em atribuição para a (linha 5): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoO,qwe72,30,"Erro de tipo em +, linha 6. ",30,TRUE
+GrupoO,qwe73,30,"Erro de tipo em *, linha 6. ",30,TRUE
+GrupoO,qwe74,30,"Erro de tipo em <, linha 6. ",30,TRUE
+GrupoO,qwe75,30,"Erro de tipo em ==, linha 6. ",30,TRUE
+GrupoO,qwe76,30,"Erro de tipo em atribuição para a (linha 5): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoO,qwe77,30,"Erro de tipo em +, linha 6. ",30,TRUE
+GrupoO,qwe78,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoO,qwe79,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoO,qwe80,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoO,qwe81,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoO,qwe82,30,Erro de tipo em blocos do if (linha 9): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoP,qwe00,10,Erro semântico: símbolo a não declarado na linha 3. ,10,TRUE
+GrupoP,qwe01,10,Erro semântico: símbolo a não declarado na linha 3. ,10,TRUE
+GrupoP,qwe02,10,Erro semântico: símbolo a não declarado na linha 4. ,10,TRUE
+GrupoP,qwe03,10,Erro semântico: símbolo a não declarado na linha 4. ,10,TRUE
+GrupoP,qwe04,10,Erro semântico: símbolo b não declarado na linha 3. ,0,FALSE
+GrupoP,qwe05,10,Erro semântico: símbolo b não declarado na linha 5. ,0,FALSE
+GrupoP,qwe06,10,Erro semântico: símbolo b não declarado na linha 6. ,0,FALSE
+GrupoP,qwe07,10,Erro semântico: símbolo b não declarado na linha 5. ,0,FALSE
+GrupoP,qwe08,10,Erro semântico: símbolo b não declarado na linha 4. ,0,FALSE
+GrupoP,qwe09,10,Erro semântico: símbolo b não declarado na linha 4. ,0,FALSE
+GrupoP,qwe10,10,Erro semântico: símbolo b não declarado na linha 6. ,10,TRUE
+GrupoP,qwe11,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe12,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe13,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe14,10,Erro semântico: símbolo b não declarado na linha 7. ,10,TRUE
+GrupoP,qwe15,10,Erro semântico: símbolo b não declarado na linha 11. ,10,TRUE
+GrupoP,qwe16,0,digraph grafo { ,11,FALSE
+GrupoP,qwe17,11,Erro semântico: dupla declaração da variável b na linha 4. ,11,TRUE
+GrupoP,qwe18,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe19,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe20,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe21,11,Erro semântico: dupla declaração da variável b na linha 5. ,11,TRUE
+GrupoP,qwe22,11,Erro semântico: dupla declaração da variável b na linha 6. ,11,TRUE
+GrupoP,qwe23,11,Erro semântico: dupla declaração do parâmetro a na linha 2. ,11,TRUE
+GrupoP,qwe24,0,digraph grafo { ,11,FALSE
+GrupoP,qwe25,11,Erro semântico: dupla declaração do símbolo f na linha 1. ,0,FALSE
+GrupoP,qwe26,0,digraph grafo { ,0,TRUE
+GrupoP,qwe27,0,digraph grafo { ,11,FALSE
+GrupoP,qwe28,0,digraph grafo { ,11,FALSE
+GrupoP,qwe29,0,digraph grafo { ,11,FALSE
+GrupoP,qwe30,10,Erro semântico: símbolo f não declarado na linha 3. ,0,FALSE
+GrupoP,qwe31,0,digraph grafo { ,0,TRUE
+GrupoP,qwe32,10,Erro semântico: símbolo f não declarado na linha 4. ,0,FALSE
+GrupoP,qwe33,41,Erro semântico: argumentos em excesso na chamada de f na linha 2. ,0,FALSE
+GrupoP,qwe34,10,Erro semântico: símbolo b não declarado na linha 4. ,20,FALSE
+GrupoP,qwe35,20,Erro semântico: variável b usada como função na linha 4. ,20,TRUE
+GrupoP,qwe36,10,Erro semântico: símbolo b não declarado na linha 5. ,20,FALSE
+GrupoP,qwe37,20,Erro semântico: variável b usada como função na linha 5. ,20,TRUE
+GrupoP,qwe38,21,Erro semântico: função f usada como variável para atribuição na linha 3. ,21,TRUE
+GrupoP,qwe39,10,Erro semântico: símbolo g não declarado na linha 4. ,21,FALSE
+GrupoP,qwe40,10,Erro semântico: símbolo g não declarado na linha 5. ,21,FALSE
+GrupoP,qwe41,10,Erro semântico: símbolo g não declarado na linha 6. ,21,FALSE
+GrupoP,qwe42,10,Erro semântico: símbolo h não declarado na linha 4. ,40,FALSE
+GrupoP,qwe43,10,Erro semântico: símbolo h não declarado na linha 4. ,40,FALSE
+GrupoP,qwe44,41,Erro semântico: argumentos em excesso na chamada de f na linha 4. ,41,TRUE
+GrupoP,qwe45,41,Erro semântico: argumentos em excesso na chamada de f na linha 4. ,41,TRUE
+GrupoP,qwe46,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe47,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe48,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe49,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe50,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe51,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe52,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe53,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe54,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe55,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe56,10,Erro semântico: símbolo h não declarado na linha 5. ,42,FALSE
+GrupoP,qwe57,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe58,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe59,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe60,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe61,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe62,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe63,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe64,10,Erro semântico: símbolo h não declarado na linha 6. ,42,FALSE
+GrupoP,qwe65,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 4. ,30,TRUE
+GrupoP,qwe66,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 4. ,30,TRUE
+GrupoP,qwe67,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 3. ,30,TRUE
+GrupoP,qwe68,30,Erro semântico: tipo de retorno incompatível com a declaração da função na linha 3. ,30,TRUE
+GrupoP,qwe69,0,digraph grafo { ,30,FALSE
+GrupoP,qwe70,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 4. ,30,TRUE
+GrupoP,qwe71,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 5. ,30,TRUE
+GrupoP,qwe72,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe73,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe74,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe75,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe76,30,Erro semântico: atribuição com tipos incompatíveis para a na linha 5. ,30,TRUE
+GrupoP,qwe77,30,Erro semântico: tipos incompatíveis na expressão (float e int).,30,TRUE
+GrupoP,qwe78,30,Erro semântico: expressão de teste de enquanto inválida na linha 9. ,30,TRUE
+GrupoP,qwe79,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe80,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe81,30,Erro semântico: tipos dos blocos if e else incompatíveis na linha 10. ,30,TRUE
+GrupoP,qwe82,10,Erro semântico: símbolo g não declarado na linha 6. ,30,FALSE
+GrupoQ,qwe00,10,Erro semântico na linha 3: Identificador a não declarado. ,10,TRUE
+GrupoQ,qwe01,10,Erro semântico na linha 3: Identificador a não declarado. ,10,TRUE
+GrupoQ,qwe02,10,Erro semântico na linha 4: Identificador a não declarado. ,10,TRUE
+GrupoQ,qwe03,10,Erro semântico na linha 4: Identificador a não declarado. ,10,TRUE
+GrupoQ,qwe04,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe05,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe06,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe07,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe08,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe09,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe10,10,Erro semântico na linha 6: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe11,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe12,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe13,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe14,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe15,10,Erro semântico na linha 11: Identificador b não declarado. ,10,TRUE
+GrupoQ,qwe16,11,Erro semântico na linha 4: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe17,11,Erro semântico na linha 4: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe18,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe19,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe20,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe21,11,Erro semântico na linha 5: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe22,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe23,11,Erro semântico na linha 2: Identificador a já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe24,0,digraph grafo { ,11,FALSE
+GrupoQ,qwe25,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe26,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe27,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe28,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe29,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoQ,qwe30,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe31,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe32,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe33,0,digraph grafo { ,0,TRUE
+GrupoQ,qwe34,20,Erro semântico na linha 4: Identificador b é uma variável e não pode ser usado como função. ,20,TRUE
+GrupoQ,qwe35,20,Erro semântico na linha 4: Identificador b é uma variável e não pode ser usado como função. ,20,TRUE
+GrupoQ,qwe36,20,Erro semântico na linha 5: Identificador b é uma variável e não pode ser usado como função. ,20,TRUE
+GrupoQ,qwe37,20,Erro semântico na linha 5: Identificador b é uma variável e não pode ser usado como função. ,20,TRUE
+GrupoQ,qwe38,21,Erro semântico na linha 3: Identificador f é uma função e não pode ser usado como variável. ,21,TRUE
+GrupoQ,qwe39,21,Erro semântico na linha 4: Identificador g é uma função e não pode ser usado como variável. ,21,TRUE
+GrupoQ,qwe40,21,Erro semântico na linha 5: Identificador g é uma função e não pode ser usado como variável. ,21,TRUE
+GrupoQ,qwe41,21,Erro semântico na linha 6: Identificador g é uma função e não pode ser usado como variável. ,21,TRUE
+GrupoQ,qwe42,40,Erro semântico na linha 4: Faltam argumentos na chamada da função h. ,40,TRUE
+GrupoQ,qwe43,40,Erro semântico na linha 4: Faltam argumentos na chamada da função h. ,40,TRUE
+GrupoQ,qwe44,41,Erro semântico na linha 4: Argumentos em excesso na chamada da função f. ,41,TRUE
+GrupoQ,qwe45,41,Erro semântico na linha 4: Argumentos em excesso na chamada da função f. ,41,TRUE
+GrupoQ,qwe46,42,Erro semântico na linha 5: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe47,42,Erro semântico na linha 5: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe48,0,digraph grafo { ,42,FALSE
+GrupoQ,qwe49,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe50,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe51,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe52,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe53,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe54,42,Erro semântico na linha 5: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe55,42,Erro semântico na linha 5: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe56,42,Erro semântico na linha 5: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe57,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe58,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe59,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe60,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe61,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe62,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe63,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe64,42,Erro semântico na linha 6: Tipo incorreto para argumento na chamada da função Argumento 1 na chamada da função h está com tipo errado.. ,42,TRUE
+GrupoQ,qwe65,30,Erro semântico na linha 4: Tipos incompatíveis na expressão. Tipo de retorno incompatível com a expressão retornada. ,30,TRUE
+GrupoQ,qwe66,30,Erro semântico na linha 4: Tipos incompatíveis na expressão. Tipo de retorno incompatível com a expressão retornada. ,30,TRUE
+GrupoQ,qwe67,30,Erro semântico na linha 3: Tipos incompatíveis na expressão. Tipo de retorno incompatível com a expressão retornada. ,30,TRUE
+GrupoQ,qwe68,30,Erro semântico na linha 3: Tipos incompatíveis na expressão. Tipo de retorno incompatível com a expressão retornada. ,30,TRUE
+GrupoQ,qwe69,30,Erro semântico na linha 3: Tipos incompatíveis na expressão. Tipo de retorno declarado (retorna ... := tipo) incompatível com o tipo da função. ,30,TRUE
+GrupoQ,qwe70,30,Erro semântico na linha 4: Tipos incompatíveis na expressão. Tipo da expressão incompatível com a variável. ,30,TRUE
+GrupoQ,qwe71,30,Erro semântico na linha 5: Tipos incompatíveis na expressão. Tipo da expressão incompatível com a variável. ,30,TRUE
+GrupoQ,qwe72,30,Erro semântico na linha 6: Tipos incompatíveis na expressão. Operação com tipos incompatíveis (int e float). ,30,TRUE
+GrupoQ,qwe73,30,Erro semântico na linha 6: Tipos incompatíveis na expressão. Operação com tipos incompatíveis (int e float). ,30,TRUE
+GrupoQ,qwe74,30,Erro semântico na linha 6: Tipos incompatíveis na expressão. Operação com tipos incompatíveis (int e float). ,30,TRUE
+GrupoQ,qwe75,30,Erro semântico na linha 6: Tipos incompatíveis na expressão. Operação com tipos incompatíveis (int e float). ,30,TRUE
+GrupoQ,qwe76,30,Erro semântico na linha 5: Tipos incompatíveis na expressão. Tipo da expressão incompatível com a variável. ,30,TRUE
+GrupoQ,qwe77,30,Erro semântico na linha 6: Tipos incompatíveis na expressão. Operação com tipos incompatíveis (int e float). ,30,TRUE
+GrupoQ,qwe78,30,Erro semântico na linha 9: Tipos incompatíveis na expressão. Expressão de teste do enquanto deve ser do tipo inteiro. ,30,TRUE
+GrupoQ,qwe79,30,Erro semântico na linha 10: Tipos incompatíveis na expressão. Expressão de teste do se deve ser do tipo inteiro. ,30,TRUE
+GrupoQ,qwe80,30,Erro semântico na linha 9: Tipos incompatíveis na expressão. Expressão de teste do se deve ser do tipo inteiro. ,30,TRUE
+GrupoQ,qwe81,30,Erro semântico na linha 10: Tipos incompatíveis na expressão. Tipos dos blocos se e senao são incompatíveis. ,30,TRUE
+GrupoQ,qwe82,30,Erro semântico na linha 9: Tipos incompatíveis na expressão. Tipos dos blocos se e senao são incompatíveis. ,30,TRUE
+GrupoR,qwe00,10,================================================================== ,10,TRUE
+GrupoR,qwe01,10,================================================================== ,10,TRUE
+GrupoR,qwe02,10,================================================================== ,10,TRUE
+GrupoR,qwe03,10,================================================================== ,10,TRUE
+GrupoR,qwe04,0,digraph grafo { ,0,TRUE
+GrupoR,qwe05,0,digraph grafo { ,0,TRUE
+GrupoR,qwe06,0,digraph grafo { ,0,TRUE
+GrupoR,qwe07,0,digraph grafo { ,0,TRUE
+GrupoR,qwe08,0,digraph grafo { ,0,TRUE
+GrupoR,qwe09,0,digraph grafo { ,0,TRUE
+GrupoR,qwe10,10,================================================================== ,10,TRUE
+GrupoR,qwe11,10,================================================================== ,10,TRUE
+GrupoR,qwe12,10,================================================================== ,10,TRUE
+GrupoR,qwe13,10,================================================================== ,10,TRUE
+GrupoR,qwe14,10,================================================================== ,10,TRUE
+GrupoR,qwe15,10,================================================================== ,10,TRUE
+GrupoR,qwe16,11,================================================================== ,11,TRUE
+GrupoR,qwe17,11,================================================================== ,11,TRUE
+GrupoR,qwe18,11,================================================================== ,11,TRUE
+GrupoR,qwe19,11,================================================================== ,11,TRUE
+GrupoR,qwe20,11,================================================================== ,11,TRUE
+GrupoR,qwe21,11,================================================================== ,11,TRUE
+GrupoR,qwe22,11,================================================================== ,11,TRUE
+GrupoR,qwe23,11,================================================================== ,11,TRUE
+GrupoR,qwe24,0,digraph grafo { ,11,FALSE
+GrupoR,qwe25,0,digraph grafo { ,0,TRUE
+GrupoR,qwe26,0,digraph grafo { ,0,TRUE
+GrupoR,qwe27,11,================================================================== ,11,TRUE
+GrupoR,qwe28,11,================================================================== ,11,TRUE
+GrupoR,qwe29,11,================================================================== ,11,TRUE
+GrupoR,qwe30,0,digraph grafo { ,0,TRUE
+GrupoR,qwe31,0,digraph grafo { ,0,TRUE
+GrupoR,qwe32,0,digraph grafo { ,0,TRUE
+GrupoR,qwe33,41,================================================================== ,0,FALSE
+GrupoR,qwe34,20,================================================================== ,20,TRUE
+GrupoR,qwe35,20,================================================================== ,20,TRUE
+GrupoR,qwe36,20,================================================================== ,20,TRUE
+GrupoR,qwe37,20,================================================================== ,20,TRUE
+GrupoR,qwe38,21,================================================================== ,21,TRUE
+GrupoR,qwe39,21,================================================================== ,21,TRUE
+GrupoR,qwe40,21,================================================================== ,21,TRUE
+GrupoR,qwe41,21,================================================================== ,21,TRUE
+GrupoR,qwe42,40,================================================================== ,40,TRUE
+GrupoR,qwe43,40,================================================================== ,40,TRUE
+GrupoR,qwe44,41,================================================================== ,41,TRUE
+GrupoR,qwe45,41,================================================================== ,41,TRUE
+GrupoR,qwe46,42,================================================================== ,42,TRUE
+GrupoR,qwe47,42,================================================================== ,42,TRUE
+GrupoR,qwe48,42,================================================================== ,42,TRUE
+GrupoR,qwe49,42,================================================================== ,42,TRUE
+GrupoR,qwe50,42,================================================================== ,42,TRUE
+GrupoR,qwe51,42,================================================================== ,42,TRUE
+GrupoR,qwe52,42,================================================================== ,42,TRUE
+GrupoR,qwe53,42,================================================================== ,42,TRUE
+GrupoR,qwe54,42,================================================================== ,42,TRUE
+GrupoR,qwe55,42,================================================================== ,42,TRUE
+GrupoR,qwe56,42,================================================================== ,42,TRUE
+GrupoR,qwe57,42,================================================================== ,42,TRUE
+GrupoR,qwe58,42,================================================================== ,42,TRUE
+GrupoR,qwe59,42,================================================================== ,42,TRUE
+GrupoR,qwe60,42,================================================================== ,42,TRUE
+GrupoR,qwe61,42,================================================================== ,42,TRUE
+GrupoR,qwe62,42,================================================================== ,42,TRUE
+GrupoR,qwe63,42,================================================================== ,42,TRUE
+GrupoR,qwe64,42,================================================================== ,42,TRUE
+GrupoR,qwe65,30,================================================================== ,30,TRUE
+GrupoR,qwe66,30,================================================================== ,30,TRUE
+GrupoR,qwe67,30,================================================================== ,30,TRUE
+GrupoR,qwe68,30,================================================================== ,30,TRUE
+GrupoR,qwe69,30,================================================================== ,30,TRUE
+GrupoR,qwe70,30,================================================================== ,30,TRUE
+GrupoR,qwe71,30,================================================================== ,30,TRUE
+GrupoR,qwe72,30,================================================================== ,30,TRUE
+GrupoR,qwe73,30,================================================================== ,30,TRUE
+GrupoR,qwe74,30,================================================================== ,30,TRUE
+GrupoR,qwe75,30,================================================================== ,30,TRUE
+GrupoR,qwe76,30,================================================================== ,30,TRUE
+GrupoR,qwe77,30,================================================================== ,30,TRUE
+GrupoR,qwe78,30,================================================================== ,30,TRUE
+GrupoR,qwe79,30,================================================================== ,30,TRUE
+GrupoR,qwe80,30,================================================================== ,30,TRUE
+GrupoR,qwe81,30,================================================================== ,30,TRUE
+GrupoR,qwe82,30,================================================================== ,30,TRUE
+GrupoS,qwe00,10,Erro (linha 4): identificador a não declarado ,10,TRUE
+GrupoS,qwe01,10,Erro (linha 3): função a não declarada ,10,TRUE
+GrupoS,qwe02,10,Erro (linha 4): função a não declarada ,10,TRUE
+GrupoS,qwe03,10,Erro (linha 5): identificador a não declarado ,10,TRUE
+GrupoS,qwe04,0,digraph grafo { ,0,TRUE
+GrupoS,qwe05,0,digraph grafo { ,0,TRUE
+GrupoS,qwe06,0,digraph grafo { ,0,TRUE
+GrupoS,qwe07,0,digraph grafo { ,0,TRUE
+GrupoS,qwe08,0,digraph grafo { ,0,TRUE
+GrupoS,qwe09,0,digraph grafo { ,0,TRUE
+GrupoS,qwe10,10,Erro (linha 7): identificador b não declarado ,10,TRUE
+GrupoS,qwe11,10,Erro (linha 8): identificador b não declarado ,10,TRUE
+GrupoS,qwe12,10,Erro (linha 8): identificador b não declarado ,10,TRUE
+GrupoS,qwe13,10,Erro (linha 8): identificador b não declarado ,10,TRUE
+GrupoS,qwe14,10,Erro (linha 8): identificador b não declarado ,10,TRUE
+GrupoS,qwe15,10,Erro (linha 12): identificador b não declarado ,10,TRUE
+GrupoS,qwe16,11,Erro (linha 4): identificador b já declarado (linha 2) ,11,TRUE
+GrupoS,qwe17,11,Erro (linha 5): identificador b já declarado (linha 3) ,11,TRUE
+GrupoS,qwe18,11,Erro (linha 7): identificador b já declarado (linha 5) ,11,TRUE
+GrupoS,qwe19,11,Erro (linha 7): identificador b já declarado (linha 5) ,11,TRUE
+GrupoS,qwe20,11,Erro (linha 7): identificador b já declarado (linha 5) ,11,TRUE
+GrupoS,qwe21,11,Erro (linha 6): identificador b já declarado (linha 4) ,11,TRUE
+GrupoS,qwe22,11,Erro (linha 7): identificador b já declarado (linha 4) ,11,TRUE
+GrupoS,qwe23,11,Erro (linha 2): parâmetro a já declarado (linha 2) ,11,TRUE
+GrupoS,qwe24,11,Erro (linha 4): identificador b já declarado (linha 2) ,11,TRUE
+GrupoS,qwe25,11,Erro (linha 1): parâmetro f já declarado (linha 1) ,0,FALSE
+GrupoS,qwe26,11,Erro (linha 3): identificador f já declarado (linha 1) ,0,FALSE
+GrupoS,qwe27,11,Erro (linha 3): identificador f já declarado (linha 2) ,11,TRUE
+GrupoS,qwe28,11,Erro (linha 3): identificador f já declarado (linha 2) ,11,TRUE
+GrupoS,qwe29,11,Erro (linha 3): identificador f já declarado (linha 2) ,11,TRUE
+GrupoS,qwe30,0,digraph grafo { ,0,TRUE
+GrupoS,qwe31,0,digraph grafo { ,0,TRUE
+GrupoS,qwe32,0,digraph grafo { ,0,TRUE
+GrupoS,qwe33,0,digraph grafo { ,0,TRUE
+GrupoS,qwe34,20,Erro (linha 4): variável b usada como função ,20,TRUE
+GrupoS,qwe35,20,Erro (linha 4): variável b usada como função ,20,TRUE
+GrupoS,qwe36,20,Erro (linha 5): variável b usada como função ,20,TRUE
+GrupoS,qwe37,20,Erro (linha 5): variável b usada como função ,20,TRUE
+GrupoS,qwe38,21,Erro (linha 4): função f usada como variável ,21,TRUE
+GrupoS,qwe39,21,Erro (linha 5): função g usada como variável ,21,TRUE
+GrupoS,qwe40,21,Erro (linha 6): função g usada como variável ,21,TRUE
+GrupoS,qwe41,21,Erro (linha 6): função g usada como variável ,21,TRUE
+GrupoS,qwe42,40,Erro (linha 4): faltam argumentos na chamada de h ,40,TRUE
+GrupoS,qwe43,40,Erro (linha 4): faltam argumentos na chamada de h ,40,TRUE
+GrupoS,qwe44,41,Erro (linha 4): excesso de argumentos na chamada de f ,41,TRUE
+GrupoS,qwe45,41,Erro (linha 4): excesso de argumentos na chamada de f ,41,TRUE
+GrupoS,qwe46,42,Erro (linha 5): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe47,42,Erro (linha 5): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe48,42,Erro (linha 6): tipo do argumento 2 incompatível em h ,42,TRUE
+GrupoS,qwe49,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe50,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe51,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe52,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe53,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe54,42,Erro (linha 5): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe55,42,Erro (linha 5): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe56,42,Erro (linha 5): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe57,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe58,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe59,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe60,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe61,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe62,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe63,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe64,42,Erro (linha 6): tipo do argumento 1 incompatível em h ,42,TRUE
+GrupoS,qwe65,30,Erro (linha 4): retorno anotado (decimal) difere do tipo da função (inteiro) ,30,TRUE
+GrupoS,qwe66,30,Erro (linha 4): retorno anotado (decimal) difere do tipo da função (inteiro) ,30,TRUE
+GrupoS,qwe67,30,Erro (linha 3): retorno anotado (decimal) difere do tipo da função (inteiro) ,30,TRUE
+GrupoS,qwe68,30,Erro (linha 3): retorno incompatível: função retorna inteiro e expressão é decimal ,30,TRUE
+GrupoS,qwe69,30,Erro (linha 3): retorno anotado (decimal) difere do tipo da função (inteiro) ,30,TRUE
+GrupoS,qwe70,30,Erro (linha 5): atribuição incompatível: variável a é inteiro e expressão é decimal ,30,TRUE
+GrupoS,qwe71,30,Erro (linha 6): atribuição incompatível: variável a é inteiro e expressão é decimal ,30,TRUE
+GrupoS,qwe72,30,Erro (linha 6): tipos incompatíveis na operação + ,30,TRUE
+GrupoS,qwe73,30,Erro (linha 6): tipos incompatíveis na operação * ,30,TRUE
+GrupoS,qwe74,30,Erro (linha 6): tipos incompatíveis na operação < ,30,TRUE
+GrupoS,qwe75,30,Erro (linha 6): tipos incompatíveis na operação == ,30,TRUE
+GrupoS,qwe76,30,Erro (linha 6): atribuição incompatível: variável a é inteiro e expressão é decimal ,30,TRUE
+GrupoS,qwe77,30,Erro (linha 6): tipos incompatíveis na operação + ,30,TRUE
+GrupoS,qwe78,30,Erro (linha 10): blocos do if e do else com tipos incompatíveis (inteiro vs decimal) ,30,TRUE
+GrupoS,qwe79,30,Erro (linha 10): blocos do if e do else com tipos incompatíveis (inteiro vs decimal) ,30,TRUE
+GrupoS,qwe80,30,Erro (linha 10): blocos do if e do else com tipos incompatíveis (inteiro vs decimal) ,30,TRUE
+GrupoS,qwe81,30,Erro (linha 10): blocos do if e do else com tipos incompatíveis (inteiro vs decimal) ,30,TRUE
+GrupoS,qwe82,30,Erro (linha 9): blocos do if e do else com tipos incompatíveis (decimal vs inteiro) ,30,TRUE
+GrupoT,qwe00,10,Erro: identificador a não declarado (linha 3). ,10,TRUE
+GrupoT,qwe01,10,Erro: função a não declarada (linha 3). ,10,TRUE
+GrupoT,qwe02,10,Erro: função a não declarada (linha 4). ,10,TRUE
+GrupoT,qwe03,10,Erro: identificador a não declarado (linha 4). ,10,TRUE
+GrupoT,qwe04,0,digraph grafo { ,0,TRUE
+GrupoT,qwe05,0,digraph grafo { ,0,TRUE
+GrupoT,qwe06,0,digraph grafo { ,0,TRUE
+GrupoT,qwe07,0,digraph grafo { ,0,TRUE
+GrupoT,qwe08,0,digraph grafo { ,0,TRUE
+GrupoT,qwe09,0,digraph grafo { ,0,TRUE
+GrupoT,qwe10,10,Erro: identificador b não declarado (linha 6). ,10,TRUE
+GrupoT,qwe11,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoT,qwe12,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoT,qwe13,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoT,qwe14,10,Erro: identificador b não declarado (linha 7). ,10,TRUE
+GrupoT,qwe15,10,Erro: identificador b não declarado (linha 11). ,10,TRUE
+GrupoT,qwe16,11,Erro: variável b redeclarada na linha 4. ,11,TRUE
+GrupoT,qwe17,11,Erro: variável b redeclarada na linha 4. ,11,TRUE
+GrupoT,qwe18,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoT,qwe19,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoT,qwe20,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoT,qwe21,11,Erro: variável b redeclarada na linha 5. ,11,TRUE
+GrupoT,qwe22,11,Erro: variável b redeclarada na linha 6. ,11,TRUE
+GrupoT,qwe23,0,digraph grafo { ,11,FALSE
+GrupoT,qwe24,11,Erro: variável b redeclarada na linha 3. ,11,TRUE
+GrupoT,qwe25,0,digraph grafo { ,0,TRUE
+GrupoT,qwe26,0,digraph grafo { ,0,TRUE
+GrupoT,qwe27,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoT,qwe28,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoT,qwe29,11,Erro: identificador f na linha 3 já declarado como função. ,11,TRUE
+GrupoT,qwe30,0,digraph grafo { ,0,TRUE
+GrupoT,qwe31,0,digraph grafo { ,0,TRUE
+GrupoT,qwe32,0,digraph grafo { ,0,TRUE
+GrupoT,qwe33,0,digraph grafo { ,0,TRUE
+GrupoT,qwe34,20,Erro: identificador b não é função (linha 4). ,20,TRUE
+GrupoT,qwe35,20,Erro: identificador b não é função (linha 4). ,20,TRUE
+GrupoT,qwe36,20,Erro: identificador b não é função (linha 5). ,20,TRUE
+GrupoT,qwe37,20,Erro: identificador b não é função (linha 5). ,20,TRUE
+GrupoT,qwe38,21,Erro: f é uma função e não pode receber atribuição (linha 3). ,21,TRUE
+GrupoT,qwe39,21,Erro: g é uma função e não pode receber atribuição (linha 4). ,21,TRUE
+GrupoT,qwe40,21,Erro: função g usada como variável (linha 5). ,21,TRUE
+GrupoT,qwe41,21,Erro: função g usada como variável (linha 6). ,21,TRUE
+GrupoT,qwe42,40,"Erro: faltam argumentos na chamada de h (linha 4). Esperado 1, encontrado 0. ",40,TRUE
+GrupoT,qwe43,40,"Erro: faltam argumentos na chamada de h (linha 4). Esperado 2, encontrado 0. ",40,TRUE
+GrupoT,qwe44,41,"Erro: argumentos em excesso na chamada de f (linha 4). Esperado 0, encontrado 1. ",41,TRUE
+GrupoT,qwe45,41,"Erro: argumentos em excesso na chamada de f (linha 4). Esperado 0, encontrado 2. ",41,TRUE
+GrupoT,qwe46,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado inteiro, encontrado decimal. ",42,TRUE
+GrupoT,qwe47,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe48,42,"Erro: tipo incorreto no argumento 2 da chamada de h (linha 6): esperado inteiro, encontrado decimal. ",42,TRUE
+GrupoT,qwe49,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe50,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe51,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe52,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe53,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe54,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe55,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe56,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 5): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe57,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe58,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe59,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe60,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe61,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe62,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe63,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe64,42,"Erro: tipo incorreto no argumento 1 da chamada de h (linha 6): esperado decimal, encontrado inteiro. ",42,TRUE
+GrupoT,qwe65,30,"Erro de tipo declarado no retorno (linha 4): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoT,qwe66,30,"Erro de tipo declarado no retorno (linha 4): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoT,qwe67,30,"Erro de tipo declarado no retorno (linha 3): anotado decimal, função retorna inteiro. ",30,TRUE
+GrupoT,qwe68,30,"Erro de tipo no retorno (linha 3): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoT,qwe69,30,"Erro de tipo no retorno (linha 3): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoT,qwe70,30,"Erro de tipo em atribuição para a (linha 4): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoT,qwe71,30,"Erro de tipo em atribuição para a (linha 5): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoT,qwe72,30,"Erro de tipo em +, linha 6. ",30,TRUE
+GrupoT,qwe73,30,"Erro de tipo em *, linha 6. ",30,TRUE
+GrupoT,qwe74,30,"Erro de tipo em <, linha 6. ",30,TRUE
+GrupoT,qwe75,30,"Erro de tipo em ==, linha 6. ",30,TRUE
+GrupoT,qwe76,30,"Erro de tipo em atribuição para a (linha 5): esperado inteiro, encontrado decimal. ",30,TRUE
+GrupoT,qwe77,30,"Erro de tipo em +, linha 6. ",30,TRUE
+GrupoT,qwe78,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoT,qwe79,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoT,qwe80,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoT,qwe81,30,Erro de tipo em blocos do if (linha 10): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoT,qwe82,30,Erro de tipo em blocos do if (linha 9): tipos incompatíveis entre os blocos. ,30,TRUE
+GrupoV,qwe00,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe01,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe02,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe03,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe04,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe05,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe06,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe07,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe08,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe09,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe10,0,Alocando novo escopo. ,10,FALSE
+GrupoV,qwe11,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe12,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe13,10,Alocando novo escopo. ,10,TRUE
+GrupoV,qwe14,0,Alocando novo escopo. ,10,FALSE
+GrupoV,qwe15,0,Alocando novo escopo. ,10,FALSE
+GrupoV,qwe16,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe17,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe18,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe19,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe20,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe21,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe22,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe23,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe24,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe25,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe26,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe27,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe28,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe29,11,Alocando novo escopo. ,11,TRUE
+GrupoV,qwe30,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe31,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe32,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe33,0,Alocando novo escopo. ,0,TRUE
+GrupoV,qwe34,20,Alocando novo escopo. ,20,TRUE
+GrupoV,qwe35,20,Alocando novo escopo. ,20,TRUE
+GrupoV,qwe36,20,Alocando novo escopo. ,20,TRUE
+GrupoV,qwe37,20,Alocando novo escopo. ,20,TRUE
+GrupoV,qwe38,21,Alocando novo escopo. ,21,TRUE
+GrupoV,qwe39,21,Alocando novo escopo. ,21,TRUE
+GrupoV,qwe40,21,Alocando novo escopo. ,21,TRUE
+GrupoV,qwe41,21,Alocando novo escopo. ,21,TRUE
+GrupoV,qwe42,40,Alocando novo escopo. ,40,TRUE
+GrupoV,qwe43,40,Alocando novo escopo. ,40,TRUE
+GrupoV,qwe44,41,Alocando novo escopo. ,41,TRUE
+GrupoV,qwe45,41,Alocando novo escopo. ,41,TRUE
+GrupoV,qwe46,42,Alocando novo escopo. ,42,TRUE
+GrupoV,qwe47,42,Alocando novo escopo. ,42,TRUE
+GrupoV,qwe48,42,Alocando novo escopo. ,42,TRUE
+GrupoV,qwe49,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe50,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe51,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe52,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe53,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe54,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe55,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe56,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe57,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe58,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe59,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe60,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe61,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe62,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe63,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe64,41,Alocando novo escopo. ,42,FALSE
+GrupoV,qwe65,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe66,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe67,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe68,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe69,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe70,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe71,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe72,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe73,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe74,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe75,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe76,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe77,30,Alocando novo escopo. ,30,TRUE
+GrupoV,qwe78,0,Alocando novo escopo. ,30,FALSE
+GrupoV,qwe79,0,Alocando novo escopo. ,30,FALSE
+GrupoV,qwe80,0,Alocando novo escopo. ,30,FALSE
+GrupoV,qwe81,0,Alocando novo escopo. ,30,FALSE
+GrupoV,qwe82,0,Alocando novo escopo. ,30,FALSE
+GrupoW,qwe00,10,Erro semântico na linha 3: Identificador a não declarado. ,10,TRUE
+GrupoW,qwe01,10,Erro semântico na linha 3: Identificador a não declarado. ,10,TRUE
+GrupoW,qwe02,10,Erro semântico na linha 4: Identificador a não declarado. ,10,TRUE
+GrupoW,qwe03,10,Erro semântico na linha 4: Identificador a não declarado. ,10,TRUE
+GrupoW,qwe04,0,digraph grafo { ,0,TRUE
+GrupoW,qwe05,0,digraph grafo { ,0,TRUE
+GrupoW,qwe06,0,digraph grafo { ,0,TRUE
+GrupoW,qwe07,0,digraph grafo { ,0,TRUE
+GrupoW,qwe08,0,digraph grafo { ,0,TRUE
+GrupoW,qwe09,0,digraph grafo { ,0,TRUE
+GrupoW,qwe10,10,Erro semântico na linha 6: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe11,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe12,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe13,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe14,10,Erro semântico na linha 7: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe15,10,Erro semântico na linha 11: Identificador b não declarado. ,10,TRUE
+GrupoW,qwe16,11,Erro semântico na linha 4: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe17,11,Erro semântico na linha 4: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe18,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe19,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe20,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe21,11,Erro semântico na linha 5: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe22,11,Erro semântico na linha 6: Identificador b já declarado neste escopo. ,11,TRUE
+GrupoW,qwe23,11,Erro semântico na linha 2: Identificador a já declarado neste escopo. ,11,TRUE
+GrupoW,qwe24,0,digraph grafo { ,11,FALSE
+GrupoW,qwe25,0,digraph grafo { ,0,TRUE
+GrupoW,qwe26,0,digraph grafo { ,0,TRUE
+GrupoW,qwe27,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoW,qwe28,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoW,qwe29,11,Erro semântico na linha 3: Identificador f já declarado neste escopo. ,11,TRUE
+GrupoW,qwe30,0,digraph grafo { ,0,TRUE
+GrupoW,qwe31,0,digraph grafo { ,0,TRUE
+GrupoW,qwe32,0,digraph grafo { ,0,TRUE
+GrupoW,qwe33,0,digraph grafo { ,0,TRUE
+GrupoW,qwe34,20,"Erro semântico na linha 4: Identificador b é variável, mas foi usado como função. ",20,TRUE
+GrupoW,qwe35,20,"Erro semântico na linha 4: Identificador b é variável, mas foi usado como função. ",20,TRUE
+GrupoW,qwe36,20,"Erro semântico na linha 5: Identificador b é variável, mas foi usado como função. ",20,TRUE
+GrupoW,qwe37,20,"Erro semântico na linha 5: Identificador b é variável, mas foi usado como função. ",20,TRUE
+GrupoW,qwe38,21,"Erro semântico na linha 3: Identificador f é função, mas foi usado como variável. ",21,TRUE
+GrupoW,qwe39,21,"Erro semântico na linha 4: Identificador g é função, mas foi usado como variável. ",21,TRUE
+GrupoW,qwe40,21,"Erro semântico na linha 5: Identificador g é função, mas foi usado como variável. ",21,TRUE
+GrupoW,qwe41,21,"Erro semântico na linha 6: Identificador g é função, mas foi usado como variável. ",21,TRUE
+GrupoW,qwe42,40,Erro semântico na linha 4: Faltam argumentos na chamada da função h. ,40,TRUE
+GrupoW,qwe43,40,Erro semântico na linha 4: Faltam argumentos na chamada da função h. ,40,TRUE
+GrupoW,qwe44,41,Erro semântico na linha 4: Argumentos a mais na chamada da função f. ,41,TRUE
+GrupoW,qwe45,41,Erro semântico na linha 4: Argumentos a mais na chamada da função f. ,41,TRUE
+GrupoW,qwe46,42,Erro semântico na linha 5: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe47,42,Erro semântico na linha 5: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe48,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe49,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe50,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe51,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe52,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe53,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe54,42,Erro semântico na linha 5: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe55,42,Erro semântico na linha 5: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe56,42,Erro semântico na linha 5: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe57,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe58,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe59,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe60,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe61,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe62,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe63,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe64,42,Erro semântico na linha 6: Tipos incorretos nos argumentos da chamada da função h. ,42,TRUE
+GrupoW,qwe65,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Tipo de retorno incompatível com a expressão.). ,30,TRUE
+GrupoW,qwe66,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Tipo de retorno incompatível com a expressão.). ,30,TRUE
+GrupoW,qwe67,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Tipo de retorno incompatível com a expressão.). ,30,TRUE
+GrupoW,qwe68,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Tipo de retorno incompatível com a expressão.). ,30,TRUE
+GrupoW,qwe69,0,digraph grafo { ,30,FALSE
+GrupoW,qwe70,30,Erro semântico na linha 4: Tipos incompatíveis (detalhe: a). ,30,TRUE
+GrupoW,qwe71,30,Erro semântico na linha 5: Tipos incompatíveis (detalhe: a). ,30,TRUE
+GrupoW,qwe72,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Operador + com tipos incompatíveis.). ,30,TRUE
+GrupoW,qwe73,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Operador * com tipos incompatíveis.). ,30,TRUE
+GrupoW,qwe74,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Operador < com tipos incompatíveis.). ,30,TRUE
+GrupoW,qwe75,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Operador == com tipos incompatíveis.). ,30,TRUE
+GrupoW,qwe76,30,Erro semântico na linha 5: Tipos incompatíveis (detalhe: a). ,30,TRUE
+GrupoW,qwe77,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Operador + com tipos incompatíveis.). ,30,TRUE
+GrupoW,qwe78,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Expressão de enquanto deve ser TIPO_INTEIRO.). ,30,TRUE
+GrupoW,qwe79,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Expressão de se deve ser TIPO_INTEIRO.). ,30,TRUE
+GrupoW,qwe80,30,Erro semântico na linha 0: Tipos incompatíveis (detalhe: Expressão de se deve ser TIPO_INTEIRO.). ,30,TRUE
+GrupoW,qwe81,0,digraph grafo { ,30,FALSE
+GrupoW,qwe82,0,digraph grafo { ,30,FALSE
+GrupoZ,qwe00,10,Semantic ERROR at line 3: a (Code: 10) ,10,TRUE
+GrupoZ,qwe01,10,Semantic ERROR at line 3: a (Code: 10) ,10,TRUE
+GrupoZ,qwe02,10,Semantic ERROR at line 4: a (Code: 10) ,10,TRUE
+GrupoZ,qwe03,10,Semantic ERROR at line 4: a (Code: 10) ,10,TRUE
+GrupoZ,qwe04,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe05,0,===== END OF SCOPE [BLOCK] ===== ,0,TRUE
+GrupoZ,qwe06,0,===== END OF SCOPE [BLOCK] ===== ,0,TRUE
+GrupoZ,qwe07,0,===== END OF SCOPE [BLOCK] ===== ,0,TRUE
+GrupoZ,qwe08,0,===== END OF SCOPE [BLOCK] ===== ,0,TRUE
+GrupoZ,qwe09,0,===== END OF SCOPE [BLOCK] ===== ,0,TRUE
+GrupoZ,qwe10,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe11,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe12,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe13,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe14,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe15,10,===== END OF SCOPE [BLOCK] ===== ,10,TRUE
+GrupoZ,qwe16,11,===== END OF SCOPE [FUNCTION] ===== ,11,TRUE
+GrupoZ,qwe17,11,Semantic ERROR at line 4: b (Code: 11) ,11,TRUE
+GrupoZ,qwe18,11,Semantic ERROR at line 6: b (Code: 11) ,11,TRUE
+GrupoZ,qwe19,11,===== END OF SCOPE [BLOCK] ===== ,11,TRUE
+GrupoZ,qwe20,11,Semantic ERROR at line 6: b (Code: 11) ,11,TRUE
+GrupoZ,qwe21,11,Semantic ERROR at line 5: b (Code: 11) ,11,TRUE
+GrupoZ,qwe22,11,===== END OF SCOPE [BLOCK] ===== ,11,TRUE
+GrupoZ,qwe23,11,Semantic ERROR at line 2: a (Code: 11) ,11,TRUE
+GrupoZ,qwe24,11,Semantic ERROR at line 3: b (Code: 11) ,11,TRUE
+GrupoZ,qwe25,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe26,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe27,11,===== END OF SCOPE [FUNCTION] ===== ,11,TRUE
+GrupoZ,qwe28,11,===== END OF SCOPE [FUNCTION] ===== ,11,TRUE
+GrupoZ,qwe29,11,===== END OF SCOPE [FUNCTION] ===== ,11,TRUE
+GrupoZ,qwe30,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe31,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe32,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe33,0,===== END OF SCOPE [FUNCTION] ===== ,0,TRUE
+GrupoZ,qwe34,20,Semantic ERROR at line 4: b (Code: 20) ,20,TRUE
+GrupoZ,qwe35,20,Semantic ERROR at line 4: b (Code: 20) ,20,TRUE
+GrupoZ,qwe36,20,Semantic ERROR at line 5: b (Code: 20) ,20,TRUE
+GrupoZ,qwe37,20,Semantic ERROR at line 5: b (Code: 20) ,20,TRUE
+GrupoZ,qwe38,21,Semantic ERROR at line 3: f (Code: 21) ,21,TRUE
+GrupoZ,qwe39,21,===== END OF SCOPE [FUNCTION] ===== ,21,TRUE
+GrupoZ,qwe40,21,===== END OF SCOPE [FUNCTION] ===== ,21,TRUE
+GrupoZ,qwe41,21,===== END OF SCOPE [FUNCTION] ===== ,21,TRUE
+GrupoZ,qwe42,40,===== END OF SCOPE [FUNCTION] ===== ,40,TRUE
+GrupoZ,qwe43,40,===== END OF SCOPE [FUNCTION] ===== ,40,TRUE
+GrupoZ,qwe44,41,Semantic ERROR at line 4: f (Code: 41) ,41,TRUE
+GrupoZ,qwe45,41,Semantic ERROR at line 4: f (Code: 41) ,41,TRUE
+GrupoZ,qwe46,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe47,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe48,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe49,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe50,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe51,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe52,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe53,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe54,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe55,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe56,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe57,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe58,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe59,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe60,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe61,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe62,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe63,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe64,42,===== END OF SCOPE [FUNCTION] ===== ,42,TRUE
+GrupoZ,qwe65,30,Semantic ERROR at line 4: return expression type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe66,30,Semantic ERROR at line 4: return expression type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe67,30,Semantic ERROR at line 3: return expression type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe68,30,Semantic ERROR at line 3: return expression type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe69,0,===== END OF SCOPE [FUNCTION] ===== ,30,FALSE
+GrupoZ,qwe70,30,Semantic ERROR at line 4: attribution type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe71,30,Semantic ERROR at line 5: attribution type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe72,30,Semantic ERROR at line 6: mismatched types (int/float) (Code: 30) ,30,TRUE
+GrupoZ,qwe73,30,Semantic ERROR at line 6: mismatched types (int/float) (Code: 30) ,30,TRUE
+GrupoZ,qwe74,30,Semantic ERROR at line 6: mismatched types (int/float) (Code: 30) ,30,TRUE
+GrupoZ,qwe75,30,Semantic ERROR at line 6: mismatched types (int/float) (Code: 30) ,30,TRUE
+GrupoZ,qwe76,30,Semantic ERROR at line 5: attribution type mismatch (Code: 30) ,30,TRUE
+GrupoZ,qwe77,30,Semantic ERROR at line 6: mismatched types (int/float) (Code: 30) ,30,TRUE
+GrupoZ,qwe78,30,===== END OF SCOPE [BLOCK] ===== ,30,TRUE
+GrupoZ,qwe79,30,===== END OF SCOPE [BLOCK] ===== ,30,TRUE
+GrupoZ,qwe80,30,===== END OF SCOPE [BLOCK] ===== ,30,TRUE
+GrupoZ,qwe81,0,===== END OF SCOPE [BLOCK] ===== ,30,FALSE
+GrupoZ,qwe82,0,===== END OF SCOPE [FUNCTION] ===== ,30,FALSE
