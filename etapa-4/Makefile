@@ -9,7 +9,7 @@ DEPS=parser.tab.h parser.tab.c lex.yy.c
 COMMON_OBJ=lex.yy.o parser.tab.o asd.o stack_functions.o semantic_checks.o 
 
 OBJ=main.o $(COMMON_OBJ)
-TEST_OBJ=tests/test.o tests/syntax_parser_tests.o tests/semantic_tools_tests.o $(COMMON_OBJ)
+TEST_OBJ=tests/test.o tests/syntax_parser_tests.o tests/semantic_tools_tests.o tests/semantic_analysis_tests.o $(COMMON_OBJ)
 
 etapa4: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)

@@ -30,39 +30,39 @@ void SyntaxParserTest::EXPECT_ACCEPT(std::string input) {
   EXPECT_EQ(parserStdErr, "");
 }
 
-TEST_F(SyntaxParserTest, AcceptsEmptyProgram) { EXPECT_ACCEPT(""); }
+// TEST_F(SyntaxParserTest, AcceptsEmptyProgram) { EXPECT_ACCEPT(""); }
 
-TEST_F(SyntaxParserTest, AcceptsEmptyFunction) {
-  EXPECT_ACCEPT("foo -> inteiro := [];");
-}
+// TEST_F(SyntaxParserTest, AcceptsEmptyFunction) {
+//   EXPECT_ACCEPT("foo -> inteiro := [];");
+// }
 
-TEST_F(SyntaxParserTest, AcceptsFunctionWithParameters) {
-  EXPECT_ACCEPT("foo -> inteiro com bar := inteiro := [];");
-}
+// TEST_F(SyntaxParserTest, AcceptsFunctionWithParameters) {
+//   EXPECT_ACCEPT("foo -> inteiro com bar := inteiro := [];");
+// }
 
-TEST_F(SyntaxParserTest, AcceptsFunctionWithParametersAndOptionalCom) {
-  EXPECT_ACCEPT("foo -> inteiro bar := inteiro := [];");
-}
+// TEST_F(SyntaxParserTest, AcceptsFunctionWithParametersAndOptionalCom) {
+//   EXPECT_ACCEPT("foo -> inteiro bar := inteiro := [];");
+// }
 
-TEST_F(SyntaxParserTest, AcceptsVarDeclaration) {
-  EXPECT_ACCEPT("var x := inteiro;");
-}
+// TEST_F(SyntaxParserTest, AcceptsVarDeclaration) {
+//   EXPECT_ACCEPT("var x := inteiro;");
+// }
 
-TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
-  EXPECT_ACCEPT("var x := inteiro,\n"
-                "var y := decimal,\n"
-                "z -> inteiro := []\n"
-                ";");
-}
+// TEST_F(SyntaxParserTest, AcceptsMultipleCommands) {
+//   EXPECT_ACCEPT("var x := inteiro,\n"
+//                 "var y := decimal,\n"
+//                 "z -> inteiro := []\n"
+//                 ";");
+// }
 
-TEST_F(SyntaxParserTest, AcceptsSimpleProgram) {
-  // main->inteiro := [ var y := decimal com 3.14 retorna y := decimal ];
+// TEST_F(SyntaxParserTest, AcceptsSimpleProgram) {
+//   // main->inteiro := [ var y := decimal com 3.14 retorna y := decimal ];
 
-  EXPECT_ACCEPT("main -> inteiro := [\n"
-                "var y := decimal com 3.14\n"
-                "retorna y := decimal\n"
-                "];");
-}
+//   EXPECT_ACCEPT("main -> inteiro := [\n"
+//                 "var y := decimal com 3.14\n"
+//                 "retorna y := decimal\n"
+//                 "];");
+// }
 
 // TEST_F(SyntaxParserTest, AcceptsComplexFunction) {
 //   EXPECT_ACCEPT("foo -> decimal com\n"

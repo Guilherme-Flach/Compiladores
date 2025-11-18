@@ -10,6 +10,7 @@ parser.tab.h
 parser.tab.c
 parser.output
 .tmp
+generated_tests.cpp
 
 # Prerequisites
 *.d
