@@ -49,7 +49,8 @@ TEST_F(SemanticToolsTest, FindSymbolWorks) {
   append_symbol_to_table(table, s1);
   stack = push_symbol_table(stack, table);
 
-  symbol_table_entry *s1_pointer = find_symbol((char *)"foo", stack);
+  symbol_table_entry *s1_pointer =
+      find_symbol(stack, (char *)"foo", SYMBOL_NATURE::S_LITERAL);
   EXPECT_NE(nullptr, s1_pointer);
 
   // Check fetching of symbol
@@ -96,7 +97,8 @@ TEST_F(SemanticToolsTest, AcceptsMultipleSymbolsAndArgs) {
   // Push table to stack
   stack = push_symbol_table(stack, table);
 
-  symbol_table_entry *s2_pointer = find_symbol((char *)"bar", stack);
+  symbol_table_entry *s2_pointer =
+      find_symbol(stack, (char *)"bar", SYMBOL_NATURE::S_LITERAL);
   EXPECT_NE(nullptr, s2_pointer);
 
   // Check fetching of second symbol
@@ -150,7 +152,8 @@ TEST_F(SemanticToolsTest, AcceptsMultipleTables) {
   append_argument_to_symbol(s2, s2_a1);
   append_argument_to_symbol(s2, s2_a2);
 
-  symbol_table_entry *s1_pointer = find_symbol((char *)"foo", stack);
+  symbol_table_entry *s1_pointer =
+      find_symbol(stack, (char *)"foo", SYMBOL_NATURE::S_LITERAL);
   EXPECT_NE(nullptr, s1_pointer);
 
   // Check fetching of first symbol
@@ -162,7 +165,8 @@ TEST_F(SemanticToolsTest, AcceptsMultipleTables) {
   EXPECT_STREQ("fred", s1_pointer->arguments->arg->name);
   EXPECT_EQ(SYMBOL_TYPE::S_INTEGER, s1_pointer->arguments->arg->type);
 
-  symbol_table_entry *s2_pointer = find_symbol((char *)"bar", stack);
+  symbol_table_entry *s2_pointer =
+      find_symbol(stack, (char *)"bar", SYMBOL_NATURE::S_LITERAL);
 
   EXPECT_NE(nullptr, s2_pointer);
 
@@ -218,7 +222,8 @@ TEST_F(SemanticToolsTest, AcceptsMultipleTablesWithAlternatePushPop) {
   append_argument_to_symbol(s2, s2_a1);
   append_argument_to_symbol(s2, s2_a2);
 
-  symbol_table_entry *s2_pointer = find_symbol((char *)"bar", stack);
+  symbol_table_entry *s2_pointer =
+      find_symbol(stack, (char *)"bar", SYMBOL_NATURE::S_LITERAL);
 
   EXPECT_NE(nullptr, s2_pointer);
 
@@ -235,11 +240,12 @@ TEST_F(SemanticToolsTest, AcceptsMultipleTablesWithAlternatePushPop) {
 
   stack = pop_symbol_table(stack);
 
-  symbol_table_entry *s1_pointer = find_symbol((char *)"foo", stack);
+  symbol_table_entry *s1_pointer =
+      find_symbol(stack, (char *)"foo", SYMBOL_NATURE::S_LITERAL);
   EXPECT_NE(nullptr, s1_pointer);
 
   // Can't find s2 anymore (it was popped!)
-  s2_pointer = find_symbol((char *)"bar", stack);
+  s2_pointer = find_symbol(stack, (char *)"bar", SYMBOL_NATURE::S_LITERAL);
   EXPECT_EQ(NULL, s2_pointer);
 
   // Check fetching of first symbol

@@ -25,7 +25,11 @@ void check_function_arguments(const char *func_id,
     }
 
     // Move para o proximo argumento nas duas listas
-    provided_arg = provided_arg->children[0];
+    if (provided_arg->number_of_children > 0) {
+      provided_arg = provided_arg->children[0];
+    } else {
+      provided_arg = NULL;
+    }
     expected_param = expected_param->next_arg;
   }
 

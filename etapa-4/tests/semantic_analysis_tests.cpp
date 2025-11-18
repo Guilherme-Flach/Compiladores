@@ -8,7 +8,6 @@ int yyparse();
 
 namespace semantic_analysis_tests {
 asd_tree_t *arvore = NULL;
-stack_node_t *stack = NULL;
 
 int SemanticAnalysisTest::SemanticAnalysis(std::string input) {
   yy_scan_string(input.c_str());

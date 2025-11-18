@@ -36,7 +36,7 @@
 }
 
 %type <symbol_type> tipo
-%type <tree> programa lista_elementos lista_elementos_opcional elemento definicao_funcao cabecalho_f corpo_f
+%type <tree> programa lista_elementos lista_elementos_opcional elemento definicao_funcao cabecalho_f declaracao_funcao corpo_f
 %type <tree> lista_opcional_param tk_com_opcional lista_param lista_param_opcional param declaracao_variavel 
 %type <tree> comando_simples bloco_comandos sequencia_bloco_comando_opcional sequencia_comandos
 %type <tree> comando_declaracao_variavel inicializacao_opcional literal comando_atribuicao chamada_funcao argumento_opcional lista_argumentos lista_argumentos_opcional
@@ -52,7 +52,10 @@ extern int yylineno;
 void yyerror (char const *mensagem);
 
 extern asd_tree_t *arvore;
-extern stack_node_t *stack;
+stack_node_t *stack;
+
+symbol_table_entry* current_function = NULL;
+
 %}
 
 %define parse.error verbose
@@ -135,25 +138,20 @@ elemento:
 
 /*Uma funcao possui um cabeçalho e um corpo.*/
 definicao_funcao:
-    abre_escopo_funcao cabecalho_f corpo_f
+    cabecalho_f corpo_f
     {
         /*Usa o cabeçalho da função (lexema do identificador)*/
-        $$ = $2;
+        $$ = $1;
 
         /*pode estar NULL se corpo_f for vazio*/
-        if ($3 != NULL){
+        if ($2 != NULL){
 
             /*Aponta para o primeiro comando.*/
-            asd_add_child($$, $3);
+            asd_add_child($$, $2);
         }
-        //debug_node($$);
 
         stack = pop_symbol_table(stack);
     }
-;
-
-abre_escopo_funcao:
-    %empty { stack = push_symbol_table(stack, make_symbol_table_node()); }
 ;
 
 
@@ -161,10 +159,17 @@ abre_escopo_funcao:
 TK_DECIMAL ou do token TK_INTEIRO, seguido por uma lista opcional de parâmetros seguido do
 token TK_ATRIB. */
 cabecalho_f:
-    TK_ID TK_SETA tipo lista_opcional_param TK_ATRIB
+    declaracao_funcao abre_escopo_funcao lista_opcional_param TK_ATRIB
+    {
+        $$ = $1;        
+    }
+;
+
+declaracao_funcao: 
+    TK_ID TK_SETA tipo
     {
         //Verificacao: checa se a funcao ja foi declarada no escopo atual
-        if (find_symbol_local(stack, $1.token_value) != NULL) {
+        if (find_symbol(stack, $1.token_value, S_FUNCTION) != NULL) {
             fprintf(stderr, "Erro semântico: dupla declaração do símbolo '%s' na linha %d.\n", $1.token_value, $1.line_number);
             exit(ERR_DECLARED);
         }
@@ -177,11 +182,20 @@ cabecalho_f:
         );
         ts_insert_local(stack, new_func);
 
+        current_function = new_func;
+
         
         /*Para funções, deve-se utilizar seu identificador (o nome da função).*/
         $$ = asd_new($1.token_value);
         $$->type = $3;  
         free($1.token_value);
+    }
+;
+
+
+abre_escopo_funcao:
+    %empty { 
+        stack = push_symbol_table(stack, make_symbol_table_node());
     }
 ;
 
@@ -215,7 +229,7 @@ param:
     TK_ID TK_ATRIB tipo
     {
         //Verificacao
-        if (find_symbol_local(stack, $1.token_value) != NULL) {
+        if (find_symbol(stack, $1.token_value, S_IDENTIFIER) != NULL) {
             fprintf(stderr, "Erro semântico: dupla declaração do parâmetro '%s' na linha %d.\n", $1.token_value, $1.line_number);
             exit(ERR_DECLARED); 
         }
@@ -227,6 +241,10 @@ param:
             $1.token_value
         );
         ts_insert_local(stack, new_param);
+
+        argument* new_arg = make_argument($1.token_value, $3);
+
+        append_argument_to_symbol(current_function, new_arg);
 
         $$ = NULL; //poda
         free($1.token_value); //libera o ID do parâmetro
@@ -242,6 +260,19 @@ res de inicialização.*/
 declaracao_variavel:
     TK_VAR TK_ID TK_ATRIB tipo
     {
+        if (find_symbol(stack, $2.token_value, S_IDENTIFIER) != NULL) {
+            fprintf(stderr, "Erro semântico: dupla declaração do símbolo '%s' na linha %d.\n", $2.token_value, $2.line_number);
+            exit(ERR_DECLARED);
+        }
+
+        symbol_table_entry *new_var = make_symbol_table_entry(
+            S_IDENTIFIER, 
+            $4,          
+            $2.token_value
+        );
+
+        ts_insert_local(stack, new_var);
+
         free($2.token_value); //libera o ID
         $$ = NULL; //poda
     }
@@ -342,7 +373,7 @@ comando_declaracao_variavel:
     TK_VAR TK_ID TK_ATRIB tipo inicializacao_opcional
     {
         //Verificacao
-        if (find_symbol_local(stack, $2.token_value) != NULL) {
+        if (find_symbol(stack, $2.token_value, S_IDENTIFIER) != NULL) {
             fprintf(stderr, "Erro semântico: dupla declaração da variável '%s' na linha %d.\n", $2.token_value, $2.line_number);
             exit(ERR_DECLARED); 
         }
@@ -428,19 +459,22 @@ são.*/
 comando_atribuicao:
     TK_ID TK_ATRIB expressao
     {
-        symbol_table_entry *id_entry = find_symbol($1.token_value, stack);
+        symbol_table_entry *id_entry = find_symbol(stack, $1.token_value, S_IDENTIFIER);
 
         //Verificacao nao declarado
         if (id_entry == NULL) {
+            //Verificacao uso incorreto
+            symbol_table_entry *function_entry = find_symbol(stack, $1.token_value, S_FUNCTION);
+            if (function_entry != NULL) {
+                fprintf(stderr, "Erro semântico: função '%s' usada como variável para atribuição na linha %d.\n", $1.token_value, $1.line_number);
+                exit(ERR_FUNCTION);
+            }
+
             fprintf(stderr, "Erro semântico: símbolo '%s' não declarado na linha %d.\n", $1.token_value, $1.line_number);
             exit(ERR_UNDECLARED);
         }
 
-        //Verificacao uso incorreto
-        if (id_entry->nature == S_FUNCTION) {
-            fprintf(stderr, "Erro semântico: função '%s' usada como variável para atribuição na linha %d.\n", $1.token_value, $1.line_number);
-            exit(ERR_FUNCTION);
-        }
+
 
         //Obtencao dos tipos 
         SYMBOL_TYPE id_type = id_entry->type;   
@@ -482,22 +516,25 @@ chamada_funcao:
     TK_ID '('argumento_opcional')'
     {
         //Verificacao
-        symbol_table_entry *entry = find_symbol($1.token_value, stack);
+        symbol_table_entry *function_entry = find_symbol(stack, $1.token_value, S_FUNCTION);
+                
+        if (function_entry == NULL) {
+            //Verificacao de natureza (iItem 2.3)
+            //Se a entrada for um identificador e não uma função, erro.
+            symbol_table_entry *id_entry = find_symbol(stack, $1.token_value, S_IDENTIFIER);
+            if (id_entry != NULL) {
+                fprintf(stderr, "Erro semântico: variável '%s' usada como função na linha %d.\n", $1.token_value, $1.line_number);
+                exit(ERR_VARIABLE);
+            }
 
-        if (entry == NULL) {
             fprintf(stderr, "Erro semântico: símbolo '%s' não declarado na linha %d.\n", $1.token_value, $1.line_number);
             exit(ERR_UNDECLARED);
         }
+
         
-        //Verificacao de natureza (iItem 2.3)
-        //Se a entrada for um identificador e não uma função, erro.
-        if (entry->nature == S_IDENTIFIER) { 
-            fprintf(stderr, "Erro semântico: variável '%s' usada como função na linha %d.\n", $1.token_value, $1.line_number);
-            exit(ERR_VARIABLE);
-        }
         
         //Verificacao de argumentos
-        check_function_arguments($1.token_value, $3, entry->arguments, $1.line_number);
+        check_function_arguments($1.token_value, $3, function_entry->arguments, $1.line_number);
         
         /*O comando chamada de função tem pelo menos um filho, que
         é a primeira expressão na lista de seus argumentos.*/
@@ -507,7 +544,7 @@ chamada_funcao:
         snprintf(label_buffer, sizeof(label_buffer), "call %s", $1.token_value);
 
         $$ = asd_new(label_buffer); //Cria o nó pai
-        $$->type = entry->type; 
+        $$->type = function_entry->type; 
 
         if ($3 != NULL) {
             asd_add_child($$, $3); //Anexa a raiz da lista de argumentos (se não for vazia)
@@ -553,6 +590,10 @@ comando_retorno:
             exit(ERR_WRONG_TYPE); 
         }
 
+        if (!tipo_compativel(current_function->type, $2->type)) {
+            fprintf(stderr, "Erro semântico: tipo de retorno incompatível com a declaração da função na linha %d.\n", yylineno);
+            exit(ERR_WRONG_TYPE);  
+        }
 
         /*O comando return tem um filho, que é uma expressão.*/
         $$ = asd_new("retorna");
@@ -895,23 +936,24 @@ expressao_p0:
     TK_ID
     {
         //Verificacao: checa se a funcao ja foi declarada no escopo atual e global
-        symbol_table_entry *entry = find_symbol($1.token_value, stack);
+        symbol_table_entry *id_entry = find_symbol(stack, $1.token_value, S_IDENTIFIER);
         
-        if (entry == NULL) {
+        if (id_entry == NULL) {
+            //Verificacao de natureza (item 2.3)
+            symbol_table_entry *function_entry = find_symbol(stack, $1.token_value, S_FUNCTION);
+            if (function_entry != NULL) {
+                fprintf(stderr, "Erro semântico: função '%s' usada como variável na linha %d.\n", $1.token_value, $1.line_number);
+                exit(ERR_FUNCTION); 
+            }
+
             fprintf(stderr, "Erro semântico: símbolo '%s' não declarado na linha %d.\n", $1.token_value, $1.line_number);
             exit(ERR_UNDECLARED); 
-        }
-        
-        //Verificacao de natureza (item 2.3)
-        if (entry->nature == S_FUNCTION) {
-            fprintf(stderr, "Erro semântico: função '%s' usada como variável na linha %d.\n", $1.token_value, $1.line_number);
-            exit(ERR_FUNCTION); 
         }
 
         $$ = asd_new($1.token_value);
 
         //Anotacao de tipo
-        $$->type = entry->type;
+        $$->type = id_entry->type;
 
         free($1.token_value);
 

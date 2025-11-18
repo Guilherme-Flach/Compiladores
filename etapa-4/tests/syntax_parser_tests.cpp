@@ -5,7 +5,6 @@
 namespace syntax_parser_tests {
 
 asd_tree_t *arvore = NULL;
-stack_node_t *stack = NULL;
 
 SyntaxParserTest::~SyntaxParserTest() {
   yylex_destroy();

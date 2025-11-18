@@ -52,6 +52,8 @@ symbol_table_entry *make_symbol_table_entry(SYMBOL_NATURE nature,
 }
 
 void append_argument_to_symbol(symbol_table_entry *symbol, argument *arg) {
+  // printf("Appending argument %s to symbol %s", arg->name, symbol->value);
+
   argument_list_t *cur = symbol->arguments;
   argument_list_t *prev = NULL;
 
@@ -126,14 +128,15 @@ stack_node_t *pop_symbol_table(stack_node_t *stack) {
   return new_stack;
 }
 
-symbol_table_entry *find_symbol(char *value, stack_node_t *stack) {
+symbol_table_entry *find_symbol(stack_node_t *stack, char *value,
+                                SYMBOL_NATURE nature) {
   // Go up the stack until we reach the top
   while (stack != NULL) {
     // Look into the table
     symbol_table_t *table_node = stack->table_contents;
     while (table_node->symbol != NULL) {
       symbol_table_entry *symbol = table_node->symbol;
-      if (strcmp(symbol->value, value) == 0) {
+      if (strcmp(symbol->value, value) == 0 && symbol->nature == nature) {
         return symbol;
       }
 
@@ -145,25 +148,9 @@ symbol_table_entry *find_symbol(char *value, stack_node_t *stack) {
   return NULL;
 }
 
-symbol_table_entry *find_symbol_local(stack_node_t *stack, char *value) {
-  // Look only into the symbol table at the top of the stack (local scope)
-  symbol_table_t *table_node = stack->table_contents;
-  
-  while (table_node != NULL && table_node->symbol != NULL) {
-      symbol_table_entry *symbol = table_node->symbol;
-      if (strcmp(symbol->value, value) == 0) {
-          return symbol; 
-      }
-
-      table_node = table_node->next_symbol;
-  }
-
-  return NULL;
-}
-
 void ts_insert_local(stack_node_t *stack, symbol_table_entry *symbol) {
 
-  //Access the symbol table that is at the top of the stack
+  // Access the symbol table that is at the top of the stack
   symbol_table_t *current_table = stack->table_contents;
 
   append_symbol_to_table(current_table, symbol);

@@ -57,8 +57,8 @@ stack_node_t *pop_symbol_table(stack_node_t *stack);
 
 // Look for a symbol on the currently available tables, if not found, returns
 // NULL
-symbol_table_entry *find_symbol(char *value, stack_node_t *stack);
-symbol_table_entry *find_symbol_local(stack_node_t *stack, char *value);
+symbol_table_entry *find_symbol(stack_node_t *stack, char *value,
+                                SYMBOL_NATURE nature);
 
 void ts_insert_local(stack_node_t *stack, symbol_table_entry *symbol);
 
