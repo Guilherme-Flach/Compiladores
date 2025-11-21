@@ -1,5 +1,12 @@
 #include "iloc_functions.h"
+#include "stack_functions.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//Variaveis para contagem de temporarios e rotulos
+static int temp_register_counter = 0;
+static int label_counter = 0;
 
 OPERATION_TYPE get_operation_type(OPERATION_CODE op_code) {
   switch (op_code) {
@@ -308,4 +315,151 @@ void print_operation_list(iloc_operation_list_t *list) {
     print_operation(list->current_operation);
     list = list->next;
   }
+}
+
+//Gera um novo nome de registrador temporario 
+char *generate_temp_register() {
+  temp_register_counter++;
+  char buffer[16];
+  
+  //Formato iloc (r + numero do contador)
+  snprintf(buffer, sizeof(buffer), "r%d", temp_register_counter);
+  return strdup(buffer); //Retorna copia alocada
+}
+
+//Gera um novo nome de rotulo
+char *generate_label() {
+  label_counter++;
+  char buffer[16];
+
+  //Formato iloc (L + numero do contador)
+  snprintf(buffer, sizeof(buffer), "L%d", label_counter);
+  return strdup(buffer); //Retorna uma copia alocada
+}
+
+//loadAI
+iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry, char **result_reg_ptr) {
+  char base_reg[5];
+  char offset_str[16];
+  
+  //Define a base (rbss ou rfp)
+  if (entry->storage_type == VAR_LOCAL) {
+      strncpy(base_reg, "rfp", sizeof(base_reg));
+  } else {
+      strncpy(base_reg, "rbss", sizeof(base_reg));
+  }
+
+  snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
+
+  //Gera novo registrador
+  char *temp_result = generate_temp_register();
+  *result_reg_ptr = temp_result;
+
+  //Operacao loadAI
+  iloc_operation_t *loadAI_op = make_operation(ILOC_LOADAI);
+  loadAI_op->first_operand = strdup(base_reg);
+  loadAI_op->second_operand = strdup(offset_str);
+  loadAI_op->third_operand = strdup(temp_result); 
+
+  iloc_operation_list_t *code = make_operation_list_node();
+  add_operation_to_list(code, loadAI_op);
+
+  return code;
+}
+
+//storeAI
+iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry, iloc_operation_list_t *expr_code, char *source_reg) {
+  char base_reg[5];
+  char offset_str[16];
+
+  //Determina a base (rfp ou rbss)
+  if (entry->storage_type == VAR_LOCAL) {
+      strncpy(base_reg, "rfp", sizeof(base_reg));
+  } else {
+      strncpy(base_reg, "rbss", sizeof(base_reg));
+  }
+  snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
+
+  //Operacao storeAI
+  iloc_operation_t *storeAI_op = make_operation(ILOC_STOREAI);
+  storeAI_op->first_operand = strdup(source_reg); //Fonte:resultado da expressao
+  storeAI_op->second_operand = strdup(base_reg);  //Base:rfp/rbss
+  storeAI_op->third_operand = strdup(offset_str); //Offset
+
+  //Anexa a operacao storeai ao codigo da expressao
+  if (expr_code == NULL) {
+      expr_code = make_operation_list_node();
+  }
+  add_operation_to_list(expr_code, storeAI_op);
+
+  return expr_code;
+}
+
+
+//Operadores binarios (ADD, SUB, CMP_LT, etc...)
+iloc_operation_list_t *generate_binary_operation(OPERATION_CODE op_code,
+  iloc_operation_list_t *code_left,
+  char *reg_left,
+  iloc_operation_list_t *code_right,
+  char *reg_right,
+  char **result_reg_ptr) {
+
+  iloc_operation_list_t *code = concat_operation_lists(code_left, code_right);
+
+  //Criacao registrador temporario para resultado
+  char *temp_result = generate_temp_register();
+  *result_reg_ptr = temp_result; 
+
+  //Operacao ILOC
+  iloc_operation_t *op = make_operation(op_code);
+  op->first_operand = strdup(reg_left);
+  op->second_operand = strdup(reg_right);
+  op->third_operand = strdup(temp_result);
+
+  add_operation_to_list(code, op);
+
+
+  free(reg_left);
+  free(reg_right);
+
+  return code;
+}
+
+//Operadores unarios
+iloc_operation_list_t *generate_unary_operation(OPERATION_CODE op_code,
+iloc_operation_list_t *code_expr,
+char *reg_expr,
+char **result_reg_ptr) {
+
+  //Registrador temporario
+  char *temp_result = generate_temp_register();
+  *result_reg_ptr = temp_result;
+
+  //Operacao ILOC
+  iloc_operation_t *op = make_operation(op_code);
+
+  //Operação unaria 
+  switch (op_code) {
+    case ILOC_RSUBI: //Para o unario '-' (0 - expr)
+      op->first_operand = strdup("0"); 
+      op->second_operand = strdup(reg_expr);
+      op->third_operand = strdup(temp_result);
+      break;
+    case ILOC_I2I: //Para o unario '+' (como se fosse um nop)
+      op->first_operand = strdup(reg_expr);
+      op->second_operand = strdup(temp_result);
+      break;
+    case ILOC_XORI: //Para o unario '!' (not logico: 1 xor expr)
+      op->first_operand = strdup(reg_expr);
+      op->second_operand = strdup("1"); 
+      op->third_operand = strdup(temp_result);
+      break;
+    default:
+      break;
+  }
+
+  add_operation_to_list(code_expr, op);
+  free(reg_expr);
+
+  return code_expr;
 }

@@ -56,6 +56,11 @@ stack_node_t *stack;
 
 symbol_table_entry* current_function = NULL;
 
+int global_offset_counter = 0;
+int local_offset_counter = 0;
+
+#define WORD_SIZE 4
+
 %}
 
 %define parse.error verbose
@@ -196,6 +201,9 @@ declaracao_funcao:
 abre_escopo_funcao:
     %empty { 
         stack = push_symbol_table(stack, make_symbol_table_node());
+
+        //Entrada em escopo de funcao reseta o contador do offset local
+        local_offset_counter = 0;
     }
 ;
 
@@ -240,6 +248,12 @@ param:
             $3,          
             $1.token_value
         );
+        
+        //Enderecamento
+        new_param->offset = local_offset_counter;
+        new_param->storage_type = VAR_LOCAL;
+        local_offset_counter += WORD_SIZE;
+        
         ts_insert_local(stack, new_param);
 
         argument* new_arg = make_argument($1.token_value, $3);
@@ -270,6 +284,11 @@ declaracao_variavel:
             $4,          
             $2.token_value
         );
+
+        //Enderecamento
+        new_var->offset = global_offset_counter;
+        new_var->storage_type = VAR_GLOBAL;
+        global_offset_counter += WORD_SIZE;
 
         ts_insert_local(stack, new_var);
 
@@ -384,6 +403,12 @@ comando_declaracao_variavel:
             $4,          
             $2.token_value
         );
+
+        //Enderecamento
+        local_offset_counter += WORD_SIZE;
+        new_var->offset = -local_offset_counter;
+        new_var->storage_type = VAR_LOCAL;        
+
         ts_insert_local(stack, new_var);
         
         /*Se a variável nao tiver incialização ($inicializacao_opcional == NULL),
@@ -475,7 +500,6 @@ comando_atribuicao:
         }
 
 
-
         //Obtencao dos tipos 
         SYMBOL_TYPE id_type = id_entry->type;   
         SYMBOL_TYPE expr_type = $3->type;
@@ -498,10 +522,16 @@ comando_atribuicao:
         //Cria o nó para o ID e o anexa ao nó pai
         asd_tree_t* id_node = asd_new($1.token_value);
         asd_add_child($$, id_node);
-        free($1.token_value); //libera a string do ID
 
         //Anexa o nó da expressao ao nó pai
         asd_add_child($$, $3);
+
+        //Geracao de codigo ILOC
+        char *source_reg = $3->result_reg; //registrador que contem o resultado final da expressao
+        $$->code = generate_store_variable(id_entry, $3->code, source_reg);
+
+        free(source_reg);
+        free($1.token_value); //libera a string do ID
     }
 ;
 
@@ -730,6 +760,16 @@ expressao_p7:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_OR,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p6 {$$ = $1;}
 ;
@@ -747,6 +787,16 @@ expressao_p6:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_AND,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p5 {$$ = $1;}
 ;
@@ -764,6 +814,16 @@ expressao_p5:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_EQ,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p5 TK_OC_NE expressao_p4
     {
@@ -777,6 +837,16 @@ expressao_p5:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_NE,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p4 {$$ = $1;}
 ;
@@ -794,6 +864,16 @@ expressao_p4:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_LT,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p4 '>' expressao_p3
     {
@@ -807,6 +887,16 @@ expressao_p4:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_GT,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p4 TK_OC_LE expressao_p3
     {
@@ -819,6 +909,16 @@ expressao_p4:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_LE,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p4 TK_OC_GE expressao_p3
     {
@@ -832,6 +932,16 @@ expressao_p4:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_CMP_GE,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p3 {$$ = $1;}
 ;
@@ -849,6 +959,16 @@ expressao_p3:
         
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_ADD,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p3 '-' expressao_p2
     {
@@ -862,6 +982,16 @@ expressao_p3:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_SUB,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg) 
+        );
     }
     | expressao_p2  {$$ = $1;}
 ;
@@ -879,6 +1009,16 @@ expressao_p2:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_MULT,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p2 '/' expressao_p1
     {
@@ -892,6 +1032,16 @@ expressao_p2:
 
         asd_add_child($$, $1);
         asd_add_child($$, $3);
+
+        //Geracao codigo ILOC
+        $$->code = generate_binary_operation(
+            ILOC_DIV,
+            $1->code,
+            $1->result_reg,
+            $3->code,
+            $3->result_reg,
+            &($$->result_reg) 
+        );
     }
     | expressao_p2 '%' expressao_p1
     {
@@ -915,18 +1065,42 @@ expressao_p1:
         $$ = asd_new("+");
         $$->type = $2->type;
         asd_add_child($$, $2);
+
+        //Geracao codigo ILOC
+        $$->code = generate_unary_operation(
+            ILOC_I2I,
+            $2->code,
+            $2->result_reg,
+            &($$->result_reg)
+        );
     }
     | '-' expressao_p1
     {
         $$ = asd_new("-");
         $$->type = $2->type;
         asd_add_child($$, $2);
+
+        //Geracao codigo ILOC
+        $$->code = generate_unary_operation(
+            ILOC_RSUBI, 
+            $2->code,
+            $2->result_reg,
+            &($$->result_reg)
+        );
     }
     | '!' expressao_p1
     {
         $$ = asd_new("!");
         $$->type = $2->type;
         asd_add_child($$, $2);
+
+        //Geracao codigo ILOC
+        $$->code = generate_unary_operation(
+            ILOC_XORI, 
+            $2->code,
+            $2->result_reg,
+            &($$->result_reg)
+        );
     }
     | expressao_p0 {$$ = $1;}
 ;
@@ -955,6 +1129,8 @@ expressao_p0:
         //Anotacao de tipo
         $$->type = id_entry->type;
 
+        $$->code = generate_load_variable(id_entry, &($$->result_reg));
+
         free($1.token_value);
 
     }
@@ -964,6 +1140,23 @@ expressao_p0:
 
         //Anotacao de tipo
         $$->type = S_INTEGER;
+
+        /*!Colocar em uma funcao auxiliar depois!*/
+
+        //Gerecao de registrador temporario e operacao
+        char *temp_result = generate_temp_register();
+        iloc_operation_t *loadI_op = make_operation(ILOC_LOADI);
+
+        //Operandos: fonte = literal, destino = novo registrador
+        loadI_op->first_operand = strdup($1.token_value);
+        loadI_op->second_operand = strdup(temp_result);
+
+        //Criacao e anexo lista ILOC
+        $$->code = make_operation_list_node();
+        add_operation_to_list($$->code, loadI_op);
+
+        //Propagacao (informa ao no pai onde o resultado foi colocado)
+        $$->result_reg = temp_result;
 
         free($1.token_value);
     }

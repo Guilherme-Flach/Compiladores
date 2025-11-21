@@ -7,6 +7,7 @@
 
 typedef enum { S_LITERAL, S_IDENTIFIER, S_FUNCTION } SYMBOL_NATURE;
 typedef enum { S_INTEGER, S_FLOAT, S_NEVER } SYMBOL_TYPE;
+typedef enum { VAR_GLOBAL, VAR_LOCAL} VAR_STORAGE_TYPE;
 
 typedef struct {
   char *name;
@@ -23,6 +24,8 @@ typedef struct {
   SYMBOL_TYPE type;
   argument_list_t *arguments;
   char *value;
+  int offset;
+  VAR_STORAGE_TYPE storage_type;
 } symbol_table_entry;
 
 typedef struct symbol_table {

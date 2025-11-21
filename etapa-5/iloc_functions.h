@@ -2,6 +2,8 @@
 #define ILOC_FUNCTIONS_HEADER
 
 #include <stdlib.h>
+#include "stack_functions.h"
+
 typedef enum { OPT_NORMAL, OPT_CONTROL } OPERATION_TYPE;
 typedef enum {
   // Normal operations
@@ -100,5 +102,22 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
 void print_operation(iloc_operation_t *operation);
 
 void print_operation_list(iloc_operation_list_t *list);
+
+char *generate_temp_register();
+char *generate_label();
+iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry, char **result_reg_ptr);
+iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry, iloc_operation_list_t *expr_code, char *source_reg);
+
+iloc_operation_list_t *generate_binary_operation(OPERATION_CODE op_code,
+  iloc_operation_list_t *code_left,
+  char *reg_left,
+  iloc_operation_list_t *code_right,
+  char *reg_right,
+  char **result_reg_ptr);
+
+iloc_operation_list_t *generate_unary_operation(OPERATION_CODE op_code,
+  iloc_operation_list_t *code_expr,
+  char *reg_expr,
+  char **result_reg_ptr);
 
 #endif

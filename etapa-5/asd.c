@@ -12,6 +12,8 @@ asd_tree_t *asd_new(const char *label) {
     ret->number_of_children = 0;
     ret->type = S_NEVER;
     ret->children = NULL;
+    ret->code = NULL;
+    ret->result_reg = NULL;
   }
   return ret;
 }
@@ -36,6 +38,8 @@ void asd_free(asd_tree_t *tree) {
     }
     free(tree->children);
     free(tree->label);
+    destroy_operation_list(tree->code);
+    free(tree->result_reg);
     free(tree);
   } else {
     printf("Erro: %s recebeu parâmetro tree = %p.\n", __FUNCTION__, tree);

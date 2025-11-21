@@ -2,12 +2,15 @@
 #define _ASD_H_
 
 #include "stack_functions.h"
+#include "iloc_functions.h" 
 
 typedef struct asd_tree {
   char *label;
   int number_of_children;
   SYMBOL_TYPE type;
   struct asd_tree **children;
+  iloc_operation_list_t *code;
+  char *result_reg;
 } asd_tree_t;
 
 /*
