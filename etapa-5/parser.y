@@ -625,10 +625,17 @@ comando_retorno:
             exit(ERR_WRONG_TYPE);  
         }
 
+        //Coleta dos componentes 
+        iloc_operation_list_t *code_expr = $2->code;
+        char *reg_expr = $2->result_reg;
+
         /*O comando return tem um filho, que é uma expressão.*/
         $$ = asd_new("retorna");
         $$->type = $2->type;
         asd_add_child($$, $2);
+
+        //Geracao codigo ILOC
+        $$->code = generate_return_code(code_expr, reg_expr);
     }
 ;
 
@@ -683,15 +690,28 @@ condicional:
             }
         }
 
+        //Coleta componentes de teste 
+        iloc_operation_list_t *code_test = $3->code;
+        char *reg_test = $3->result_reg;
+        
+        //Coleta o codigo do bloco if
+        iloc_operation_list_t *code_if = NULL;
+        if($5 != NULL){
+            code_if = $5->code;
+        }
+        
+        //Coleta o codigo do bloco else (senao_opcional/$6)
+        iloc_operation_list_t *code_else = NULL;
+        if ($6 != NULL) {
+            code_else = $6->code;
+        }
+
         /*O comando if com else opcional deve ter pelo menos três filhos,
         um para a expressão, outro para o primeiro comando quando verdade,
         e o último – opcional – para o segundocomando quando falso.*/
 
         $$ = asd_new("se");
-
         $$->type = $3->type;
-
-        
         asd_add_child($$, $3); //Primeiro filho: condicao (expressao)
 
         if ($5 != NULL) {
@@ -701,6 +721,10 @@ condicional:
         if ($6 != NULL) {
             asd_add_child($$, $6); //Terceiro filho (opcional): bloco else (senao_opcional)
         }
+
+        //Geracao codigo ILOC
+        $$->code = generate_if_else_code(code_test, reg_test, code_if, code_else);
+        free(reg_test);
     }
 ;
 
@@ -721,21 +745,30 @@ iterativa:
              fprintf(stderr, "Erro semântico: expressão de teste de 'enquanto' inválida na linha %d.\n", yylineno);
              exit(ERR_WRONG_TYPE); 
         }
-        
+
+        //Coleta componentes de teste para a condicao
+        iloc_operation_list_t *code_test = $3->code;
+        char *reg_test = $3->result_reg; 
+
+        //Coleta componente do corpo (bloco de comandos/$5)
+        iloc_operation_list_t *code_body = NULL;
+        if ($5 != NULL){
+            code_body = $5->code;
+        }
+
         /*O comando while deve ter pelo menos dois filhos, um para expressão e outro
         para o primeiro comando do laço.*/
-
         $$ = asd_new("enquanto");
-
         $$->type = $3->type;
-
-
         asd_add_child($$, $3); //Primeiro filho: condicao (expressao)
-
 
         if ($5 != NULL) {
             asd_add_child($$, $5); //Segundo filho: bloco_comandos   
         }
+
+        //Geracao codigo ILOC
+        $$->code = generate_while_code(code_test, reg_test, code_body);
+        free(reg_test);
     }
 ;
 

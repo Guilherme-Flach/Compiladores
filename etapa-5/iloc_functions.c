@@ -463,3 +463,159 @@ char **result_reg_ptr) {
 
   return code_expr;
 }
+
+
+//While
+iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_body) {
+
+  //Geracao dos rotulos
+  char *L_TEST = generate_label();  //ponto onde a expressao condicional é avaliada
+  char *L_BODY = generate_label();  //inicio do bloco de comandos
+  char *L_END = generate_label();   //instrucao logo apos o laco
+
+  //Criacao da lista principal, que sera o codigo final
+  iloc_operation_list_t *final_code = make_operation_list_node();
+
+  //jumpI -> L_TEST (salto para iniciar o teste)
+  iloc_operation_t *jump_to_test = make_operation(ILOC_JUMPI);
+  jump_to_test->first_operand = strdup(L_TEST);
+  add_operation_to_list(final_code, jump_to_test);
+
+  //L_BODY (corpo do laco)
+  //Adiciona rotulo L_BODY
+  iloc_operation_t *label_body = make_operation(ILOC_NOP);
+  label_body->first_operand = strdup(L_BODY);
+  add_operation_to_list(final_code, label_body);
+
+  //Concatena o codigo do corpo
+  if (code_body != NULL){
+    final_code = concat_operation_lists(final_code, code_body);
+  }
+
+  //L_TEST (teste de condicao)
+  //Adiciona o rotulo L_TEST
+  iloc_operation_t *label_test = make_operation(ILOC_NOP);
+  label_test->first_operand = strdup(L_TEST);
+  add_operation_to_list(final_code, label_test);
+
+  //Concatena codigo da expressao de teste
+  if (code_test != NULL){
+    final_code = concat_operation_lists(final_code, code_test);
+  }
+
+  //cbr reg_test -> L_BODY, L_END (desvio condicional)
+  iloc_operation_t *cbr_op = make_operation(ILOC_CBR);
+  cbr_op->first_operand = strdup(reg_test);   //Registrador de resultado do teste
+  cbr_op->second_operand = strdup(L_BODY);    //Rotulo se true
+  cbr_op->third_operand = strdup(L_END);      //Rotulo se false
+  add_operation_to_list(final_code, cbr_op);
+
+  // L_END (nop, fim do laço)
+  iloc_operation_t *label_end = make_operation(ILOC_NOP);
+  label_end->first_operand = strdup(L_END);
+  add_operation_to_list(final_code, label_end);
+
+  free(L_TEST);
+  free(L_BODY);
+  free(L_END);
+
+  return final_code;
+}
+
+//If else
+iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_if, iloc_operation_list_t *code_else){
+
+  //Geracao dos rotulos
+  char *L_TRUE = generate_label();
+  char *L_FALSE = generate_label();
+  char *L_END = generate_label();
+
+  iloc_operation_list_t *final_code = make_operation_list_node();
+
+  /*code_test (avaliacao da expressao)*/
+  if(code_test != NULL){
+    final_code = concat_operation_lists(final_code, code_test);
+  }
+
+  /*cbr reg_test -> L_TRUE, L_FALSE*/
+  char *false_target;
+  if(code_else != NULL){
+      //Se ha um bloco "else", o desvio falso vai para o inicio do bloco else (L_FALSE).
+      false_target = L_FALSE;
+  }else {
+      // Se nao ha um bloco "else", o desvio falso sai da estrutura (L_END).
+      false_target = L_END;
+  }
+
+  iloc_operation_t *cbr_op = make_operation(ILOC_CBR);
+  cbr_op->first_operand = strdup(reg_test);
+  cbr_op->second_operand = strdup(L_TRUE);
+  cbr_op->third_operand = strdup(false_target);
+  add_operation_to_list(final_code, cbr_op);
+
+  /*L_TRUE (bloco IF)*/
+  //Adiciona o rotulo L_TRUE
+  iloc_operation_t *label_true = make_operation(ILOC_NOP);
+  label_true->first_operand = strdup(L_TRUE);
+  add_operation_to_list(final_code, label_true);
+
+  //Concatena o codigo do bloco "if"
+  if(code_if != NULL){
+    final_code = concat_operation_lists(final_code, code_if);
+  }
+
+  //Se houver bloco "else", precisamos saltar sobre ele
+  if(code_else != NULL){
+    
+    //jumpI -> L_END
+    iloc_operation_t *jump_to_end = make_operation(ILOC_JUMPI);
+    jump_to_end->first_operand = strdup(L_END);
+    add_operation_to_list(final_code, jump_to_end);
+
+    /*L_FALSE (bloco else)*/
+    //Adiciona o rotulo L_FALSE
+    iloc_operation_t *label_false = make_operation(ILOC_NOP);
+    label_false->first_operand = strdup(L_FALSE);
+    add_operation_to_list(final_code, label_false);
+
+    //Concatena o codigo do bloco "else"
+    final_code = concat_operation_lists(final_code, code_else);
+  }
+
+  /*L_END: nop (fim da estrutura)*/
+  iloc_operation_t *label_end = make_operation(ILOC_NOP);
+  label_end->first_operand = strdup(L_END);
+  add_operation_to_list(final_code, label_end);
+
+  free(L_TRUE);
+  free(L_FALSE);
+  free(L_END);
+
+  return final_code;
+}
+
+//Return
+iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr, char *reg_expr) {
+    
+  //Rotulo L_END_FUNC é ponto final da funcao
+  char *L_RETURN_DEST = strdup("L_END_FUNC"); 
+  iloc_operation_list_t *final_code = code_expr;
+
+  //Gera novo registrador para armazenar o valor de retorno final
+  char *r_ret_dest = generate_temp_register(); 
+  
+  iloc_operation_t *move_op = make_operation(ILOC_I2I);
+  move_op->first_operand = strdup(reg_expr);    //Fonte:resultado da expressao
+  move_op->second_operand = strdup(r_ret_dest); //Destino: novo registrador de retorno
+  
+  add_operation_to_list(final_code, move_op);
+
+  //Salto Incondicional para o fim da função
+  iloc_operation_t *jump_op = make_operation(ILOC_JUMPI);
+  jump_op->first_operand = L_RETURN_DEST;
+  add_operation_to_list(final_code, jump_op);
+
+  free(reg_expr);
+  
+  return final_code;
+}
