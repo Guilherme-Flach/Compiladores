@@ -123,5 +123,6 @@ iloc_operation_list_t *generate_unary_operation(OPERATION_CODE op_code,
 iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_body);
 iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_if, iloc_operation_list_t *code_else);
 iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr, char *reg_expr);
+iloc_operation_list_t *generate_program_startup_shutdown(iloc_operation_list_t *program_code);
 
 #endif

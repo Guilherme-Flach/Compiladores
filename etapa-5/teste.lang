@@ -1,0 +1,24 @@
+var global_resultado := inteiro,
+
+main -> inteiro := [
+    var a := inteiro
+    var b := inteiro
+    
+    a := 10
+    b := 0
+
+    se (a > 5) [
+        b := 20
+    ] senao [
+        b := 30
+    ]
+
+    enquanto (a > 0) [
+        a := a - 1
+        b := b + 1
+    ]
+
+    global_resultado := b
+
+    retorna global_resultado := inteiro
+];

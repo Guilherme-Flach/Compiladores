@@ -619,3 +619,27 @@ iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr, ch
   
   return final_code;
 }
+
+//Inicializacao 
+iloc_operation_list_t *generate_program_startup_shutdown(iloc_operation_list_t *program_code) {
+    
+  iloc_operation_list_t *final_code;
+  
+  if(program_code != NULL){
+      final_code = program_code;
+  }else {
+      final_code = make_operation_list_node();
+  }
+
+  //Adiciona o rotulo fim de funcao (comando 'retorna' gera um jumpI -> L_END_FUNC)
+  iloc_operation_t *label_end_func = make_operation(ILOC_NOP);
+  label_end_func->first_operand = strdup("L_END_FUNC"); 
+  
+  add_operation_to_list(final_code, label_end_func);
+  
+  //Instrucao de parada final
+  iloc_operation_t *halt_op = make_operation(ILOC_NOP); 
+  add_operation_to_list(final_code, halt_op); 
+
+  return final_code;
+}

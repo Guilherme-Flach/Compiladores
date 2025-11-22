@@ -92,6 +92,12 @@ programa:
     {   
         arvore = $2;
         $$ = $2;
+
+        if($2 != NULL){
+            iloc_operation_list_t *program_code = $2->code;
+            $2->code = generate_program_startup_shutdown(program_code);
+        }
+
         stack = pop_symbol_table(stack);
     }
 ;
@@ -342,6 +348,9 @@ bloco_comandos:
         $$ = $2;
         if ($2 != NULL)
             $$->type = $2->type;
+    
+        //Propagacao codigo do bloco
+        $$->code = $2->code;
     }
 ;
 
@@ -373,6 +382,13 @@ sequencia_comandos:
             $$->type = $1->type;
             if ($2 != NULL){
                 asd_add_child($$, $2);
+
+                //Concatenacao ILOC
+                $$->code = concat_operation_lists($1->code, $2->code);
+            }
+            else{
+                //Propaga o codigo de $1
+                $$->code = $1->code;
             }
         }
     }
@@ -531,6 +547,7 @@ comando_atribuicao:
         $$->code = generate_store_variable(id_entry, $3->code, source_reg);
 
         free(source_reg);
+        $3->result_reg = NULL;
         free($1.token_value); //libera a string do ID
     }
 ;
