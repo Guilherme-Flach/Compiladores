@@ -456,8 +456,8 @@ generate_unary_operation(OPERATION_CODE op_code,
   // Operação unaria
   switch (op_code) {
   case ILOC_RSUBI: // Para o unario '-' (0 - expr)
-    op->first_operand = strdup("0");
-    op->second_operand = strdup(reg_expr);
+    op->first_operand = strdup(reg_expr);
+    op->second_operand = strdup("0");
     op->third_operand = strdup(temp_result);
     break;
   case ILOC_I2I: // Para o unario '+' (como se fosse um nop)
@@ -474,7 +474,7 @@ generate_unary_operation(OPERATION_CODE op_code,
   }
 
   add_operation_to_list(code_expr, op);
-  free(reg_expr);
+  //free(reg_expr);
 
   return code_expr;
 }
