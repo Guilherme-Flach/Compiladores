@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Variaveis para contagem de temporarios e rotulos
+// Variaveis para contagem de temporarios e rotulos
 static int temp_register_counter = 0;
 static int label_counter = 0;
 
@@ -271,6 +271,7 @@ void destroy_operation_list(iloc_operation_list_t *list) {
   if (list != NULL) {
     destroy_operation_list(list->next);
     destroy_operation(list->current_operation);
+    free(list);
   }
 }
 
@@ -309,57 +310,64 @@ iloc_operation_list_t *concat_operation_lists(iloc_operation_list_t *first,
 void print_operation(iloc_operation_t *operation) {
   print_operation_by_code(operation->op_code, operation->first_operand,
                           operation->second_operand, operation->third_operand);
+  printf("\n");
 }
 void print_operation_list(iloc_operation_list_t *list) {
+  if (list == NULL) {
+    printf("nop\n");
+    return;
+  }
+
   while (list->next != NULL) {
     print_operation(list->current_operation);
     list = list->next;
   }
 }
 
-//Gera um novo nome de registrador temporario 
+// Gera um novo nome de registrador temporario
 char *generate_temp_register() {
   temp_register_counter++;
   char buffer[16];
-  
-  //Formato iloc (r + numero do contador)
+
+  // Formato iloc (r + numero do contador)
   snprintf(buffer, sizeof(buffer), "r%d", temp_register_counter);
-  return strdup(buffer); //Retorna copia alocada
+  return strdup(buffer); // Retorna copia alocada
 }
 
-//Gera um novo nome de rotulo
+// Gera um novo nome de rotulo
 char *generate_label() {
   label_counter++;
   char buffer[16];
 
-  //Formato iloc (L + numero do contador)
+  // Formato iloc (L + numero do contador)
   snprintf(buffer, sizeof(buffer), "L%d", label_counter);
-  return strdup(buffer); //Retorna uma copia alocada
+  return strdup(buffer); // Retorna uma copia alocada
 }
 
-//loadAI
-iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry, char **result_reg_ptr) {
+// loadAI
+iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry,
+                                              char **result_reg_ptr) {
   char base_reg[5];
   char offset_str[16];
-  
-  //Define a base (rbss ou rfp)
+
+  // Define a base (rbss ou rfp)
   if (entry->storage_type == VAR_LOCAL) {
-      strncpy(base_reg, "rfp", sizeof(base_reg));
+    strncpy(base_reg, "rfp", sizeof(base_reg));
   } else {
-      strncpy(base_reg, "rbss", sizeof(base_reg));
+    strncpy(base_reg, "rbss", sizeof(base_reg));
   }
 
   snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
 
-  //Gera novo registrador
+  // Gera novo registrador
   char *temp_result = generate_temp_register();
   *result_reg_ptr = temp_result;
 
-  //Operacao loadAI
+  // Operacao loadAI
   iloc_operation_t *loadAI_op = make_operation(ILOC_LOADAI);
   loadAI_op->first_operand = strdup(base_reg);
   loadAI_op->second_operand = strdup(offset_str);
-  loadAI_op->third_operand = strdup(temp_result); 
+  loadAI_op->third_operand = strdup(temp_result);
 
   iloc_operation_list_t *code = make_operation_list_node();
   add_operation_to_list(code, loadAI_op);
@@ -367,95 +375,91 @@ iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry, char **
   return code;
 }
 
-//storeAI
-iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry, iloc_operation_list_t *expr_code, char *source_reg) {
+// storeAI
+iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry,
+                                               iloc_operation_list_t *expr_code,
+                                               char *source_reg) {
   char base_reg[5];
   char offset_str[16];
 
-  //Determina a base (rfp ou rbss)
+  // Determina a base (rfp ou rbss)
   if (entry->storage_type == VAR_LOCAL) {
-      strncpy(base_reg, "rfp", sizeof(base_reg));
+    strncpy(base_reg, "rfp", sizeof(base_reg));
   } else {
-      strncpy(base_reg, "rbss", sizeof(base_reg));
+    strncpy(base_reg, "rbss", sizeof(base_reg));
   }
   snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
 
-  //Operacao storeAI
+  // Operacao storeAI
   iloc_operation_t *storeAI_op = make_operation(ILOC_STOREAI);
-  storeAI_op->first_operand = strdup(source_reg); //Fonte:resultado da expressao
-  storeAI_op->second_operand = strdup(base_reg);  //Base:rfp/rbss
-  storeAI_op->third_operand = strdup(offset_str); //Offset
+  storeAI_op->first_operand = strdup(source_reg); // Fonte:resultado da
+                                                  // expressao
+  storeAI_op->second_operand = strdup(base_reg);  // Base:rfp/rbss
+  storeAI_op->third_operand = strdup(offset_str); // Offset
 
-  //Anexa a operacao storeai ao codigo da expressao
+  // Anexa a operacao storeai ao codigo da expressao
   if (expr_code == NULL) {
-      expr_code = make_operation_list_node();
+    expr_code = make_operation_list_node();
   }
   add_operation_to_list(expr_code, storeAI_op);
 
   return expr_code;
 }
 
-
-//Operadores binarios (ADD, SUB, CMP_LT, etc...)
-iloc_operation_list_t *generate_binary_operation(OPERATION_CODE op_code,
-  iloc_operation_list_t *code_left,
-  char *reg_left,
-  iloc_operation_list_t *code_right,
-  char *reg_right,
-  char **result_reg_ptr) {
+// Operadores binarios (ADD, SUB, CMP_LT, etc...)
+iloc_operation_list_t *generate_binary_operation(
+    OPERATION_CODE op_code, iloc_operation_list_t *code_left, char *reg_left,
+    iloc_operation_list_t *code_right, char *reg_right, char **result_reg_ptr) {
 
   iloc_operation_list_t *code = concat_operation_lists(code_left, code_right);
 
-  //Criacao registrador temporario para resultado
+  // Criacao registrador temporario para resultado
   char *temp_result = generate_temp_register();
-  *result_reg_ptr = temp_result; 
+  *result_reg_ptr = temp_result;
 
-  //Operacao ILOC
+  // Operacao ILOC
   iloc_operation_t *op = make_operation(op_code);
   op->first_operand = strdup(reg_left);
   op->second_operand = strdup(reg_right);
   op->third_operand = strdup(temp_result);
 
+  // free(temp_result);
+
   add_operation_to_list(code, op);
-
-
-  free(reg_left);
-  free(reg_right);
-
   return code;
 }
 
-//Operadores unarios
-iloc_operation_list_t *generate_unary_operation(OPERATION_CODE op_code,
-iloc_operation_list_t *code_expr,
-char *reg_expr,
-char **result_reg_ptr) {
+// Operadores unarios
+iloc_operation_list_t *
+generate_unary_operation(OPERATION_CODE op_code,
+                         iloc_operation_list_t *code_expr, char *reg_expr,
+                         char **result_reg_ptr) {
 
-  //Registrador temporario
+  // Registrador temporario
   char *temp_result = generate_temp_register();
   *result_reg_ptr = temp_result;
 
-  //Operacao ILOC
+  // Operacao ILOC
   iloc_operation_t *op = make_operation(op_code);
 
-  //Operação unaria 
+  // Operação unaria
   switch (op_code) {
-    case ILOC_RSUBI: //Para o unario '-' (0 - expr)
-      op->first_operand = strdup("0"); 
-      op->second_operand = strdup(reg_expr);
-      op->third_operand = strdup(temp_result);
-      break;
-    case ILOC_I2I: //Para o unario '+' (como se fosse um nop)
-      op->first_operand = strdup(reg_expr);
-      op->second_operand = strdup(temp_result);
-      break;
-    case ILOC_XORI: //Para o unario '!' (not logico: 1 xor expr)
-      op->first_operand = strdup(reg_expr);
-      op->second_operand = strdup("1"); 
-      op->third_operand = strdup(temp_result);
-      break;
-    default:
-      break;
+  case ILOC_RSUBI: // Para o unario '-' (0 - expr)
+    op->first_operand = strdup("0");
+    op->second_operand = strdup(reg_expr);
+    op->third_operand = strdup(temp_result);
+    break;
+  case ILOC_I2I: // Para o unario '+' (como se fosse um nop)
+    op->first_operand = strdup(reg_expr);
+    op->second_operand = strdup(temp_result);
+    break;
+  case ILOC_XORI: // Para o unario '!' (not logico: 1 xor expr)
+    op->first_operand = strdup(reg_expr);
+    op->second_operand = strdup("1");
+    op->third_operand = strdup(temp_result);
+    break;
+  default:
+    break;
   }
 
   add_operation_to_list(code_expr, op);
@@ -464,50 +468,52 @@ char **result_reg_ptr) {
   return code_expr;
 }
 
+// While
+iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test,
+                                           char *reg_test,
+                                           iloc_operation_list_t *code_body) {
 
-//While
-iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_body) {
+  // Geracao dos rotulos
+  char *L_TEST =
+      generate_label(); // ponto onde a expressao condicional é avaliada
+  char *L_BODY = generate_label(); // inicio do bloco de comandos
+  char *L_END = generate_label();  // instrucao logo apos o laco
 
-  //Geracao dos rotulos
-  char *L_TEST = generate_label();  //ponto onde a expressao condicional é avaliada
-  char *L_BODY = generate_label();  //inicio do bloco de comandos
-  char *L_END = generate_label();   //instrucao logo apos o laco
-
-  //Criacao da lista principal, que sera o codigo final
+  // Criacao da lista principal, que sera o codigo final
   iloc_operation_list_t *final_code = make_operation_list_node();
 
-  //jumpI -> L_TEST (salto para iniciar o teste)
+  // jumpI -> L_TEST (salto para iniciar o teste)
   iloc_operation_t *jump_to_test = make_operation(ILOC_JUMPI);
   jump_to_test->first_operand = strdup(L_TEST);
   add_operation_to_list(final_code, jump_to_test);
 
-  //L_BODY (corpo do laco)
-  //Adiciona rotulo L_BODY
+  // L_BODY (corpo do laco)
+  // Adiciona rotulo L_BODY
   iloc_operation_t *label_body = make_operation(ILOC_NOP);
   label_body->first_operand = strdup(L_BODY);
   add_operation_to_list(final_code, label_body);
 
-  //Concatena o codigo do corpo
-  if (code_body != NULL){
+  // Concatena o codigo do corpo
+  if (code_body != NULL) {
     final_code = concat_operation_lists(final_code, code_body);
   }
 
-  //L_TEST (teste de condicao)
-  //Adiciona o rotulo L_TEST
+  // L_TEST (teste de condicao)
+  // Adiciona o rotulo L_TEST
   iloc_operation_t *label_test = make_operation(ILOC_NOP);
   label_test->first_operand = strdup(L_TEST);
   add_operation_to_list(final_code, label_test);
 
-  //Concatena codigo da expressao de teste
-  if (code_test != NULL){
+  // Concatena codigo da expressao de teste
+  if (code_test != NULL) {
     final_code = concat_operation_lists(final_code, code_test);
   }
 
-  //cbr reg_test -> L_BODY, L_END (desvio condicional)
+  // cbr reg_test -> L_BODY, L_END (desvio condicional)
   iloc_operation_t *cbr_op = make_operation(ILOC_CBR);
-  cbr_op->first_operand = strdup(reg_test);   //Registrador de resultado do teste
-  cbr_op->second_operand = strdup(L_BODY);    //Rotulo se true
-  cbr_op->third_operand = strdup(L_END);      //Rotulo se false
+  cbr_op->first_operand = strdup(reg_test); // Registrador de resultado do teste
+  cbr_op->second_operand = strdup(L_BODY);  // Rotulo se true
+  cbr_op->third_operand = strdup(L_END);    // Rotulo se false
   add_operation_to_list(final_code, cbr_op);
 
   // L_END (nop, fim do laço)
@@ -522,10 +528,13 @@ iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test, cha
   return final_code;
 }
 
-//If else
-iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_if, iloc_operation_list_t *code_else){
+// If else
+iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
+                                             char *reg_test,
+                                             iloc_operation_list_t *code_if,
+                                             iloc_operation_list_t *code_else) {
 
-  //Geracao dos rotulos
+  // Geracao dos rotulos
   char *L_TRUE = generate_label();
   char *L_FALSE = generate_label();
   char *L_END = generate_label();
@@ -533,18 +542,19 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, c
   iloc_operation_list_t *final_code = make_operation_list_node();
 
   /*code_test (avaliacao da expressao)*/
-  if(code_test != NULL){
+  if (code_test != NULL) {
     final_code = concat_operation_lists(final_code, code_test);
   }
 
   /*cbr reg_test -> L_TRUE, L_FALSE*/
   char *false_target;
-  if(code_else != NULL){
-      //Se ha um bloco "else", o desvio falso vai para o inicio do bloco else (L_FALSE).
-      false_target = L_FALSE;
-  }else {
-      // Se nao ha um bloco "else", o desvio falso sai da estrutura (L_END).
-      false_target = L_END;
+  if (code_else != NULL) {
+    // Se ha um bloco "else", o desvio falso vai para o inicio do bloco else
+    // (L_FALSE).
+    false_target = L_FALSE;
+  } else {
+    // Se nao ha um bloco "else", o desvio falso sai da estrutura (L_END).
+    false_target = L_END;
   }
 
   iloc_operation_t *cbr_op = make_operation(ILOC_CBR);
@@ -554,31 +564,31 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, c
   add_operation_to_list(final_code, cbr_op);
 
   /*L_TRUE (bloco IF)*/
-  //Adiciona o rotulo L_TRUE
+  // Adiciona o rotulo L_TRUE
   iloc_operation_t *label_true = make_operation(ILOC_NOP);
   label_true->first_operand = strdup(L_TRUE);
   add_operation_to_list(final_code, label_true);
 
-  //Concatena o codigo do bloco "if"
-  if(code_if != NULL){
+  // Concatena o codigo do bloco "if"
+  if (code_if != NULL) {
     final_code = concat_operation_lists(final_code, code_if);
   }
 
-  //Se houver bloco "else", precisamos saltar sobre ele
-  if(code_else != NULL){
-    
-    //jumpI -> L_END
+  // Se houver bloco "else", precisamos saltar sobre ele
+  if (code_else != NULL) {
+
+    // jumpI -> L_END
     iloc_operation_t *jump_to_end = make_operation(ILOC_JUMPI);
     jump_to_end->first_operand = strdup(L_END);
     add_operation_to_list(final_code, jump_to_end);
 
     /*L_FALSE (bloco else)*/
-    //Adiciona o rotulo L_FALSE
+    // Adiciona o rotulo L_FALSE
     iloc_operation_t *label_false = make_operation(ILOC_NOP);
     label_false->first_operand = strdup(L_FALSE);
     add_operation_to_list(final_code, label_false);
 
-    //Concatena o codigo do bloco "else"
+    // Concatena o codigo do bloco "else"
     final_code = concat_operation_lists(final_code, code_else);
   }
 
@@ -594,52 +604,55 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, c
   return final_code;
 }
 
-//Return
-iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr, char *reg_expr) {
-    
-  //Rotulo L_END_FUNC é ponto final da funcao
-  char *L_RETURN_DEST = strdup("L_END_FUNC"); 
+// Return
+iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr,
+                                            char *reg_expr) {
+
+  // Rotulo L_END_FUNC é ponto final da funcao
+  char *L_RETURN_DEST = strdup("L_END_FUNC");
   iloc_operation_list_t *final_code = code_expr;
 
-  //Gera novo registrador para armazenar o valor de retorno final
-  char *r_ret_dest = generate_temp_register(); 
-  
+  // Gera novo registrador para armazenar o valor de retorno final
+  char *r_ret_dest = generate_temp_register();
+
   iloc_operation_t *move_op = make_operation(ILOC_I2I);
-  move_op->first_operand = strdup(reg_expr);    //Fonte:resultado da expressao
-  move_op->second_operand = strdup(r_ret_dest); //Destino: novo registrador de retorno
-  
+  move_op->first_operand = strdup(reg_expr); // Fonte:resultado da expressao
+  move_op->second_operand =
+      strdup(r_ret_dest); // Destino: novo registrador de retorno
+
   add_operation_to_list(final_code, move_op);
 
-  //Salto Incondicional para o fim da função
+  // Salto Incondicional para o fim da função
   iloc_operation_t *jump_op = make_operation(ILOC_JUMPI);
   jump_op->first_operand = L_RETURN_DEST;
   add_operation_to_list(final_code, jump_op);
 
-  free(reg_expr);
-  
+  free(r_ret_dest);
   return final_code;
 }
 
-//Inicializacao 
-iloc_operation_list_t *generate_program_startup_shutdown(iloc_operation_list_t *program_code) {
-    
+// Inicializacao
+iloc_operation_list_t *
+generate_program_startup_shutdown(iloc_operation_list_t *program_code) {
+
   iloc_operation_list_t *final_code;
-  
-  if(program_code != NULL){
-      final_code = program_code;
-  }else {
-      final_code = make_operation_list_node();
+
+  if (program_code != NULL) {
+    final_code = program_code;
+  } else {
+    final_code = make_operation_list_node();
   }
 
-  //Adiciona o rotulo fim de funcao (comando 'retorna' gera um jumpI -> L_END_FUNC)
+  // Adiciona o rotulo fim de funcao (comando 'retorna' gera um jumpI ->
+  // L_END_FUNC)
   iloc_operation_t *label_end_func = make_operation(ILOC_NOP);
-  label_end_func->first_operand = strdup("L_END_FUNC"); 
-  
+  label_end_func->first_operand = strdup("L_END_FUNC");
+
   add_operation_to_list(final_code, label_end_func);
-  
-  //Instrucao de parada final
-  iloc_operation_t *halt_op = make_operation(ILOC_NOP); 
-  add_operation_to_list(final_code, halt_op); 
+
+  // Instrucao de parada final
+  iloc_operation_t *halt_op = make_operation(ILOC_NOP);
+  add_operation_to_list(final_code, halt_op);
 
   return final_code;
 }

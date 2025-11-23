@@ -38,7 +38,6 @@ void asd_free(asd_tree_t *tree) {
     }
     free(tree->children);
     free(tree->label);
-    destroy_operation_list(tree->code);
     free(tree->result_reg);
     free(tree);
   } else {

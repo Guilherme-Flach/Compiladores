@@ -24,8 +24,9 @@
 %code {
 
     void debug_node(asd_tree_t* node) {
-        asd_print_graphviz(node);
-        exit(0);
+        printf("Node: %p\n", node);
+        printf("Code: %p\n",node->code);
+        print_operation_list(node->code);
     }
 }
 
@@ -154,14 +155,17 @@ definicao_funcao:
         /*Usa o cabeçalho da função (lexema do identificador)*/
         $$ = $1;
 
+
         /*pode estar NULL se corpo_f for vazio*/
         if ($2 != NULL){
-
+            
             /*Aponta para o primeiro comando.*/
             asd_add_child($$, $2);
         }
 
         stack = pop_symbol_table(stack);
+        /*Copia o codigo do corpo*/
+        $$->code = $2->code;
     }
 ;
 
@@ -365,7 +369,7 @@ sequencia_comandos:
         $$ = $1; 
          if ($1 != NULL) {
             $$->type = $1->type;
-        }   
+        }
     }
     | comando_simples sequencia_comandos
     {
@@ -653,6 +657,7 @@ comando_retorno:
 
         //Geracao codigo ILOC
         $$->code = generate_return_code(code_expr, reg_expr);
+
     }
 ;
 
@@ -741,7 +746,6 @@ condicional:
 
         //Geracao codigo ILOC
         $$->code = generate_if_else_code(code_test, reg_test, code_if, code_else);
-        free(reg_test);
     }
 ;
 
@@ -785,7 +789,6 @@ iterativa:
 
         //Geracao codigo ILOC
         $$->code = generate_while_code(code_test, reg_test, code_body);
-        free(reg_test);
     }
 ;
 
