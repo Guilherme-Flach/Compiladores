@@ -11,6 +11,7 @@ static int label_counter = 0;
 OPERATION_TYPE get_operation_type(OPERATION_CODE op_code) {
   switch (op_code) {
   case ILOC_NOP:
+  case ILOC_LABEL:
   case ILOC_ADD:
   case ILOC_SUB:
   case ILOC_MULT:
@@ -68,7 +69,10 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
                              char *op3) {
   switch (op_code) {
   case ILOC_NOP:
-    printf("nop");
+    printf("nop");  
+    break;
+  case ILOC_LABEL:
+    printf("%s:", op1);
     break;
   case ILOC_ADD:
     printf("add %s, %s => %s", op1, op2, op3);
@@ -324,6 +328,13 @@ void print_operation_list(iloc_operation_list_t *list) {
   }
 }
 
+// Helper para instrucao de rotulo
+iloc_operation_t *create_label_op(char *label_name) {
+  iloc_operation_t *op = make_operation(ILOC_LABEL);
+  op->first_operand = strdup(label_name);
+  return op;
+}
+
 // Gera um novo nome de registrador temporario
 char *generate_temp_register() {
   temp_register_counter++;
@@ -489,7 +500,7 @@ iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test,
 
   // L_BODY (corpo do laco)
   // Adiciona rotulo L_BODY
-  iloc_operation_t *label_body = make_operation(ILOC_NOP);
+  iloc_operation_t *label_body = make_operation(ILOC_LABEL);
   label_body->first_operand = strdup(L_BODY);
   add_operation_to_list(final_code, label_body);
 
@@ -500,7 +511,7 @@ iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test,
 
   // L_TEST (teste de condicao)
   // Adiciona o rotulo L_TEST
-  iloc_operation_t *label_test = make_operation(ILOC_NOP);
+  iloc_operation_t *label_test = make_operation(ILOC_LABEL);
   label_test->first_operand = strdup(L_TEST);
   add_operation_to_list(final_code, label_test);
 
@@ -517,7 +528,7 @@ iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test,
   add_operation_to_list(final_code, cbr_op);
 
   // L_END (nop, fim do laço)
-  iloc_operation_t *label_end = make_operation(ILOC_NOP);
+  iloc_operation_t *label_end = make_operation(ILOC_LABEL);
   label_end->first_operand = strdup(L_END);
   add_operation_to_list(final_code, label_end);
 
@@ -565,7 +576,7 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
 
   /*L_TRUE (bloco IF)*/
   // Adiciona o rotulo L_TRUE
-  iloc_operation_t *label_true = make_operation(ILOC_NOP);
+  iloc_operation_t *label_true = make_operation(ILOC_LABEL);
   label_true->first_operand = strdup(L_TRUE);
   add_operation_to_list(final_code, label_true);
 
@@ -584,7 +595,7 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
 
     /*L_FALSE (bloco else)*/
     // Adiciona o rotulo L_FALSE
-    iloc_operation_t *label_false = make_operation(ILOC_NOP);
+    iloc_operation_t *label_false = make_operation(ILOC_LABEL);
     label_false->first_operand = strdup(L_FALSE);
     add_operation_to_list(final_code, label_false);
 
@@ -593,7 +604,7 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
   }
 
   /*L_END: nop (fim da estrutura)*/
-  iloc_operation_t *label_end = make_operation(ILOC_NOP);
+  iloc_operation_t *label_end = make_operation(ILOC_LABEL);
   label_end->first_operand = strdup(L_END);
   add_operation_to_list(final_code, label_end);
 
@@ -645,14 +656,10 @@ generate_program_startup_shutdown(iloc_operation_list_t *program_code) {
 
   // Adiciona o rotulo fim de funcao (comando 'retorna' gera um jumpI ->
   // L_END_FUNC)
-  iloc_operation_t *label_end_func = make_operation(ILOC_NOP);
+  iloc_operation_t *label_end_func = make_operation(ILOC_LABEL);
   label_end_func->first_operand = strdup("L_END_FUNC");
 
   add_operation_to_list(final_code, label_end_func);
-
-  // Instrucao de parada final
-  iloc_operation_t *halt_op = make_operation(ILOC_NOP);
-  add_operation_to_list(final_code, halt_op);
 
   return final_code;
 }

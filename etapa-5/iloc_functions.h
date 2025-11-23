@@ -8,6 +8,7 @@ typedef enum { OPT_NORMAL, OPT_CONTROL } OPERATION_TYPE;
 typedef enum {
   // Normal operations
   ILOC_NOP,
+  ILOC_LABEL,
   ILOC_ADD,
   ILOC_SUB,
   ILOC_MULT,

@@ -52,6 +52,8 @@ case $COMMAND in
   cp $STAGE_FOLDER/stack_functions.c .tmp
   cp $STAGE_FOLDER/stack_functions.h .tmp
   cp $STAGE_FOLDER/errors.h .tmp
+  cp $STAGE_FOLDER/iloc_functions.c .tmp
+  cp $STAGE_FOLDER/iloc_functions.h .tmp
   
   cd .tmp
   touch $TARGZ_FILE
