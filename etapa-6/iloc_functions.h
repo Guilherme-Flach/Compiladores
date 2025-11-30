@@ -1,8 +1,8 @@
 #ifndef ILOC_FUNCTIONS_HEADER
 #define ILOC_FUNCTIONS_HEADER
 
-#include <stdlib.h>
 #include "stack_functions.h"
+#include <stdlib.h>
 
 typedef enum { OPT_NORMAL, OPT_CONTROL } OPERATION_TYPE;
 typedef enum {
@@ -42,7 +42,7 @@ typedef enum {
   ILOC_CSTORE,
   ILOC_CSTOREAI,
   ILOC_CSTOREAO,
-  ILOC_I2I,
+  X86_MOVL,
   ILOC_C2C,
   ILOC_C2I,
   ILOC_I2C,
@@ -55,11 +55,11 @@ typedef enum {
   ILOC_CMP_EQ,
   ILOC_CMP_GE,
   ILOC_CMP_GT,
-  ILOC_CMP_NE
+  ILOC_CMP_NE,
+  X86_RET
 } OPERATION_CODE;
 
 typedef struct {
-  OPERATION_TYPE type;
   OPERATION_CODE op_code;
   char *first_operand;
   char *second_operand;
@@ -72,8 +72,6 @@ typedef struct iloc_operation_list {
   iloc_operation_t *current_operation;
 
 } iloc_operation_list_t;
-
-OPERATION_TYPE get_operation_type(OPERATION_CODE op_code);
 
 iloc_operation_t *make_operation(OPERATION_CODE op_code);
 
@@ -106,24 +104,31 @@ void print_operation_list(iloc_operation_list_t *list);
 
 char *generate_temp_register();
 char *generate_label();
-iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry, char **result_reg_ptr);
-iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry, iloc_operation_list_t *expr_code, char *source_reg);
+iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry,
+                                              char **result_reg_ptr);
+iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry,
+                                               iloc_operation_list_t *expr_code,
+                                               char *source_reg);
 
-iloc_operation_list_t *generate_binary_operation(OPERATION_CODE op_code,
-  iloc_operation_list_t *code_left,
-  char *reg_left,
-  iloc_operation_list_t *code_right,
-  char *reg_right,
-  char **result_reg_ptr);
+iloc_operation_list_t *generate_binary_operation(
+    OPERATION_CODE op_code, iloc_operation_list_t *code_left, char *reg_left,
+    iloc_operation_list_t *code_right, char *reg_right, char **result_reg_ptr);
 
-iloc_operation_list_t *generate_unary_operation(OPERATION_CODE op_code,
-  iloc_operation_list_t *code_expr,
-  char *reg_expr,
-  char **result_reg_ptr);
+iloc_operation_list_t *
+generate_unary_operation(OPERATION_CODE op_code,
+                         iloc_operation_list_t *code_expr, char *reg_expr,
+                         char **result_reg_ptr);
 
-iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_body);
-iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test, char *reg_test, iloc_operation_list_t *code_if, iloc_operation_list_t *code_else);
-iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr, char *reg_expr);
-iloc_operation_list_t *generate_program_startup_shutdown(iloc_operation_list_t *program_code);
+iloc_operation_list_t *generate_while_code(iloc_operation_list_t *code_test,
+                                           char *reg_test,
+                                           iloc_operation_list_t *code_body);
+iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
+                                             char *reg_test,
+                                             iloc_operation_list_t *code_if,
+                                             iloc_operation_list_t *code_else);
+iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr,
+                                            char *reg_expr);
+iloc_operation_list_t *
+generate_program_startup_shutdown(iloc_operation_list_t *program_code);
 
 #endif

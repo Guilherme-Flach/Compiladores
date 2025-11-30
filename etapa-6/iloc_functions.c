@@ -8,71 +8,14 @@
 static int temp_register_counter = 0;
 static int label_counter = 0;
 
-OPERATION_TYPE get_operation_type(OPERATION_CODE op_code) {
-  switch (op_code) {
-  case ILOC_NOP:
-  case ILOC_LABEL:
-  case ILOC_ADD:
-  case ILOC_SUB:
-  case ILOC_MULT:
-  case ILOC_DIV:
-  case ILOC_ADDI:
-  case ILOC_SUBI:
-  case ILOC_RSUBI:
-  case ILOC_MULTI:
-  case ILOC_DIVI:
-  case ILOC_RDIVI:
-  case ILOC_LSHIFT:
-  case ILOC_LSHIFTI:
-  case ILOC_RSHIFT:
-  case ILOC_RSHIFTI:
-  case ILOC_AND:
-  case ILOC_ANDI:
-  case ILOC_OR:
-  case ILOC_ORI:
-  case ILOC_XOR:
-  case ILOC_XORI:
-  case ILOC_LOADI:
-  case ILOC_LOAD:
-  case ILOC_LOADAI:
-  case ILOC_LOADA0:
-  case ILOC_CLOAD:
-  case ILOC_CLOADAI:
-  case ILOC_CLOADA0:
-  case ILOC_STORE:
-  case ILOC_STOREAI:
-  case ILOC_STOREAO:
-  case ILOC_CSTORE:
-  case ILOC_CSTOREAI:
-  case ILOC_CSTOREAO:
-  case ILOC_I2I:
-  case ILOC_C2C:
-  case ILOC_C2I:
-  case ILOC_I2C:
-    return OPT_NORMAL;
-
-  case ILOC_JUMPI:
-  case ILOC_JUMP:
-  case ILOC_CBR:
-  case ILOC_CMP_LT:
-  case ILOC_CMP_LE:
-  case ILOC_CMP_EQ:
-  case ILOC_CMP_GE:
-  case ILOC_CMP_GT:
-  case ILOC_CMP_NE:
-  default:
-    return OPT_CONTROL;
-  }
-}
-
 void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
                              char *op3) {
   switch (op_code) {
   case ILOC_NOP:
-    printf("nop");  
+    printf("nop");
     break;
   case ILOC_LABEL:
-    printf("%s:", op1);
+    printf(".%s:", op1);
     break;
   case ILOC_ADD:
     printf("add %s, %s => %s", op1, op2, op3);
@@ -173,8 +116,8 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
   case ILOC_CSTOREAO:
     printf("cstoreAO %s => %s, %s", op1, op2, op3);
     break;
-  case ILOC_I2I:
-    printf("i2i %s => %s", op1, op2);
+  case X86_MOVL:
+    printf("movl %s, %s", op1, op2);
     break;
   case ILOC_C2C:
     printf("c2c %s => %s", op1, op2);
@@ -212,17 +155,18 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
   case ILOC_CMP_NE:
     printf("cmp_NE %s, %s -> %s", op1, op2, op3);
     break;
+  case X86_RET:
+    printf("ret");
+
+    break;
   };
 }
 
 iloc_operation_t *make_operation(OPERATION_CODE op_code) {
-  OPERATION_TYPE op_type = get_operation_type(op_code);
-
   iloc_operation_t *new_op =
       (iloc_operation_t *)malloc(sizeof(iloc_operation_t));
 
   new_op->op_code = op_code;
-  new_op->type = op_type;
 
   new_op->first_operand = NULL;
   new_op->second_operand = NULL;
@@ -316,7 +260,26 @@ void print_operation(iloc_operation_t *operation) {
                           operation->second_operand, operation->third_operand);
   printf("\n");
 }
+
+void print_header() {
+  printf("  .globl	main\n");
+  printf("  .type	main, @function\n");
+  // TODO: Precisa de um print_data_segment
+  printf(".LFB0:\n");
+  printf("pushq	%%rbp:\n");
+  printf("main:\n");
+}
+
+void print_footer() {
+  printf(".LFE0:\n");
+  printf(".ident	\"GCC: (GNU) 14.3.0\"\n");
+  printf(".section	.note.GNU-stack,"
+         ",@progbits\n");
+}
+
 void print_operation_list(iloc_operation_list_t *list) {
+  print_header();
+
   if (list == NULL) {
     printf("nop\n");
     return;
@@ -326,6 +289,9 @@ void print_operation_list(iloc_operation_list_t *list) {
     print_operation(list->current_operation);
     list = list->next;
   }
+
+  printf("  .globl	main\n"
+         "  .type	main, @function\n");
 }
 
 // Helper para instrucao de rotulo
@@ -457,16 +423,16 @@ generate_unary_operation(OPERATION_CODE op_code,
   switch (op_code) {
   case ILOC_RSUBI: // Para o unario '-' (0 - expr)
     op->first_operand = strdup(reg_expr);
-    op->second_operand = strdup("0");
+    op->second_operand = strdup("$0");
     op->third_operand = strdup(temp_result);
     break;
-  case ILOC_I2I: // Para o unario '+' (como se fosse um nop)
+  case X86_MOVL: // Para o unario '+' (como se fosse um nop)
     op->first_operand = strdup(reg_expr);
     op->second_operand = strdup(temp_result);
     break;
   case ILOC_XORI: // Para o unario '!' (not logico: 1 xor expr)
     op->first_operand = strdup(reg_expr);
-    op->second_operand = strdup("1");
+    op->second_operand = strdup("$1");
     op->third_operand = strdup(temp_result);
     break;
   default:
@@ -474,7 +440,7 @@ generate_unary_operation(OPERATION_CODE op_code,
   }
 
   add_operation_to_list(code_expr, op);
-  //free(reg_expr);
+  // free(reg_expr);
 
   return code_expr;
 }
@@ -619,27 +585,17 @@ iloc_operation_list_t *generate_if_else_code(iloc_operation_list_t *code_test,
 iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr,
                                             char *reg_expr) {
 
-  // Rotulo L_END_FUNC é ponto final da funcao
-  char *L_RETURN_DEST = strdup("L_END_FUNC");
-  iloc_operation_list_t *final_code = code_expr;
-
-  // Gera novo registrador para armazenar o valor de retorno final
-  char *r_ret_dest = generate_temp_register();
-
-  iloc_operation_t *move_op = make_operation(ILOC_I2I);
+  iloc_operation_t *move_op = make_operation(X86_MOVL);
   move_op->first_operand = strdup(reg_expr); // Fonte:resultado da expressao
   move_op->second_operand =
-      strdup(r_ret_dest); // Destino: novo registrador de retorno
+      strdup("%%eax"); // Destino: novo registrador de retorno
 
-  add_operation_to_list(final_code, move_op);
+  add_operation_to_list(code_expr, move_op);
 
-  // Salto Incondicional para o fim da função
-  iloc_operation_t *jump_op = make_operation(ILOC_JUMPI);
-  jump_op->first_operand = L_RETURN_DEST;
-  add_operation_to_list(final_code, jump_op);
+  iloc_operation_t *ret_op = make_operation(X86_RET);
+  add_operation_to_list(code_expr, ret_op);
 
-  free(r_ret_dest);
-  return final_code;
+  return code_expr;
 }
 
 // Inicializacao

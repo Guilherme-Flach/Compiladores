@@ -1121,7 +1121,7 @@ expressao_p1:
 
         //Geracao codigo ILOC
         $$->code = generate_unary_operation(
-            ILOC_I2I,
+            X86_MOVL,
             $2->code,
             $2->result_reg,
             &($$->result_reg)
