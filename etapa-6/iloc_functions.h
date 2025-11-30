@@ -100,7 +100,8 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
 
 void print_operation(iloc_operation_t *operation);
 
-void print_operation_list(iloc_operation_list_t *list);
+void print_operation_list(iloc_operation_list_t *list,
+                          stack_node_t *symbol_table);
 
 char *generate_temp_register();
 char *generate_label();

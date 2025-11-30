@@ -26,7 +26,7 @@
     void debug_node(asd_tree_t* node) {
         printf("Node: %p\n", node);
         printf("Code: %p\n",node->code);
-        print_operation_list(node->code);
+        print_operation_list(node->code, stack);
     }
 }
 
@@ -53,7 +53,7 @@ extern int yylineno;
 void yyerror (char const *mensagem);
 
 extern asd_tree_t *arvore;
-stack_node_t *stack;
+extern stack_node_t *stack;
 
 symbol_table_entry* current_function = NULL;
 
@@ -99,7 +99,6 @@ programa:
             $2->code = generate_program_startup_shutdown(program_code);
         }
 
-        stack = pop_symbol_table(stack);
     }
 ;
 

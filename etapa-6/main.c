@@ -10,12 +10,22 @@ extern int yyparse(void);
 extern int yylex_destroy(void);
 
 asd_tree_t *arvore = NULL;
+stack_node_t *stack;
 
 int main(int argc, char **argv) {
   int ret = yyparse();
   // asd_print_graphviz(arvore);
-  if(arvore != NULL){
-    print_operation_list(arvore->code);
+
+  // At the botom of the stack is the global context
+  stack_node_t *stack_bottom = stack;
+  while (stack_bottom != NULL && stack_bottom->table_below != NULL) {
+    stack_bottom = stack_bottom->table_below;
+  }
+
+  if (arvore != NULL) {
+    print_operation_list(arvore->code, stack_bottom);
+    stack = pop_symbol_table(stack);
+
     destroy_operation_list(arvore->code);
     asd_free(arvore);
   }

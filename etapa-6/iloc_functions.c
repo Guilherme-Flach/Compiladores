@@ -261,10 +261,34 @@ void print_operation(iloc_operation_t *operation) {
   printf("\n");
 }
 
-void print_header() {
+void print_data_segment(symbol_table_t *symbol_table) {
+  if (symbol_table == NULL) {
+    return;
+  }
+
+  printf("  .data");
+  symbol_table_t *current_entry = symbol_table;
+
+  while (current_entry->symbol != NULL) {
+    symbol_table_entry *current_symbol = current_entry->symbol;
+
+    if (current_symbol->nature == S_IDENTIFIER) {
+      printf("  .globl %s\n", current_symbol->value);
+      printf("  .align 4\n");
+      printf("  .type %s, object\n", current_symbol->value);
+      printf("  .size %d, 4\n", current_symbol->offset);
+      printf("%s:\n", current_symbol->value);
+      printf(".long 0\n");
+    }
+
+    current_entry = current_entry->next_symbol;
+  }
+}
+
+void print_header(symbol_table_t *symbol_table) {
+  print_data_segment(symbol_table);
   printf("  .globl	main\n");
   printf("  .type	main, @function\n");
-  // TODO: Precisa de um print_data_segment
   printf(".LFB0:\n");
   printf("pushq	%%rbp:\n");
   printf("main:\n");
@@ -272,13 +296,16 @@ void print_header() {
 
 void print_footer() {
   printf(".LFE0:\n");
-  printf(".ident	\"GCC: (GNU) 14.3.0\"\n");
-  printf(".section	.note.GNU-stack,"
+  printf("  .ident	\"GCC: (GNU) 14.3.0\"\n");
+  printf("  .section	.note.GNU-stack,"
          ",@progbits\n");
 }
 
-void print_operation_list(iloc_operation_list_t *list) {
-  print_header();
+void print_operation_list(iloc_operation_list_t *list,
+                          stack_node_t *stack_bottom) {
+  if (stack_bottom != NULL) {
+    print_header(stack_bottom->table_contents);
+  }
 
   if (list == NULL) {
     printf("nop\n");
@@ -290,8 +317,7 @@ void print_operation_list(iloc_operation_list_t *list) {
     list = list->next;
   }
 
-  printf("  .globl	main\n"
-         "  .type	main, @function\n");
+  print_footer();
 }
 
 // Helper para instrucao de rotulo

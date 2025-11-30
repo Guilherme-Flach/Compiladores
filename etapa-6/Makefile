@@ -11,7 +11,7 @@ COMMON_OBJ=lex.yy.o parser.tab.o asd.o stack_functions.o semantic_checks.o iloc_
 OBJ=main.o $(COMMON_OBJ)
 TEST_OBJ=tests/test.o tests/syntax_parser_tests.o tests/semantic_tools_tests.o tests/semantic_analysis_tests.o $(COMMON_OBJ)
 
-etapa5: $(OBJ)
+etapa6: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 parser.tab.c parser.tab.h: parser.y
@@ -24,7 +24,7 @@ lex.yy.c: scanner.l parser.tab.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	rm -f $(OBJ) $(DEPS) etapa5
+	rm -f $(OBJ) $(DEPS) etapa6
 
 test: $(TEST_OBJ)
 	$(CXX) $^ -o tests/$@  $(CXXFLAGS)
