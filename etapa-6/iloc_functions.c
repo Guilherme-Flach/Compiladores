@@ -3,31 +3,81 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 // Variaveis para contagem de temporarios e rotulos
 static int temp_register_counter = 0;
 static int label_counter = 0;
 
+//Transforma strings de ILOC no padrão assembly
+char* get_asm_operand(char* iloc_operand){
+    static char buffers[4][64];
+    static int current_buffer = 0;
+
+    current_buffer = (current_buffer + 1) % 4;
+    char* buffer = buffers[current_buffer];
+
+    if (iloc_operand == NULL) return "$0";
+    
+
+    //Registradores Temporarios
+    //ex: r1 para -1028(%rbp), r2 para -1032(%rbp)
+    //1024 como base 
+    if (iloc_operand[0] == 'r' && isdigit(iloc_operand[1])) {
+        int reg_num = atoi(iloc_operand + 1);
+        int offset = -(1024 + (reg_num * 4)); 
+        snprintf(buffer, 64, "%d(%%rbp)", offset);
+        return buffer;
+    }
+
+    if (strcmp(iloc_operand, "rfp") == 0) return "%rbp";
+    if (strcmp(iloc_operand, "rbss") == 0) return "%rip";
+
+    //Literais (numeros)
+    if (isdigit(iloc_operand[0]) || iloc_operand[0] == '-') {
+        snprintf(buffer, 64, "$%s", iloc_operand);
+        return buffer;
+    }
+
+    //Rotulos
+    if (iloc_operand[0] == 'L') {
+        snprintf(buffer, 64, ".%s", iloc_operand);
+        return buffer;
+    }
+
+    return iloc_operand;
+}
+
+
 void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
                              char *op3) {
   switch (op_code) {
   case ILOC_NOP:
-    printf("nop");
     break;
   case ILOC_LABEL:
     printf(".%s:", op1);
     break;
   case ILOC_ADD:
-    printf("add %s, %s => %s", op1, op2, op3);
-    break;
   case ILOC_SUB:
-    printf("sub %s, %s => %s", op1, op2, op3);
-    break;
   case ILOC_MULT:
-    printf("mult %s, %s => %s", op1, op2, op3);
-    break;
+  case ILOC_AND:
+  case ILOC_OR:
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+    
+    if (op_code == ILOC_ADD)       printf("    addl ");
+    else if (op_code == ILOC_SUB)  printf("    subl ");
+    else if (op_code == ILOC_MULT) printf("    imull ");
+    else if (op_code == ILOC_AND)  printf("    andl ");
+    else if (op_code == ILOC_OR)   printf("    orl ");
+
+    printf("%s, %%eax\n", get_asm_operand(op2));
+    printf("    movl %%eax, %s\n", get_asm_operand(op3));
+    break;  
   case ILOC_DIV:
-    printf("div %s, %s => %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+    printf("    cltd\n");            //Estende sinal EAX -> EDX:EAX
+    printf("    idivl %s\n", get_asm_operand(op2));
+    printf("    movl %%eax, %s\n", get_asm_operand(op3));
     break;
   case ILOC_ADDI:
     printf("addI %s, %s => %s", op1, op2, op3);
@@ -36,7 +86,9 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
     printf("subI %s, %s => %s", op1, op2, op3);
     break;
   case ILOC_RSUBI:
-    printf("rsubI %s, %s => %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op2)); 
+     printf("   subl %s, %%eax\n", get_asm_operand(op1)); 
+     printf("   movl %%eax, %s\n", get_asm_operand(op3)); 
     break;
   case ILOC_MULTI:
     printf("multI %s, %s => %s", op1, op2, op3);
@@ -59,14 +111,8 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
   case ILOC_RSHIFTI:
     printf("rshiftI %s, %s => %s", op1, op2, op3);
     break;
-  case ILOC_AND:
-    printf("and %s, %s => %s", op1, op2, op3);
-    break;
   case ILOC_ANDI:
     printf("andI %s, %s => %s", op1, op2, op3);
-    break;
-  case ILOC_OR:
-    printf("or %s, %s => %s", op1, op2, op3);
     break;
   case ILOC_ORI:
     printf("orI %s, %s => %s", op1, op2, op3);
@@ -75,16 +121,25 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
     printf("xor %s, %s => %s", op1, op2, op3);
     break;
   case ILOC_XORI:
-    printf("xorI %s, %s => %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+     printf("    xorl %s, %%eax\n", get_asm_operand(op2));
+     printf("    movl %%eax, %s\n", get_asm_operand(op3));
     break;
   case ILOC_LOADI:
-    printf("loadI %s => %s", op1, op2);
+    printf("    movl %s, %s\n", get_asm_operand(op1), get_asm_operand(op2));
     break;
   case ILOC_LOAD:
     printf("load %s => %s", op1, op2);
     break;
   case ILOC_LOADAI:
-    printf("loadAI %s, %s => %s", op1, op2, op3);
+    if (strcmp(op1, "rfp") == 0) {
+        //op2 é o offset numérico string (ex: "-4")
+        printf("    movl %s(%%rbp), %%eax\n", op2);
+        printf("    movl %%eax, %s\n", get_asm_operand(op3));
+    } else {
+        printf("    movl %s(%%rip), %%eax\n", op2);
+        printf("    movl %%eax, %s\n", get_asm_operand(op3));
+    }
     break;
   case ILOC_LOADA0:
     printf("loadA0 %s, %s => %s", op1, op2, op3);
@@ -102,7 +157,12 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
     printf("store %s => %s", op1, op2);
     break;
   case ILOC_STOREAI:
-    printf("storeAI %s => %s, %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+    if (strcmp(op2, "rfp") == 0) {
+        printf("    movl %%eax, %s(%%rbp)\n", op3);
+    } else {
+        printf("    movl %%eax, %s(%%rip)\n", op3);
+    }
     break;
   case ILOC_STOREAO:
     printf("storeAO %s => %s, %s", op1, op2, op3);
@@ -117,7 +177,7 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
     printf("cstoreAO %s => %s, %s", op1, op2, op3);
     break;
   case X86_MOVL:
-    printf("movl %s, %s", op1, op2);
+    printf("    movl %s, %s\n", get_asm_operand(op1), op2);
     break;
   case ILOC_C2C:
     printf("c2c %s => %s", op1, op2);
@@ -129,35 +189,39 @@ void print_operation_by_code(OPERATION_CODE op_code, char *op1, char *op2,
     printf("i2c %s => %s", op1, op2);
     break;
   case ILOC_JUMPI:
-    printf("jumpI -> %s", op1);
+    printf("    jmp .%s\n", op1);
     break;
   case ILOC_JUMP:
-    printf("jump -> %s", op1);
+    printf("    jmp *%s\n", get_asm_operand(op1));
     break;
   case ILOC_CBR:
-    printf("cbr %s -> %s, %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+    printf("    cmpl $0, %%eax\n");  
+    printf("    je .%s\n", op3);     
+    printf("    jmp .%s\n", op2);   
     break;
   case ILOC_CMP_LT:
-    printf("cmp_LT %s, %s -> %s", op1, op2, op3);
-    break;
   case ILOC_CMP_LE:
-    printf("cmp_LE %s, %s -> %s", op1, op2, op3);
-    break;
   case ILOC_CMP_EQ:
-    printf("cmp_EQ %s, %s -> %s", op1, op2, op3);
-    break;
   case ILOC_CMP_GE:
-    printf("cmp_GE %s, %s -> %s", op1, op2, op3);
-    break;
   case ILOC_CMP_GT:
-    printf("cmp_GT %s, %s -> %s", op1, op2, op3);
-    break;
   case ILOC_CMP_NE:
-    printf("cmp_NE %s, %s -> %s", op1, op2, op3);
+    printf("    movl %s, %%eax\n", get_asm_operand(op1));
+    printf("    cmpl %s, %%eax\n", get_asm_operand(op2));
+    
+    if (op_code == ILOC_CMP_LT)      printf("    setl %%al\n");
+    else if (op_code == ILOC_CMP_LE) printf("    setle %%al\n");
+    else if (op_code == ILOC_CMP_EQ) printf("    sete %%al\n");
+    else if (op_code == ILOC_CMP_NE) printf("    setne %%al\n");
+    else if (op_code == ILOC_CMP_GE) printf("    setge %%al\n");
+    else if (op_code == ILOC_CMP_GT) printf("    setg %%al\n");
+
+    printf("    movzbl %%al, %%eax\n");
+    printf("    movl %%eax, %s\n", get_asm_operand(op3));
     break;
   case X86_RET:
+    printf("leave\n");
     printf("ret");
-
     break;
   };
 }
@@ -266,7 +330,7 @@ void print_data_segment(symbol_table_t *symbol_table) {
     return;
   }
 
-  printf("  .data");
+  printf("  .data\n");
   symbol_table_t *current_entry = symbol_table;
 
   while (current_entry->symbol != NULL) {
@@ -276,7 +340,7 @@ void print_data_segment(symbol_table_t *symbol_table) {
       printf("  .globl %s\n", current_symbol->value);
       printf("  .align 4\n");
       printf("  .type %s, object\n", current_symbol->value);
-      printf("  .size %d, 4\n", current_symbol->offset);
+      printf("  .size %s, 4\n", current_symbol->value);
       printf("%s:\n", current_symbol->value);
       printf(".long 0\n");
     }
@@ -287,18 +351,20 @@ void print_data_segment(symbol_table_t *symbol_table) {
 
 void print_header(symbol_table_t *symbol_table) {
   print_data_segment(symbol_table);
+  printf("\n.text\n");
   printf("  .globl	main\n");
   printf("  .type	main, @function\n");
-  printf(".LFB0:\n");
-  printf("pushq	%%rbp:\n");
+  //printf(".LFB0:\n");
   printf("main:\n");
+  printf("pushq	%%rbp\n");
+  printf("movq %%rsp, %%rbp\n");
+  printf("    subq $2048, %%rsp\n");
 }
 
 void print_footer() {
   printf(".LFE0:\n");
   printf("  .ident	\"GCC: (GNU) 14.3.0\"\n");
-  printf("  .section	.note.GNU-stack,"
-         ",@progbits\n");
+  printf("  .section .note.GNU-stack,\"\",@progbits\n");
 }
 
 void print_operation_list(iloc_operation_list_t *list,
@@ -356,11 +422,11 @@ iloc_operation_list_t *generate_load_variable(symbol_table_entry *entry,
   // Define a base (rbss ou rfp)
   if (entry->storage_type == VAR_LOCAL) {
     strncpy(base_reg, "rfp", sizeof(base_reg));
+    snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
   } else {
     strncpy(base_reg, "rbss", sizeof(base_reg));
+    strncpy(offset_str, entry->value, sizeof(offset_str));
   }
-
-  snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
 
   // Gera novo registrador
   char *temp_result = generate_temp_register();
@@ -388,10 +454,12 @@ iloc_operation_list_t *generate_store_variable(symbol_table_entry *entry,
   // Determina a base (rfp ou rbss)
   if (entry->storage_type == VAR_LOCAL) {
     strncpy(base_reg, "rfp", sizeof(base_reg));
+    snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
   } else {
     strncpy(base_reg, "rbss", sizeof(base_reg));
+    strncpy(offset_str, entry->value, sizeof(offset_str));
   }
-  snprintf(offset_str, sizeof(offset_str), "%d", entry->offset);
+
 
   // Operacao storeAI
   iloc_operation_t *storeAI_op = make_operation(ILOC_STOREAI);
@@ -614,7 +682,7 @@ iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr,
   iloc_operation_t *move_op = make_operation(X86_MOVL);
   move_op->first_operand = strdup(reg_expr); // Fonte:resultado da expressao
   move_op->second_operand =
-      strdup("%%eax"); // Destino: novo registrador de retorno
+      strdup("%eax"); // Destino: novo registrador de retorno
 
   add_operation_to_list(code_expr, move_op);
 

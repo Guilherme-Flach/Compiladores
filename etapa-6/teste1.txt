@@ -1,0 +1,46 @@
+var g_soma := inteiro,  // Global para acumular
+var g_mult := inteiro,  // Global para multiplicar
+
+main -> inteiro :=
+[
+  var i := inteiro
+  var local_res := inteiro
+
+  // Inicializacao
+  g_soma := 0
+  g_mult := 2
+  local_res := 10
+  
+  // Teste Unario Negativo (-)
+  i := -5
+
+  // Teste Loop e Comparacao (<=)
+  // Vai rodar com i = -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5
+  enquanto (i <= 5) [
+  
+     // Teste If/Else e Desigualdade (!=)
+     se (i != 0) [
+        // Aritmetica: g_soma acumula (i * 2)
+        // Os negativos cancelarao os positivos. Resultado final deve ser 0.
+        g_soma := g_soma + (i * g_mult)
+     ] senao [
+        // Quando i for 0, soma 50 ao resultado local
+        local_res := local_res + 50
+     ]
+
+     i := i + 1
+  ]
+
+  // Verificacao Final com Unario Logico (!)
+  // Se a matematica funcionou, g_soma eh 0.
+  // !g_soma sera 1 (Verdadeiro).
+  
+  se (!g_soma) [
+     // Retorna 10 (inicial) + 50 (do else) = 60
+     retorna local_res := inteiro
+  ] senao [
+     // Se cair aqui, a aritmetica falhou
+     retorna 0 := inteiro
+  ]
+]
+;

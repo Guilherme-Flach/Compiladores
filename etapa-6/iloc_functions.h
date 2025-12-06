@@ -132,4 +132,6 @@ iloc_operation_list_t *generate_return_code(iloc_operation_list_t *code_expr,
 iloc_operation_list_t *
 generate_program_startup_shutdown(iloc_operation_list_t *program_code);
 
+void print_data_segment(symbol_table_t *symbol_table);
+
 #endif
